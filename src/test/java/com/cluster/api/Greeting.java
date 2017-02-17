@@ -2,9 +2,8 @@ package com.cluster.api;
 
 /**
  * Created by shane on 2/16/17.
- *
+ * <p>
  * Example of how a RESTful API Service is created
- *
  */
 public class Greeting {
 
@@ -23,4 +22,5 @@ public class Greeting {
     public String getContent() {
         return content;
     }
+
 }
