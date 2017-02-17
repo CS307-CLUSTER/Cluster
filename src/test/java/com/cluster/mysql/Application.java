@@ -1,4 +1,4 @@
-package com.cluster.api;
+package com.cluster.mysql;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,7 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 /**
  * Created by shane on 2/16/17.
  *
- * Example of how a RESTful API Service is created
+ * Example on how Database can be used in Spring
+ *
  */
 
 @SpringBootApplication
