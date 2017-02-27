@@ -1,4 +1,4 @@
-package com.cluster.controller;
+package com.cluster.data;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
