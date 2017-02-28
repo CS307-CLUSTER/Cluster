@@ -1,7 +1,6 @@
 package com.cluster.service;
 
-import com.cluster.data.Users;
-
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -9,10 +8,54 @@ import java.util.List;
  */
 public class Hive {
 
-    private List<Users> users;
+    private List<User> users;
     private List<Cluster> clusters;
     private List<Restaraunt> restaraunts;
     private int numUsers;
     private int numClusters;
+
+    public Hive() {
+        users = new ArrayList<>();
+        clusters = new ArrayList<>();
+        restaraunts = new ArrayList<>();
+        numUsers = 0;
+        numClusters = 0;
+    }
+
+    public int getNumUsers() {
+        return numUsers;
+    }
+
+    public int getNumClusters() {
+        return numClusters;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public List<Cluster> getClusters() {
+        return clusters;
+    }
+
+    public List<Restaraunt> getRestaraunts() {
+        return restaraunts;
+    }
+
+    public void addUser(User user) {
+        users.add(user);
+    }
+
+    public void removeUser(User user) {
+        users.remove(user);
+    }
+
+    public void addCluster(Cluster cluster) {
+        clusters.add(cluster);
+    }
+
+    public void removeClustesr(Cluster cluster) {
+        clusters.remove(cluster);
+    }
 
 }

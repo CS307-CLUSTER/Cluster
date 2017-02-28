@@ -2,8 +2,10 @@ package com.cluster;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
+@EnableOAuth2Sso
 @SpringBootApplication
 public class ClusterApplication {
 
@@ -15,9 +17,9 @@ public class ClusterApplication {
         http
                 .antMatcher("/**")
                 .authorizeRequests()
-                .antMatchers("/", "/login**", "/webjars/**")
-                .permitAll()
+                    .antMatchers("/", "/login**", "/webjars/**")
+                    .permitAll()
                 .anyRequest()
-                .authenticated();
+                    .authenticated();
     }
 }
