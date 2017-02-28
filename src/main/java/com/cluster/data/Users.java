@@ -1,9 +1,6 @@
 package com.cluster.data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by shane on 2/27/17.
@@ -13,25 +10,25 @@ import javax.persistence.Id;
  */
 
 @Entity
+@Table(name = "users")
 public class Users {
 
-    @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 
-    private Integer id;
+    private long id;
     private String name;
-    private Integer number;
+    private String number;
     private String email;
     private String fb_link;
     private String pic_link;
-    private Integer up_votes;
-    private Integer down_votes;
+    private int up_votes;
+    private int down_votes;
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -43,11 +40,11 @@ public class Users {
         this.name = name;
     }
 
-    public Integer getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(Integer number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
@@ -75,19 +72,19 @@ public class Users {
         this.pic_link = pic_link;
     }
 
-    public Integer getUp_votes() {
+    public int getUp_votes() {
         return up_votes;
     }
 
-    public void setUp_votes(Integer up_votes) {
+    public void setUp_votes(int up_votes) {
         this.up_votes = up_votes;
     }
 
-    public Integer getDown_votes() {
+    public int getDown_votes() {
         return down_votes;
     }
 
-    public void setDown_votes(Integer down_votes) {
+    public void setDown_votes(int down_votes) {
         this.down_votes = down_votes;
     }
 }

@@ -15,24 +15,24 @@ public class Restaurant {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
 
-    private Integer id;
+    private long id;
     private String name;
     private String hb_link;
-    private Float rating;
+    private float rating;
     private String hours;
-    private Float min_delivery;
-    private Float delivery_fee;
+    private float min_delivery;
+    private float delivery_fee;
     private String pic_src;
     private String address;
     private String city;
     private String state;
     private String zip;
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -52,11 +52,11 @@ public class Restaurant {
         this.hb_link = hb_link;
     }
 
-    public Float getRating() {
+    public float getRating() {
         return rating;
     }
 
-    public void setRating(Float rating) {
+    public void setRating(float rating) {
         this.rating = rating;
     }
 
@@ -68,19 +68,19 @@ public class Restaurant {
         this.hours = hours;
     }
 
-    public Float getMin_delivery() {
+    public float getMin_delivery() {
         return min_delivery;
     }
 
-    public void setMin_delivery(Float min_delivery) {
+    public void setMin_delivery(float min_delivery) {
         this.min_delivery = min_delivery;
     }
 
-    public Float getDelivery_fee() {
+    public float getDelivery_fee() {
         return delivery_fee;
     }
 
-    public void setDelivery_fee(Float delivery_fee) {
+    public void setDelivery_fee(float delivery_fee) {
         this.delivery_fee = delivery_fee;
     }
 
