@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
  */
 
 @Controller
-public class DatbaseController {
+public class DatabaseController {
 
     @Autowired
     private UsersRepository usersRepository;
