@@ -22,6 +22,9 @@ public class DatabaseController {
         catch (Exception ex) {
             return false;
         }
+        if (user == null) {
+            return false;
+        }
         return true;
     }
 
