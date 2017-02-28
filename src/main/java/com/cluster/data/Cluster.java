@@ -16,21 +16,21 @@ public class Cluster {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 
-    private Integer id;
+    private long id;
     private Timestamp start;
     private Timestamp end;
-    private Integer restaurant_id;
+    private long restaurant_id;
     private String address;
     private String city;
     private String state;
     private String zip;
-    private Integer leader_id;
+    private long leader_id;
 
-    public Integer getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -50,11 +50,11 @@ public class Cluster {
         this.end = end;
     }
 
-    public Integer getRestaurant_id() {
+    public long getRestaurant_id() {
         return restaurant_id;
     }
 
-    public void setRestaurant_id(Integer restaurant_id) {
+    public void setRestaurant_id(long restaurant_id) {
         this.restaurant_id = restaurant_id;
     }
 
@@ -90,11 +90,11 @@ public class Cluster {
         this.zip = zip;
     }
 
-    public Integer getLeader_id() {
+    public long getLeader_id() {
         return leader_id;
     }
 
-    public void setLeader_id(Integer leader_id) {
+    public void setLeader_id(long leader_id) {
         this.leader_id = leader_id;
     }
 }

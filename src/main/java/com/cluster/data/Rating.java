@@ -14,31 +14,31 @@ public class Rating {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
 
-    private Integer user_id;
-    private Integer rater_id;
-    private Boolean rating;
+    private long user_id;
+    private long rater_id;
+    private boolean rating;
 
-    public Integer getUser_id() {
+    public long getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(Integer user_id) {
+    public void setUser_id(long user_id) {
         this.user_id = user_id;
     }
 
-    public Integer getRater_id() {
+    public long getRater_id() {
         return rater_id;
     }
 
-    public void setRater_id(Integer rater_id) {
+    public void setRater_id(long rater_id) {
         this.rater_id = rater_id;
     }
 
-    public Boolean getRating() {
+    public boolean isRating() {
         return rating;
     }
 
-    public void setRating(Boolean rating) {
+    public void setRating(boolean rating) {
         this.rating = rating;
     }
 }
