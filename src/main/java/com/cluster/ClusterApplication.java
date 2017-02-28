@@ -5,8 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 
-@EnableOAuth2Sso
 @SpringBootApplication
+@EnableOAuth2Sso
 public class ClusterApplication {
 
     public static void main(String[] args) {
