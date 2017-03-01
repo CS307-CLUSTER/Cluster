@@ -1,11 +1,13 @@
 package com.cluster.controller;
 
-import com.cluster.service.ServiceController;
+import com.cluster.service.User;
+import com.cluster.service.UserServiceController;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
+import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.HashMap;
 
 /**
  * Created by shane on 2/27/17.
@@ -16,11 +18,14 @@ import java.security.Principal;
 public class UserController {
 
     @Autowired
-    private ServiceController serviceController;
+    private UserServiceController userServiceController;
 
     @GetMapping(path="/test")
-    public @ResponseBody String test() {
-        return "Test successful!!!!!!!!!!!!!!!!";
+    public @ResponseBody String test(Principal principal) {
+        HashMap userInfo = (HashMap) (((OAuth2Authentication) principal).getUserAuthentication()).getDetails();
+        userInfo.get("first_name");
+
+        return (String) userInfo    .get("first_name");
     }
 
     @GetMapping(path="/login")
@@ -29,13 +34,13 @@ public class UserController {
     }
 
     @GetMapping(path="/info")
-    public @ResponseBody Principal userInfo(Principal principal) {
-        return principal;
+    public @ResponseBody User userInfo(Principal principal) {
+        return userServiceController.getUser(Long.parseLong(principal.getName()));
     }
 
     @GetMapping(path="/check")
     public @ResponseBody String checkUser(Principal principal) {
-        if (serviceController.userExists(Long.parseLong(principal.getName()))) {
+        if (userServiceController.userExists(Long.parseLong(principal.getName()))) {
             return "User exists";
         } else {
             return "User does not exist";
@@ -46,7 +51,7 @@ public class UserController {
     public @ResponseBody String createUser(Principal principal, @RequestParam String phoneNumber,
                                            @RequestParam String city, @RequestParam String state,
                                            @RequestParam String zip, @RequestParam String address) {
-        boolean created = serviceController.createUser(principal, phoneNumber, address, city, state, zip);
+        boolean created = userServiceController.createUser(principal, phoneNumber, address, city, state, zip);
         if (created) {
             return "User " + principal.getName() + " has been created";
         } else {

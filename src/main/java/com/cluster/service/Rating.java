@@ -9,10 +9,14 @@ public class Rating {
     private int downVotes;
     private double ratio;
 
-    public Rating(int upVotes, int downVotes, double ratio) {
+    public Rating(int upVotes, int downVotes) {
         this.upVotes = upVotes;
         this.downVotes = downVotes;
-        this.ratio = ratio;
+        if (downVotes == 0) {
+            this.ratio = 1;
+        } else {
+            this.ratio = upVotes / downVotes;
+        }
     }
 
     public int getUpVotes() {

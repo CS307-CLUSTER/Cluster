@@ -39,7 +39,7 @@ public class DatabaseController {
         return user;
     }
 
-    public boolean createUser(long id, String name, String number, String email, String fb_link, String pic_link, int up_votes, int down_votes) {
+    public boolean createUser(long id, String name, String number, String email, String fb_link, String pic_link) {
         if (doesUserExist(id)) {
             return false;
         }
@@ -51,9 +51,10 @@ public class DatabaseController {
         u.setEmail(email);
         u.setFb_link(fb_link);
         u.setPic_link(pic_link);
-        u.setUp_votes(up_votes);
-        u.setDown_votes(down_votes);
+        u.setUp_votes(0);
+        u.setDown_votes(0);
 
+        usersRepository.save(u);
         return true;
     }
 }

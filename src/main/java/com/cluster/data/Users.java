@@ -4,17 +4,14 @@ import javax.persistence.*;
 
 /**
  * Created by shane on 2/27/17.
- *
+ * <p>
  * Database class for table "Users"
- *
  */
 
 @Entity
 public class Users {
 
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
-
     private long id;
     private String name;
     private String number;

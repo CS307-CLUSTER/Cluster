@@ -5,17 +5,17 @@ package com.cluster.service;
  */
 public class User {
 
-    private int id;
+    private long id;
     private String name;
     private Rating rating;
-    private int number;
+    private String number;
     private String fbLink;
     private String email;
     private Location location;
     private int sessionID;
     private String accessToken;
 
-    public User(int id, String name, Rating rating, int number, String fbLink, String email, Location location, int sessionID, String accessToken) {
+    public User(long id, String name, Rating rating, String number, String fbLink, String email, Location location, int sessionID, String accessToken) {
         this.id = id;
         this.name = name;
         this.rating = rating;
@@ -27,11 +27,11 @@ public class User {
         this.accessToken = accessToken;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -51,11 +51,11 @@ public class User {
         this.rating = rating;
     }
 
-    public int getNumber() {
+    public String getNumber() {
         return number;
     }
 
-    public void setNumber(int number) {
+    public void setNumber(String number) {
         this.number = number;
     }
 
