@@ -1,0 +1,4 @@
+This documents contains test URLs for testing API calls
+
+USER API CALLS
+http://localhost:8080/user/create?phoneNumber=4087684974&city=West%20Lafayette&state=IN&zip=47906&address=229%20Littleton%20Street
