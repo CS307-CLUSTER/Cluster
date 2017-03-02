@@ -13,7 +13,7 @@ import java.util.List;
  */
 
 @Controller
-public class ClusterServiceController {
+public class ClusterService {
     @Autowired
     private DatabaseController databaseController;
 

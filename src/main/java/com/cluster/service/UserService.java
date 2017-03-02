@@ -2,18 +2,12 @@ package com.cluster.service;
 
 import com.cluster.data.DatabaseController;
 import com.cluster.data.Users;
-import com.sun.deploy.uitoolkit.impl.awt.OldPluginAWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Controller;
 
 import java.security.Principal;
 import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 
 /**
@@ -21,7 +15,7 @@ import java.util.List;
  */
 
 @Controller
-public class UserServiceController {
+public class UserService {
     @Autowired
     private DatabaseController databaseController;
     private Hive hive;
