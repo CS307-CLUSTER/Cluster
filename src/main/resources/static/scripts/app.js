@@ -41,10 +41,10 @@ angular
             parent: 'dashboard',
             templateUrl: 'views/dashboard/overview.html'
           })
-          .state('reports', {
-            url: '/reports',
+          .state('clusters', {
+            url: '/clusters',
             parent: 'dashboard',
-            templateUrl: 'views/dashboard/reports.html'
+            templateUrl: 'views/dashboard/clusters.html'
           });
 
   });
