@@ -22,3 +22,11 @@ nbbuild/
 dist/
 nbdist/
 .nb-gradle/
+
+/src/main/resources/node_modules/
+/src/main/resources/static/bower_components/
+/src/main/resources/tmp/
+./tmp
+/src/main/resources/gen/
+/src/main/resources/docs/
+/src/main/resources/dist/
