@@ -8,12 +8,29 @@
  * Controller of yapp
  */
 angular.module('yapp')
-  .controller('LoginCtrl', function ($scope, $location) {
+  .controller('LoginCtrl', function ($scope, $location, $http) {
+
+    var formData = {
+      name: "default",
+      email: "default",
+      address1: "default",
+      address2: "",
+      city: "default",
+      state: "default",
+      zip: "default",
+      number: "default"
+    };
 
     $scope.submit = function () {
-
+      formData = $scope.form;
       $location.path('/dashboard');
-
+      var url = ('/user/create?phoneNumber=' + formData.number + '&city=' + formData.city + '&state=' + formData.state + '&zip=' + formData.zip + '&address=' + formData.address1 + '&email=' + formData.email);
+      console.log(url);
+      $http.get(url).success(function (response) {
+        console.log(response);
+      }).error(function () {
+        console.log('Could not create user');
+      });
       return false;
     }
 
@@ -27,12 +44,12 @@ angular.module('yapp')
       self.user = "N/A";
       self.authenticated = false;
     });
-    if ($http.get("/user/exists") === true) {
-      //Go directly to homepage
-    }
-    else {
-      //Have them signup
-    }
+    $http.get("/user/exists").success(function (data) {
+      self.exists = data;
+    }).error(function () {
+      console.log('error');
+      self.exists = false;
+    });
   })
   .controller("UserCreationCtrl", function ($scope, $http) {
     var phoneNumber = document.getElementsByName("Phone Number")[0].value
@@ -76,8 +93,6 @@ function createUser() {
       });
     }*/
 
-  var subButton = document.getElementById('subButton');
-  subButton.addEventListener('click', uPost, false);
 
 
 

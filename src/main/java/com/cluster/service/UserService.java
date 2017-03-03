@@ -25,7 +25,7 @@ public class UserService {
         return databaseController.doesUserExist(id);
     }
 
-    public boolean createUser(Principal principal, String phoneNumber, String address, String city, String state, String zip) {
+    public boolean createUser(Principal principal, String phoneNumber, String address, String city, String state, String zip, String email) {
         // Extract details needed from Principal object
         HashMap userInfo = extractPrincipalDetals(principal);
         String fullName = (String) userInfo.get("name");
@@ -33,9 +33,14 @@ public class UserService {
         long id = Long.parseLong(principal.getName());
 
         // Create user in database and return status
-        boolean created = databaseController.createUser(id, fullName, phoneNumber, null, fbLink, null);
-        hive.addUser(getUserFromDatabase(id));
-        return created;
+        boolean created = databaseController.createUser(id, fullName, phoneNumber, email, fbLink, null);
+
+        if (created) {
+            hive.addUser(getUserFromDatabase(id));
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public User getUserFromDatabase(long id) {
