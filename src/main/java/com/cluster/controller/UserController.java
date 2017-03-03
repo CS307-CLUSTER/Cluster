@@ -60,4 +60,9 @@ public class UserController {
         return userService.getListOfUsers();
     }
 
+    @GetMapping(path="/exists")
+    public @ResponseBody boolean doesUserExist(Principal principal) {
+        return userService.userExists(Long.parseLong(principal.getName()));
+    }
+
 }
