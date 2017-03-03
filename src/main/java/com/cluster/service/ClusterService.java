@@ -39,7 +39,37 @@ public class ClusterService {
         return true;
     }
 
+    public boolean addUserToCluster(long userId, long clusterId) {
+        User user = userService.getActiveUser(userId);
+        Cluster cluster = getCluster(clusterId);
+
+        if (user == null || cluster == null || cluster.userExists(user)) {
+            return false;
+        }
+
+        user.setCurrentClusterId(clusterId);
+
+        return cluster.addUser(user);
+    }
+
+    public boolean removeUserFromClustesr(long userId, long clusterId) {
+        User user = userService.getActiveUser(userId);
+        Cluster cluster = getCluster(clusterId);
+
+        if (user == null || cluster == null || !cluster.userExists(user)) {
+            return false;
+        }
+
+        user.setCurrentClusterId(-1);
+        return cluster.removeUser(user);
+    }
+
     public Cluster getCluster(long id) {
+        for (Cluster cluster : hive.getClusters()) {
+            if (cluster.getId() == id) {
+                return cluster;
+            }
+        }
         return null;
     }
 

@@ -38,6 +38,26 @@ public class Cluster {
         return obj != null && ((Cluster) obj).id == this.id;
     }
 
+    public boolean addUser(User user) {
+        if (user == null) {
+            return false;
+        }
+        users.add(user);
+        return true;
+    }
+
+    public boolean removeUser(User user) {
+        if (user == null) {
+            return false;
+        }
+        users.remove(user);
+        return true;
+    }
+
+    public boolean userExists(User user) {
+        return users.contains(user);
+    }
+
     public long getId() {
         return id;
     }

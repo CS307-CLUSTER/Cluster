@@ -30,6 +30,8 @@ public class ClusterApplication extends WebSecurityConfigurerAdapter {
                                 "/images/**")
                         .permitAll()
                     .anyRequest()
-                        .authenticated();
+                        .authenticated()
+                .and().logout().logoutSuccessUrl("/").permitAll()
+                .and().csrf().csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse());
     }
 }

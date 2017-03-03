@@ -44,9 +44,18 @@ public class        ClusterController {
     }
 
     @GetMapping(path="/getAll")
-    public @ResponseBody
-    List<Cluster> getAllClusters() {
+    public @ResponseBody List<Cluster> getAllClusters() {
         // TODO Determine parameters
         return serviceController.getAllClusters();
+    }
+
+    @GetMapping(path="/join")
+    public @ResponseBody boolean joinCluster(Principal principal, @RequestParam long clusterId) {
+        return serviceController.addUserToCluster(Long.parseLong(principal.getName()), clusterId);
+    }
+
+    @GetMapping(path="/leave")
+    public @ResponseBody boolean leaveCluster(Principal principal, @RequestParam long clusterId) {
+        return serviceController.removeUserFromClustesr(Long.parseLong(principal.getName()), clusterId);
     }
 }

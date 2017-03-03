@@ -14,6 +14,7 @@ public class User {
     private Location location;
     private int sessionID;
     private String accessToken;
+    private long currentClusterId;
 
     public User(long id, String name, Rating rating, String number, String fbLink, String email, Location location, int sessionID, String accessToken) {
         this.id = id;
@@ -25,6 +26,7 @@ public class User {
         this.location = location;
         this.sessionID = sessionID;
         this.accessToken = accessToken;
+        this.currentClusterId = -1;
     }
 
     @Override
@@ -102,5 +104,13 @@ public class User {
 
     public void setAccessToken(String accessToken) {
         this.accessToken = accessToken;
+    }
+
+    public long getCurrentClusterId() {
+        return currentClusterId;
+    }
+
+    public void setCurrentClusterId(long currentClusterId) {
+        this.currentClusterId = currentClusterId;
     }
 }
