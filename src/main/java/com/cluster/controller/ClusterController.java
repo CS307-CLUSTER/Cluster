@@ -45,7 +45,7 @@ public class        ClusterController {
 
     @GetMapping(path="/getAll")
     public @ResponseBody
-    List<Cluster> getAllClusters(Principal principal, @RequestParam long id) {
+    List<Cluster> getAllClusters() {
         // TODO Determine parameters
         return serviceController.getAllClusters();
     }
