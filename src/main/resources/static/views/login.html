@@ -2,27 +2,29 @@
 Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort=views&timeframe=ever&offset=461
 -->
 <div class="login-page">
-	<div class="row">
-		<div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4">
-        	<!-- img src="images/cluster-logo-only.png" class="user-avatar" /-->
-			<h1>Cluster</h1>
-			<form role="form" ng-submit="submit()">
+    <div class="row">
+        <div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4">
+            <!-- img src="images/cluster-logo-only.png" class="user-avatar" /-->
+            <h1>Cluster</h1>
+            <form role="form" ng-submit="submit()">
 
-				<div class="form-content">
-					<div class="form-group">
-						<input type="text" class="form-control input-underline input-lg" placeholder="Email">
-					</div>
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="text" class="form-control input-underline input-lg" placeholder="Email">
+                    </div>
 
-					<div class="form-group">
-						<input type="password" class="form-control input-underline input-lg" placeholder="Password">
-					</div>
-				</div>
+                    <div class="form-group">
+                        <input type="password" class="form-control input-underline input-lg" placeholder="Password">
+                    </div>
 
-				<button type="submit" class="btn btn-white btn-outline btn-lg btn-rounded">Login</button>
-
-			</form>
-
-		</div>
-	</div>
-
+                    <div class="form-group" ng-show="!home.authenticated">
+                        <a href="/login" class="btn btn-white btn-outline btn-lg btn-rounded">Login with Facebook</a>
+                    </div>
+                    <div class="form-group" ng-show="home.authenticated">
+                        <a href="/#/dashboard" class="btn btn-white btn-outline btn-lg btn-rounded">Continue to Cluster</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
