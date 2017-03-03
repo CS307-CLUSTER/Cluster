@@ -87,13 +87,9 @@ public class DatabaseController {
         return cluster;
     }
 
-    public boolean createCluster(long id, Timestamp start, Timestamp end, long restaurant_id, String address, String city, String state, String zip, long leader_id) {
-        if (doesClusterExist(id)) {
-            return false;
-        }
+    public long createCluster(Timestamp start, Timestamp end, long restaurant_id, String address, String city, String state, String zip, long leader_id) {
 
         Clusters c = new Clusters();
-        c.setId(id);
         c.setStart(start);
         c.setEnd(end);
         c.setRestaurant_id(restaurant_id);
@@ -104,6 +100,6 @@ public class DatabaseController {
         c.setLeader_id(leader_id);
 
         clustersRepository.save(c);
-        return true;
+        return c.getId();
     }
 }
