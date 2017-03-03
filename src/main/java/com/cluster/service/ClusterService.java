@@ -16,6 +16,8 @@ import java.util.List;
 public class ClusterService {
     @Autowired
     private DatabaseController databaseController;
+    @Autowired
+    private Hive hive;
 
     public boolean clusterExists(long id) {
         return true;
@@ -30,10 +32,11 @@ public class ClusterService {
     }
 
     public List<Cluster> getAllClusters() {
-        return null;
+        return hive.getClusters();
     }
 
     public boolean addCluster() {
+
         return false;
     }
 

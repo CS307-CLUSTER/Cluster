@@ -27,6 +27,11 @@ public class User {
         this.accessToken = accessToken;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return obj != null && ((User) obj).id == this.id;
+    }
+
     public long getId() {
         return id;
     }

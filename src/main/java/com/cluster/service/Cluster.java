@@ -33,6 +33,11 @@ public class Cluster {
         this.location = location;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        return obj != null && ((Cluster) obj).id == this.id;
+    }
+
     public int getId() {
         return id;
     }

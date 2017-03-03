@@ -18,6 +18,7 @@ import java.util.List;
 public class UserService {
     @Autowired
     private DatabaseController databaseController;
+    @Autowired
     private Hive hive;
 
     public boolean userExists(long id) {

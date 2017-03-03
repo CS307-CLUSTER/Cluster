@@ -1,11 +1,15 @@
 package com.cluster.service;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by shane on 2/27/17.
  */
+
+@Component
 public class Hive {
 
     private List<User> users;
@@ -56,6 +60,10 @@ public class Hive {
 
     public void removeClustesr(Cluster cluster) {
         clusters.remove(cluster);
+    }
+
+    public boolean clusterExists(Cluster cluster) {
+        return clusters.contains(cluster);
     }
 
 }
