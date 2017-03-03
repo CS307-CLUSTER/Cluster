@@ -29,19 +29,27 @@ angular.module('yapp')
     });
   })
   .controller("UserCreationCtrl", function ($scope, $http) {
-    var data = 'parameters',config='contenttype',
-      phoneNumber = document.getElementsByName("Phone Number")[0].value,
-      city = document.getElementsByName("City")[0].value,
-      state = document.getElementsByName("State")[0].value,
-      zipCode = document.getElementsByName("Zip Code")[0].value,
-      address = document.getElementsByName("Address")[0].value,
-      url = ('localhost:8080/user/create?phoneNumber=' + phoneNumber + '&city=' + city + '&state=' + state + '&zip=' + zipCode + '&address=' + address);
-      var isCreated = $http.get(url)
+    var phoneNumber = document.getElementsByName("Phone Number")[0].value
+    var city = document.getElementsByName("City")[0].value
+    var state = document.getElementsByName("State")[0].value
+    var zipCode = document.getElementsByName("Zip Code")[0].value
+    var address = document.getElementsByName("Address")[0].value
+    var url = ('localhost:8080/user/create?phoneNumber=' + phoneNumber + '&city=' + city + '&state=' + state + '&zip=' + zipCode + '&address=' + address);
+    var isCreated = $http.get(url)
       .then(function(response) {
         //$scope.data = response.data;
         alert(isCreated);
       })
   });
+
+function createUser() {
+  var phoneNumber = document.getElementsByName("Phone Number")[0].value
+  var city = document.getElementsByName("City")[0].value
+  var state = document.getElementsByName("State")[0].value
+  var zipCode = document.getElementsByName("Zip Code")[0].value
+  var address = document.getElementsByName("Address")[0].value
+  var url = ('localhost:8080/user/create?phoneNumber=' + phoneNumber + '&city=' + city + '&state=' + state + '&zip=' + zipCode + '&address=' + address);
+}
 
   /*function uPost() {
     var parameter,
