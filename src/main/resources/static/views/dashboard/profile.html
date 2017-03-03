@@ -1,9 +1,16 @@
 <div>
     <a ui-sref="overview" class="pull-right btn btn-primary btn-outline btn-rounded">Back to Overview</a>
-    <h2>User Profile</h2>
+    <h2>My Profile <small>hell yeah.</small></h2>
     <span class="glyphicon glyphicon-dashboard bg-fade"></span>
     <div class="jumbotron">
-        <div class="container" ng-app="yapp" ng-controller="ProfileCtrl"><span ng-bind="name"></span></div>
+        <div class="container" ng-app="yapp" ng-controller="ProfileCtrl">
+            <p>{{ data.name }}</p>
+            <p>Upvotes: {{ data.upVotes }}</p>
+            <p>Downvotes: {{ data.downVotes }}</p>
+            <p>Phone Number: {{ data.number }}</p>
+            <p>Facebook Link: {{ data.fbLink }}</p>
+            <p>{{ data.email }}</p>
+        </div>
     </div>
     <script src="scripts/controllers/profile.js"></script>
 </div>
