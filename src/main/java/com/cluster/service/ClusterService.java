@@ -29,9 +29,13 @@ public class ClusterService {
 
     public boolean createCluster(int maxUsers, int minUsers, long leaderID, Date startTime, Date endTime, String address, String city, String state, String zip) {
         long clusterId = databaseController.createCluster(startTime, endTime, -1, address, city, state, zip, leaderID);
+
         List<User> users = new ArrayList<>();
+        users.add(userService.getActiveUser(leaderID));
+
         Cluster cluster = new Cluster(clusterId, maxUsers, minUsers, 1, users, leaderID, startTime, endTime, false, null);
         hive.addCluster(cluster);
+
         return true;
     }
 

@@ -30,9 +30,12 @@ public class UserService {
         HashMap userInfo = extractPrincipalDetals(principal);
         String fullName = (String) userInfo.get("name");
         String fbLink = (String) userInfo.get("link");
+        long id = Long.parseLong(principal.getName());
 
         // Create user in database and return status
-        return databaseController.createUser(Long.parseLong(principal.getName()), fullName, phoneNumber, null, fbLink, null);
+        boolean created = databaseController.createUser(id, fullName, phoneNumber, null, fbLink, null);
+        hive.addUser(getUserFromDatabase(id));
+        return created;
     }
 
     public User getUserFromDatabase(long id) {
@@ -44,7 +47,6 @@ public class UserService {
         User user = new User(id, dbUser.getName(), null, dbUser.getNumber(), dbUser.getFb_link(), dbUser.getEmail(), null, 0, null);
         user.setRating(new Rating(dbUser.getUp_votes(), dbUser.getDown_votes()));
 
-        hive.addUser(user);
         return user;
     }
 

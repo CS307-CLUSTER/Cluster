@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.List;
 
 /**
  * Created by shane on 2/27/17.
@@ -52,6 +53,11 @@ public class UserController {
         } else {
             return "User " + principal.getName() + " failed to be created";
         }
+    }
+
+    @GetMapping(path="/getAll")
+    public @ResponseBody List<User> getAllUsers() {
+        return userService.getListOfUsers();
     }
 
 }
