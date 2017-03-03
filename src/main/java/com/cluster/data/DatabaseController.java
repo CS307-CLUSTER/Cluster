@@ -16,6 +16,7 @@ public class DatabaseController {
 
     @Autowired
     private UsersRepository usersRepository;
+    @Autowired
     private ClustersRepository clustersRepository;
 
     //Takes in a User id and returns true if user exists, and false otherwise
