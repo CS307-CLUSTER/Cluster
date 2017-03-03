@@ -34,8 +34,13 @@ public class UserService {
 
         // Create user in database and return status
         boolean created = databaseController.createUser(id, fullName, phoneNumber, email, fbLink, null);
-        hive.addUser(getUserFromDatabase(id));
-        return created;
+
+        if (created) {
+            hive.addUser(getUserFromDatabase(id));
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public User getUserFromDatabase(long id) {
