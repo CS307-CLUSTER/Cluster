@@ -44,6 +44,12 @@ angular.module('yapp')
       self.user = "N/A";
       self.authenticated = false;
     });
+    $http.get("/user/exists").success(function (data) {
+      self.exists = data;
+    }).error(function () {
+      console.log('error');
+      self.exists = false;
+    });
   })
   .controller("UserCreationCtrl", function ($scope, $http) {
     var phoneNumber = document.getElementsByName("Phone Number")[0].value

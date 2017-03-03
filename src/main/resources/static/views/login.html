@@ -14,7 +14,7 @@ Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort
                     </div>
                 </div>
 
-                <div class="form-content" ng-show="home.authenticated">
+                <div class="form-content" ng-show="home.authenticated && !home.exists">
                     <div class="form-group">
                         <input type="text" ng-model="form.email" class="form-control input-underline input-lg" placeholder="Email">
                     </div>
@@ -37,6 +37,13 @@ Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort
                         <input type="submit" value ="Create Account" class="btn btn-white btn-outline btn-lg btn-rounded"/>
                     </div>
                 </div>
+
+                <div class="form-content" ng-show="home.authenticated && home.exists">
+                    <div class="form-group">
+                        <a href="/#/dashboard" class="btn btn-white btn-outline btn-lg btn-rounded">Continue to Cluster!</a>
+                    </div>
+                </div>
+
             </form>
         </div>
     </div>
