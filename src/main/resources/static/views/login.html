@@ -16,25 +16,25 @@ Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort
 
                 <div class="form-content" ng-show="home.authenticated">
                     <div class="form-group">
-                        <input type="text" ng-model="user.address1" class="form-control input-underline input-lg" placeholder="Street Address 1">
+                        <input type="text" ng-model="form.email" class="form-control input-underline input-lg" placeholder="Email">
                     </div>
                     <div class="form-group">
-                        <input type="text" ng-model="user.address2" class="form-control input-underline input-lg" placeholder="Street Address 2">
+                        <input type="text" ng-model="form.phone_number" class="form-control input-underline input-lg" placeholder="Phone Number">
                     </div>
                     <div class="form-group">
-                        <input type="text" ng-model="user.city" class="form-control input-underline input-lg" placeholder="City">
+                        <input type="text" ng-model="form.address1" class="form-control input-underline input-lg" placeholder="Street Address 1">
                     </div>
                     <div class="form-group">
-                        <input type="text" ng-model="user.state" class="form-control input-underline input-lg" placeholder="State">
+                        <input type="text" ng-model="form.city" class="form-control input-underline input-lg" placeholder="City">
                     </div>
                     <div class="form-group">
-                        <input type="text" ng-model="user.zip" class="form-control input-underline input-lg" placeholder="Zip">
+                        <input type="text" ng-model="form.state" class="form-control input-underline input-lg" placeholder="State">
                     </div>
                     <div class="form-group">
-                        <input type="text" ng-model="user.phone_number" class="form-control input-underline input-lg" placeholder="Phone Number">
+                        <input type="text" ng-model="form.zip" class="form-control input-underline input-lg" placeholder="Zip">
                     </div>
                     <div class="form-group">
-                        <a href="/#/dashboard" class="btn btn-white btn-outline btn-lg btn-rounded">Continue to Cluster</a>
+                        <input type="submit" value ="Create Account" class="btn btn-white btn-outline btn-lg btn-rounded"/>
                     </div>
                 </div>
             </form>
