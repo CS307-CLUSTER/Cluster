@@ -26,6 +26,7 @@ public class Hive {
         numClusters = 0;
     }
 
+
     public int getNumUsers() {
         return numUsers;
     }

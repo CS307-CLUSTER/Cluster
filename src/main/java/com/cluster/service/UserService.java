@@ -35,12 +35,33 @@ public class UserService {
         return databaseController.createUser(Long.parseLong(principal.getName()), fullName, phoneNumber, null, fbLink, null);
     }
 
-    public User getUser(long id) {
+    public User getUserFromDatabase(long id) {
+        if (!userExists(id)) {
+            return null;
+        }
         // Get's a user from the database
         Users dbUser = databaseController.getUser(id);
         User user = new User(id, dbUser.getName(), null, dbUser.getNumber(), dbUser.getFb_link(), dbUser.getEmail(), null, 0, null);
         user.setRating(new Rating(dbUser.getUp_votes(), dbUser.getDown_votes()));
         return user;
+    }
+
+    public boolean isUserActive(long id) {
+        for (User user: hive.getUsers()) {
+            if (user.getId() == id) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public User getActiveUser(long id) {
+        for (User user: hive.getUsers()) {
+            if (user.getId() == id) {
+                return user;
+            }
+        }
+        return null;
     }
 
     public List<User> getListOfUsers() {

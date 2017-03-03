@@ -30,7 +30,7 @@ public class UserController {
 
     @GetMapping(path="/info")
     public @ResponseBody User userInfo(Principal principal) {
-        return userService.getUser(Long.parseLong(principal.getName()));
+        return userService.getActiveUser(Long.parseLong(principal.getName()));
     }
 
     @GetMapping(path="/check")
