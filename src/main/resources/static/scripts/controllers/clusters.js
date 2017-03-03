@@ -43,22 +43,47 @@ angular.module('yapp')
       return false;
     };
 
-    $scope.join = function(clusterId) {
+    $scope.join = function (clusterId) {
       var url = ('cluster/join?clusterId=' + clusterId);
       console.log("Join function ran on clusterId: " + clusterId);
       $http.get(url).success(function (response) {
         if (response) {
           console.log("Added user to cluster " + clusterId);
+          $state.reload();
         } else {
           alert("Could not join cluster! Check if you are already in one!");
         }
       }).error(function () {
-          console.log("hmmm... something went wrong with adding user to cluster. Check console!");
+        console.log("hmmm... something went wrong with adding user to cluster. Check console!");
+        return false;
       });
-      $state.reload();
+    };
+
+    $scope.leave = function () {
+      var getUserUrl = ('user/info');
+      var clusterId = '-1';
+      $http.get(getUserUrl).success(function (response) {
+        clusterId = response['currentClusterId'];
+        $scope.currentClusterId = clusterId;
+        var leaveUrl = ('cluster/leave?clusterId=' + clusterId);
+        $http.get(leaveUrl).success(function (response) {
+          if (response) {
+            console.log("User removed from cluster " + clusterId);
+            $state.reload();
+          } else {
+            alert("Could not leave a cluster! Check if you are in a cluster!");
+          }
+        }).error(function () {
+          console.log("Error removing user from cluster " + clusterId);
+        });
+
+      }).error(function () {
+        console.log("Error retreiving user for leave function");
+        return false;
+      });
+
+
     }
-
-
   });
 
 
