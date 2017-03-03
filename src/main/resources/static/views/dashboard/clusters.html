@@ -1,13 +1,42 @@
 <div>
-	<a ui-sref="overview" class="pull-right btn btn-primary btn-outline btn-rounded">Back to Overview</a>
-	<h2>Clusters <small>Aiya</small></h2>
-	<span class="glyphicon glyphicon-dashboard bg-fade"></span>
-	<div class="jumbotron">
-		<div class="container">
-			<h1>Hmmm... No clrs yet</h1>
-			<p>
-				<a class="btn btn-primary btn-lg btn-outline btn-rounded">Learn more</a>
-			</p>
-		</div>
-	</div>
+    <a ui-sref="overview" class="pull-right btn btn-primary btn-outline btn-rounded">Back to Overview</a>
+    <h2>My Profile <small>hell yeah.</small></h2>
+    <span class="glyphicon glyphicon-dashboard bg-fade"></span>
+    <div class="jumbotron">
+        <div class="container" ng-app="yapp" ng-controller="ProfileCtrl">
+            <div class="panel panel-primary" ng-repeat="group in groups">
+                <p><strong>ID:&nbsp</strong>{{ group.id }}</p>
+                <p><strong>Max Users:&nbsp</strong>{{ group.maxUsers }}</p>
+                <p><strong>Min Users:&nbsp</strong>{{ group.minUsers }}</p>
+                <p><strong>Users:</strong>{{ group.numUsers }}</p>
+
+                <table class="table">
+                    <caption>Individuals</caption>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Rating (0 to 1)</th>
+                        <th>Number</th>
+                        <th class="glyphicon glyphicon-user"></th>
+                        <th>Email</th>
+                        <th>Location</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="user in group.users">
+                        <th>{{ user.name }}</th>
+                        <th>{{ user.rating.ratio }}</th>
+                        <th>{{ user.number}}</th>
+                        <th><a ng-href="{{ user.fbLink }}" class="glyphicon glyphicon-user"></a></th>
+                        <th>{{ user.email }}</th>
+                        <th>{{ user.location }}</th>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <script src="scripts/controllers/profile.js"></script>
 </div>
+
