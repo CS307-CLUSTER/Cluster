@@ -11,7 +11,7 @@ import java.security.Timestamp;
  */
 
 @Entity
-public class Cluster {
+public class Clusters {
 
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
