@@ -5,6 +5,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.security.Timestamp;
+import java.util.Date;
 
 /**
  * Created by Fred on 2/28/17.
@@ -17,8 +18,8 @@ public class Clusters {
     @GeneratedValue(strategy=GenerationType.AUTO)
 
     private long id;
-    private Timestamp start;
-    private Timestamp end;
+    private Date start;
+    private Date end;
     private long restaurant_id;
     private String address;
     private String city;
@@ -34,19 +35,19 @@ public class Clusters {
         this.id = id;
     }
 
-    public Timestamp getStart() {
+    public Date getStart() {
         return start;
     }
 
-    public void setStart(Timestamp start) {
+    public void setStart(Date start) {
         this.start = start;
     }
 
-    public Timestamp getEnd() {
+    public Date getEnd() {
         return end;
     }
 
-    public void setEnd(Timestamp end) {
+    public void setEnd(Date end) {
         this.end = end;
     }
 
