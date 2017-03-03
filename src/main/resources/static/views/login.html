@@ -8,29 +8,32 @@ Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort
             <h1>Cluster</h1>
             <form role="form" ng-submit="submit()">
 
-                <div class="form-content">
-                    <div class="form-group" ng-show="home.authenticated">
-                        <input type="text" ng-model="user.address1" class="form-control input-underline input-lg" placeholder="Street Address 1">
-                    </div>
-                    <div class="form-group" ng-show="home.authenticated">
-                        <input type="text" ng-model="user.address2" class="form-control input-underline input-lg" placeholder="Street Address 2">
-                    </div>
-                    <div class="form-group" ng-show="home.authenticated">
-                        <input type="text" ng-model="user.city" class="form-control input-underline input-lg" placeholder="City">
-                    </div>
-                    <div class="form-group" ng-show="home.authenticated">
-                        <input type="text" ng-model="user.state" class="form-control input-underline input-lg" placeholder="State">
-                    </div>
-                    <div class="form-group" ng-show="home.authenticated">
-                        <input type="text" ng-model="user.zip" class="form-control input-underline input-lg" placeholder="Zip">
-                    </div>
-                    <div class="form-group" ng-show="home.authenticated">
-                        <input type="text" ng-model="user.phone_number" class="form-control input-underline input-lg" placeholder="Phone Number">
-                    </div>
-                    <div class="form-group" ng-show="!home.authenticated">
+                <div class="form-content" ng-show="!home.authenticated">
+                    <div class="form-group">
                         <a href="/login" class="btn btn-white btn-outline btn-lg btn-rounded">Login with Facebook</a>
                     </div>
-                    <div class="form-group" ng-show="home.authenticated">
+                </div>
+
+                <div class="form-content" ng-show="home.authenticated">
+                    <div class="form-group">
+                        <input type="text" ng-model="user.address1" class="form-control input-underline input-lg" placeholder="Street Address 1">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="user.address2" class="form-control input-underline input-lg" placeholder="Street Address 2">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="user.city" class="form-control input-underline input-lg" placeholder="City">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="user.state" class="form-control input-underline input-lg" placeholder="State">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="user.zip" class="form-control input-underline input-lg" placeholder="Zip">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="user.phone_number" class="form-control input-underline input-lg" placeholder="Phone Number">
+                    </div>
+                    <div class="form-group">
                         <a href="/#/dashboard" class="btn btn-white btn-outline btn-lg btn-rounded">Continue to Cluster</a>
                     </div>
                 </div>
