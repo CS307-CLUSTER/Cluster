@@ -31,7 +31,9 @@ public class ClusterService {
         long clusterId = databaseController.createCluster(startTime, endTime, -1, address, city, state, zip, leaderID);
 
         List<User> users = new ArrayList<>();
-        users.add(userService.getActiveUser(leaderID));
+        User user = userService.getActiveUser(leaderID);
+        users.add(user);
+        user.setCurrentClusterId(clusterId);
 
         Cluster cluster = new Cluster(clusterId, maxUsers, minUsers, 1, users, leaderID, startTime, endTime, false, null);
         hive.addCluster(cluster);
@@ -43,7 +45,7 @@ public class ClusterService {
         User user = userService.getActiveUser(userId);
         Cluster cluster = getCluster(clusterId);
 
-        if (user == null || cluster == null || cluster.userExists(user)) {
+        if (user == null || cluster == null || cluster.userExists(user) || user.getCurrentClusterId() != -1) {
             return false;
         }
 
