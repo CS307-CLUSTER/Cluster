@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -22,11 +23,12 @@ public class ClusterController {
     @GetMapping(path="/create")
     public @ResponseBody String createCluster(Principal principal, @RequestParam int maxUsers,
                                               @RequestParam int minUsers, @RequestParam int leaderID,
-                                              @RequestParam int startTime, @RequestParam int endTime,
+                                              @RequestParam Date startTime, @RequestParam Date endTime,
                                               @RequestParam String address, @RequestParam String city,
                                               @RequestParam String state, @RequestParam String zip) {
-        boolean created = serviceController.createCluster(maxUsers, minUsers, leaderID, startTime,
-                endTime, address, city, state, zip);
+        Date dummyDate = new Date(); // TODO remove once frontend can send dates
+        boolean created = serviceController.createCluster(maxUsers, minUsers, leaderID, dummyDate,
+                dummyDate, address, city, state, zip);
         if (created) {
             return "Cluster created!";
         } else {
