@@ -43,6 +43,8 @@ public class UserService {
         Users dbUser = databaseController.getUser(id);
         User user = new User(id, dbUser.getName(), null, dbUser.getNumber(), dbUser.getFb_link(), dbUser.getEmail(), null, 0, null);
         user.setRating(new Rating(dbUser.getUp_votes(), dbUser.getDown_votes()));
+
+        hive.addUser(user);
         return user;
     }
 
