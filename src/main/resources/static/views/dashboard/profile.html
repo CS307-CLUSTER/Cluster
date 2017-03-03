@@ -5,11 +5,12 @@
     <div class="jumbotron">
         <div class="container" ng-app="yapp" ng-controller="ProfileCtrl">
             <p>{{ data.name }}</p>
-            <p>Upvotes: {{ data.upVotes }}</p>
-            <p>Downvotes: {{ data.downVotes }}</p>
+            <p>Rating Ratio: {{ data.rating.ratio }}</p>
+            <p>Upvotes {{ data.rating.upVotes }}</p>
+            <p>Downvotes: {{ data.rating.downVotes }}</p>
             <p>Phone Number: {{ data.number }}</p>
-            <p>Facebook Link: {{ data.fbLink }}</p>
-            <p>{{ data.email }}</p>
+            <p>Facebook Profile: <a ng-href="{{ data.fbLink }}" class="glyphicon glyphicon-user"></a></p>
+            <p>Email: {{ data.email }}</p>
         </div>
     </div>
     <script src="scripts/controllers/profile.js"></script>
