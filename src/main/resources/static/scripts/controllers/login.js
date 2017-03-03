@@ -27,6 +27,12 @@ angular.module('yapp')
       self.user = "N/A";
       self.authenticated = false;
     });
+    if ($http.get("/user/exists") === true) {
+      //Go directly to homepage
+    }
+    else {
+      //Have them signup
+    }
   })
   .controller("UserCreationCtrl", function ($scope, $http) {
     var phoneNumber = document.getElementsByName("Phone Number")[0].value
