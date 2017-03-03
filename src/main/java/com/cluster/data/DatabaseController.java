@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 
 import java.security.Timestamp;
 import java.sql.Time;
+import java.util.Date;
 
 /**
  * Created by Fred on 2/28/17.
@@ -87,7 +88,7 @@ public class DatabaseController {
         return cluster;
     }
 
-    public long createCluster(Timestamp start, Timestamp end, long restaurant_id, String address, String city, String state, String zip, long leader_id) {
+    public long createCluster(Date start, Date end, long restaurant_id, String address, String city, String state, String zip, long leader_id) {
 
         Clusters c = new Clusters();
         c.setStart(start);
