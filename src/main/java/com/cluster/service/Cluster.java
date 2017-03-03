@@ -14,13 +14,13 @@ public class Cluster {
     private int minUsers;
     private int numUsers;
     private List<User> users;
-    private int leaderID;
+    private long leaderID;
     private Date startTime;
     private Date endTime;
     private boolean isComplete;
     private Location location;
 
-    public Cluster(long id, int maxUsers, int minUsers, int numUsers, List<User> users, int leaderID, Date startTime, Date endTime, boolean isComplete, Location location) {
+    public Cluster(long id, int maxUsers, int minUsers, int numUsers, List<User> users, long leaderID, Date startTime, Date endTime, boolean isComplete, Location location) {
         this.id = id;
         this.maxUsers = maxUsers;
         this.minUsers = minUsers;
@@ -78,11 +78,11 @@ public class Cluster {
         this.users = users;
     }
 
-    public int getLeaderID() {
+    public long getLeaderID() {
         return leaderID;
     }
 
-    public void setLeaderID(int leaderID) {
+    public void setLeaderID(long leaderID) {
         this.leaderID = leaderID;
     }
 

@@ -15,7 +15,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(path="/cluster")
-public class ClusterController {
+public class        ClusterController {
 
     @Autowired
     private ClusterService serviceController;

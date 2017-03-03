@@ -27,7 +27,7 @@ public class ClusterService {
         return true;
     }
 
-    public boolean createCluster(int maxUsers, int minUsers, int leaderID, Date startTime, Date endTime, String address, String city, String state, String zip) {
+    public boolean createCluster(int maxUsers, int minUsers, long leaderID, Date startTime, Date endTime, String address, String city, String state, String zip) {
         long clusterId = databaseController.createCluster(startTime, endTime, -1, address, city, state, zip, leaderID);
         List<User> users = new ArrayList<>();
         users.add(userService.getUser(leaderID));
