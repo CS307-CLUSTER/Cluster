@@ -1,0 +1,62 @@
+<!--
+Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort=views&timeframe=ever&offset=461
+-->
+<div class="cluster-form">
+    <div class="row">
+        <div class="col-md-4 col-lg-4 col-md-offset-4 col-lg-offset-4">
+            <!-- img src="images/cluster-logo-only.png" class="user-avatar" /-->
+            <h1>Create a Cluster</h1>
+            <div class="container" ng-app="yapp" ng-controller="ClustersCtrl">
+            <form role="form" ng-submit="submit()">
+
+                <div class="form-content">
+                    <div class="form-group">
+                        <input type="text" ng-model="form.restaurant" class="form-control input-underline input-lg"
+                               placeholder="Restaurant">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="form.maxUsers" class="form-control input-underline input-lg"
+                               placeholder="Maximum Users">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="form.minUsers" class="form-control input-underline input-lg"
+                               placeholder="Minimum Users">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="form.startTime" class="form-control input-underline input-lg"
+                               placeholder="End Time">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="form.endTime" class="form-control input-underline input-lg"
+                               placeholder="End Time">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="form.address1" class="form-control input-underline input-lg"
+                               placeholder="Address 1">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="form.address2" class="form-control input-underline input-lg"
+                               placeholder="Address 2">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="form.city" class="form-control input-underline input-lg"
+                               placeholder="City">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="form.state" class="form-control input-underline input-lg"
+                               placeholder="State">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" ng-model="form.zip" class="form-control input-underline input-lg"
+                               placeholder="Zip">
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Create Cluster"
+                               class="btn btn-white btn-outline btn-lg btn-rounded"/>
+                    </div>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>

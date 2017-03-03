@@ -39,7 +39,7 @@ angular
           .state('overview', {
             url: '/overview',
             parent: 'dashboard',
-            templateUrl: 'views/dashboard/overview.html',
+            templateUrl: 'views/dashboard/overview.html'
           })
           .state('clusters', {
             url: '/clusters',
@@ -50,7 +50,10 @@ angular
             url: '/profile',
             parent: 'dashboard',
             templateUrl: 'views/dashboard/profile.html'
-            //controller: 'ProfileCtrl'
-          });
-
+          })
+          .state('createCluster', {
+          url: '/createCluster',
+          parent: 'dashboard',
+          templateUrl: 'views/dashboard/cluster-form.html'
+          })
   });
