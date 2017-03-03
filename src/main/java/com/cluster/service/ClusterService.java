@@ -1,11 +1,9 @@
 package com.cluster.service;
 
 import com.cluster.data.DatabaseController;
-import com.cluster.data.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import javax.xml.crypto.Data;
 import java.util.List;
 
 /**
@@ -23,7 +21,7 @@ public class ClusterService {
         return true;
     }
 
-    public boolean createCluster(int maxUsers, int minUsers, int leaderID, int startTime, int endTime, Location location, String address, String city, String state, String zip) {
+    public boolean createCluster(int maxUsers, int minUsers, int leaderID, int startTime, int endTime, String address, String city, String state, String zip) {
         return true;
     }
 
