@@ -1,9 +1,13 @@
 package com.cluster.service;
 
 import com.cluster.data.DatabaseController;
+import com.cluster.data.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -16,12 +20,19 @@ public class ClusterService {
     private DatabaseController databaseController;
     @Autowired
     private Hive hive;
+    @Autowired
+    private UserService userService;
 
     public boolean clusterExists(long id) {
         return true;
     }
 
-    public boolean createCluster(int maxUsers, int minUsers, int leaderID, int startTime, int endTime, String address, String city, String state, String zip) {
+    public boolean createCluster(int maxUsers, int minUsers, int leaderID, Date startTime, Date endTime, String address, String city, String state, String zip) {
+        long clusterId = databaseController.createCluster(startTime, endTime, -1, address, city, state, zip, leaderID);
+        List<User> users = new ArrayList<>();
+        users.add(userService.getUser(leaderID));
+        Cluster cluster = new Cluster(clusterId, maxUsers, minUsers, 1, users, leaderID, startTime, endTime, false, null);
+        hive.addCluster(cluster);
         return true;
     }
 

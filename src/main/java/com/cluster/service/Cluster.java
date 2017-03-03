@@ -1,7 +1,7 @@
 package com.cluster.service;
 
-import com.cluster.data.Users;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -9,18 +9,18 @@ import java.util.List;
  */
 public class Cluster {
 
-    private int id;
+    private long id;
     private int maxUsers;
     private int minUsers;
     private int numUsers;
-    private List<Users> users;
+    private List<User> users;
     private int leaderID;
-    private int startTime;
-    private int endTime;
+    private Date startTime;
+    private Date endTime;
     private boolean isComplete;
     private Location location;
 
-    public Cluster(int id, int maxUsers, int minUsers, int numUsers, List<Users> users, int leaderID, int startTime, int endTime, boolean isComplete, Location location) {
+    public Cluster(long id, int maxUsers, int minUsers, int numUsers, List<User> users, int leaderID, Date startTime, Date endTime, boolean isComplete, Location location) {
         this.id = id;
         this.maxUsers = maxUsers;
         this.minUsers = minUsers;
@@ -38,11 +38,11 @@ public class Cluster {
         return obj != null && ((Cluster) obj).id == this.id;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
@@ -70,11 +70,11 @@ public class Cluster {
         this.numUsers = numUsers;
     }
 
-    public List<Users> getUsers() {
+    public List<User> getUsers() {
         return users;
     }
 
-    public void setUsers(List<Users> users) {
+    public void setUsers(List<User> users) {
         this.users = users;
     }
 
@@ -86,19 +86,19 @@ public class Cluster {
         this.leaderID = leaderID;
     }
 
-    public int getStartTime() {
+    public Date getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(int startTime) {
+    public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
 
-    public int getEndTime() {
+    public Date getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(int endTime) {
+    public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
 
