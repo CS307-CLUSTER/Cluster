@@ -46,8 +46,9 @@ public class UserController {
     @GetMapping(path="/create")
     public @ResponseBody String createUser(Principal principal, @RequestParam String phoneNumber,
                                            @RequestParam String city, @RequestParam String state,
-                                           @RequestParam String zip, @RequestParam String address) {
-        boolean created = userService.createUser(principal, phoneNumber, address, city, state, zip);
+                                           @RequestParam String zip, @RequestParam String address,
+                                           @RequestParam String email) {
+        boolean created = userService.createUser(principal, phoneNumber, address, city, state, zip, email);
         if (created) {
             return "User " + principal.getName() + " has been created";
         } else {
