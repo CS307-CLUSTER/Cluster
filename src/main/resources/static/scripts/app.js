@@ -45,6 +45,12 @@ angular
             url: '/clusters',
             parent: 'dashboard',
             templateUrl: 'views/dashboard/clusters.html'
+          })
+          .state('profile', {
+            url: '/profile',
+            parent: 'dashboard',
+            templateUrl: 'views/dashboard/profile.html'
+            //controller: 'ProfileCtrl'
           });
 
   });
