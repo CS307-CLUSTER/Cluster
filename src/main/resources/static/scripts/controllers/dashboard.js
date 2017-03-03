@@ -8,8 +8,18 @@
  * Controller of yapp
  */
 angular.module('yapp')
-  .controller('DashboardCtrl', function($scope, $state) {
+  .controller('DashboardCtrl', function($scope, $state, $http, $location) {
 
     $scope.$state = $state;
 
+    $scope.logout = function() {
+      console.log("Logout ran");
+      $http.post('/logout', {}).success(function() {
+        self.authenticated = false;
+        $location.path("/");
+      }).error(function(data) {
+        console.log("Logout failed")
+        self.authenticated = false;
+      });
+    };
   });
