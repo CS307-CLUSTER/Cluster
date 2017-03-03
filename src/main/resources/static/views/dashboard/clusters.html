@@ -9,6 +9,7 @@
                 <p><strong>Max Users:&nbsp</strong>{{ group.maxUsers }}</p>
                 <p><strong>Min Users:&nbsp</strong>{{ group.minUsers }}</p>
                 <p><strong>Users:</strong>{{ group.numUsers }}</p>
+                <p><button ng-click="join(group.id)">Join Cluster</button></p>
 
                 <table class="table">
                     <caption>Individuals</caption>
