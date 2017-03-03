@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.List;
 
 /**
  * Created by Andrew on 2/28/17.
@@ -37,5 +38,12 @@ public class ClusterController {
     public @ResponseBody Cluster clusterInfo(Principal principal, @RequestParam long id) {
         // TODO Determine parameters
         return serviceController.getCluster(id);
+    }
+
+    @GetMapping(path="/getAll")
+    public @ResponseBody
+    List<Cluster> getAllClusters(Principal principal, @RequestParam long id) {
+        // TODO Determine parameters
+        return serviceController.getAllClusters();
     }
 }
