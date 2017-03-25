@@ -20,6 +20,7 @@ public class Users {
     private String pic_link;
     private int up_votes;
     private int down_votes;
+    private boolean isAdmin;
 
     public long getId() {
         return id;
@@ -83,5 +84,13 @@ public class Users {
 
     public void setDown_votes(int down_votes) {
         this.down_votes = down_votes;
+    }
+
+    public boolean getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(boolean isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }
