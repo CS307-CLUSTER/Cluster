@@ -15,6 +15,7 @@ public class User {
     private int sessionID;
     private String accessToken;
     private long currentClusterId;
+    private boolean isAdmin;
 
     public User(long id, String name, Rating rating, String number, String fbLink, String email, Location location, int sessionID, String accessToken) {
         this.id = id;
@@ -27,6 +28,7 @@ public class User {
         this.sessionID = sessionID;
         this.accessToken = accessToken;
         this.currentClusterId = -1;
+        this.isAdmin = false;
     }
 
     @Override
@@ -112,5 +114,13 @@ public class User {
 
     public void setCurrentClusterId(long currentClusterId) {
         this.currentClusterId = currentClusterId;
+    }
+
+    public boolean isAdmin() {
+        return isAdmin;
+    }
+
+    public void setAdmin(boolean admin) {
+        isAdmin = admin;
     }
 }

@@ -15,7 +15,6 @@ public class AdminService {
     private Hive hive;
 
     public int getNumActiveUsers(Principal principal) {
-        /** TODO Keep track of active users in Hive **/
         return hive.getNumUsers();
     }
 

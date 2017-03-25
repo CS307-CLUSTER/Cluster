@@ -2,9 +2,9 @@
     <a ui-sref="overview" class="pull-right btn btn-primary btn-outline btn-rounded">Back to Overview</a>
     <h2>Clusters</h2>
     <span class="glyphicon glyphicon-dashboard bg-fade"></span>
-    <div class="jumbotron">
+    <div class="jumbotron" ng-app="yapp" ng-controller="ClustersCtrl">
         <p><button ng-click="leave()" class="btn btn-primary btn-outline btn-rounded">Leave Your Cluster</button>
-        <div class="container" ng-app="yapp" ng-controller="ClustersCtrl">
+        <div class="container" >
             </p>
             <div class="panel panel-primary" ng-repeat="group in groups">
                 <p><strong>ID:&nbsp</strong>{{ group.id }}</p>
