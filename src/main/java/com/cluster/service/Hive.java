@@ -14,7 +14,7 @@ public class Hive {
 
     private List<User> users;
     private List<Cluster> clusters;
-    private List<Restaraunt> restaraunts;
+    private List<Restaurant> restaraunts;
     private int numUsers;
     private int numClusters;
 
@@ -43,28 +43,36 @@ public class Hive {
         return clusters;
     }
 
-    public List<Restaraunt> getRestaraunts() {
+    public List<Restaurant> getRestaraunts() {
         return restaraunts;
     }
 
     public void addUser(User user) {
         users.add(user);
+        numUsers++;
     }
 
     public void removeUser(User user) {
         users.remove(user);
+        numUsers--;
     }
 
     public void addCluster(Cluster cluster) {
         clusters.add(cluster);
+        numClusters++;
     }
 
     public void removeClustesr(Cluster cluster) {
         clusters.remove(cluster);
+        numClusters--;
     }
 
     public boolean clusterExists(Cluster cluster) {
         return clusters.contains(cluster);
+    }
+
+    public void refreshRestaurants() {
+
     }
 
 }
