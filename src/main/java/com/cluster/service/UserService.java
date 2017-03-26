@@ -90,4 +90,8 @@ public class UserService {
         }
     }
 
+    public boolean isAdmin(long id) {
+        return isUserActive(id) && getActiveUser(id).isAdmin();
+    }
+
 }
