@@ -81,9 +81,9 @@ public class UserService {
         return (HashMap) (((OAuth2Authentication) principal).getUserAuthentication()).getDetails();
     }
 
-    public boolean setAdmin(long id) {
+    public boolean setAdmin(long id, boolean value) {
         if (isUserActive(id)) {
-            getActiveUser(id).setAdmin(true);
+            getActiveUser(id).setAdmin(value);
             return true;
         } else {
             return false;

@@ -22,16 +22,13 @@ angular.module('yapp')
         self.authenticated = false;
       });
     };
-  });
-/*
-  .controller("AdminTabCtrl", function ($http) {
-    var self = this;
-    $http.get("/user/test").success(function (data) {
-      self.user = data.userAuthentication.details.name;
-      self.authenticated = true;
-    }).error(function () {
-      self.user = "N/A";
-      self.authenticated = false;
-    });
   })
-  */
+  .controller("AdminTabViewCtrl", function ($http) {
+    var self = this;
+    $http.get("/user/isAdmin").success(function (data) {
+      self.isAdmin = data;
+    }).error(function () {
+      console.log('error');
+      self.isAdmin = false;
+    });
+  });
