@@ -14,8 +14,9 @@
         <li ng-class="{active: $state.includes('profile')}"><a ui-sref="profile">Profile</a></li>
         <li ng-class="{active: $state.includes('clusters')}"><a ui-sref="clusters">Clusters</a></li>
         <li ng-class="{active: $state.includes('create a cluster')}"><a ui-sref="create a cluster">Create a Cluster</a></li>
-          </span ng-if=
-        <li ng-class="{active: $state.includes('admin')}"><a ui-sref="admin">Admin Page</a></li>
+        <div ng-show="AdminTabCtrlView.isAdmin">
+            <li ng-class="{active: $state.includes('admin')}"><a ui-sref="admin">Admin Page</a></li>
+        </div>
         <li><a href="https://github.com/CS307-CLUSTER/cluster">Github</a></li>
       </ul>
 
