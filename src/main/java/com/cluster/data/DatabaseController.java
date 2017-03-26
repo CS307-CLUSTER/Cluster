@@ -147,10 +147,9 @@ public class DatabaseController {
         return restaurantRepository.findAll();
     }
 
-    public long createRestaurant(long id, String name, String hb_link, float rating, String hours, float min_delivery, float delivery_fee, String pic_src, String address, String city, String state, String zip) {
+    public long createRestaurant(String name, String hb_link, float rating, String hours, float min_delivery, float delivery_fee, String pic_src, String address, String city, String state, String zip) {
 
         Restaurants r = new Restaurants();
-        r.setId(id);
         r.setName(name);
         r.setHb_link(hb_link);
         r.setRating(rating);
