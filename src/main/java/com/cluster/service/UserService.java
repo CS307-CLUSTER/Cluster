@@ -26,7 +26,7 @@ public class UserService {
     }
 
     public boolean createUser(Principal principal, String phoneNumber, String address, String city, String state, String zip, String email) {
-        // Extract details needed from Principal object
+        // Extract details needed from Principal objesct
         HashMap userInfo = extractPrincipalDetals(principal);
         String fullName = (String) userInfo.get("name");
         String fbLink = (String) userInfo.get("link");

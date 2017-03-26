@@ -4,6 +4,8 @@ import com.cluster.data.DatabaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.util.List;
+
 /**
  * Created by shane on 3/25/17.
  */
@@ -53,6 +55,10 @@ public class RestaurantService {
             }
         }
         return null;
+    }
+
+    public List<Restaurant> getAllRestaurants() {
+        return hive.getRestaraunts();
     }
 
 }
