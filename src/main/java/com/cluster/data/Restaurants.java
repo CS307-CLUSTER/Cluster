@@ -10,7 +10,7 @@ import javax.persistence.Id;
  * Created by Fred on 2/28/17.
  */
 @Entity
-public class Restaurant {
+public class Restaurants {
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
