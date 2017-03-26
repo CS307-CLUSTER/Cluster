@@ -14,7 +14,7 @@ public class Hive {
 
     private List<User> users;
     private List<Cluster> clusters;
-    private List<Restaraunt> restaraunts;
+    private List<Restaurant> restaraunts;
     private int numUsers;
     private int numClusters;
 
@@ -43,7 +43,7 @@ public class Hive {
         return clusters;
     }
 
-    public List<Restaraunt> getRestaraunts() {
+    public List<Restaurant> getRestaraunts() {
         return restaraunts;
     }
 
@@ -65,6 +65,10 @@ public class Hive {
 
     public boolean clusterExists(Cluster cluster) {
         return clusters.contains(cluster);
+    }
+
+    public void refreshRestaurants() {
+
     }
 
 }

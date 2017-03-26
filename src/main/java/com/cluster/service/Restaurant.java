@@ -3,7 +3,7 @@ package com.cluster.service;
 /**
  * Created by shane on 2/27/17.
  */
-public class Restaraunt {
+public class Restaurant {
 
     //TODO: still need to add a way to show hours
 
@@ -15,7 +15,7 @@ public class Restaraunt {
     private double deliveryMinimum;
     private Location location;
 
-    public Restaraunt(int id, String name, String hungryBoilerLink, Rating rating, double deliveryFee, double deliveryMinimum, Location location) {
+    public Restaurant(int id, String name, String hungryBoilerLink, Rating rating, double deliveryFee, double deliveryMinimum, Location location) {
         this.id = id;
         this.name = name;
         this.hungryBoilerLink = hungryBoilerLink;
