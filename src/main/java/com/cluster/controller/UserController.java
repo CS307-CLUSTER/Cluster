@@ -67,9 +67,9 @@ public class UserController {
     }
 
     @GetMapping(path="/makeAdmin")
-    public @ResponseBody boolean makeUserAdmin(Principal principal, @RequestParam long adminId) {
-        if (userService.isAdmin(adminId)) {
-            return userService.setAdmin(Long.parseLong(principal.getName()));
+    public @ResponseBody boolean makeUserAdmin(Principal principal, @RequestParam long userId) {
+        if (userService.isUserActive(userId)) {
+            return userService.setAdmin(userId);
         }
         return false;
     }
