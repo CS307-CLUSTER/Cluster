@@ -21,45 +21,37 @@ public class AdminController {
     @GetMapping(path = "/getNumActiveUsers")
     public @ResponseBody int getNumActiveUsers(Principal principal) {
         // verify user is admin
-        User user = userService.getUserFromDatabase(Long.parseLong(principal.getName()));
-        if (user == null || !user.isAdmin()) {
-            return -1; // user was not an admin
-        } else {
+        if (userService.isAdmin(Long.parseLong(principal.getName()))) {
             return adminService.getNumActiveUsers();
         }
+        return -1; // user was not an admin`
     }
 
     @GetMapping(path = "/getNumActiveClusters")
     public @ResponseBody int getNumActiveClusters(Principal principal) {
         // verify user is admin
-        User user = userService.getUserFromDatabase(Long.parseLong(principal.getName()));
-        if (user == null || !user.isAdmin()) {
-            return -1; // user was not an admin
-        } else {
+        if (userService.isAdmin(Long.parseLong(principal.getName()))) {
             return adminService.getNumActiveClusters();
         }
+        return -1; // user was not an admin
     }
 
     @GetMapping(path = "disbandCluster")
     public @ResponseBody boolean getNumActiveUsers(Principal principal, @RequestParam long clusterId) {
         // verify user is admin
-        User user = userService.getUserFromDatabase(Long.parseLong(principal.getName()));
-        if (user == null || !user.isAdmin()) {
-            return false;
-        } else {
+        if (userService.isAdmin(Long.parseLong(principal.getName()))) {
             return adminService.disbandCluster(clusterId);
         }
+        return false;
     }
 
     @GetMapping(path = "getUserInformation")
     public @ResponseBody User getUserInformation(Principal principal, @RequestParam int userId) {
         // verify user is admin
-        User user = userService.getUserFromDatabase(Long.parseLong(principal.getName()));
-        if (user == null || !user.isAdmin()) {
-            return null;
-        } else {
+        if (userService.isAdmin(Long.parseLong(principal.getName()))) {
             return adminService.getUserInformation(userId);
         }
+        return null;
     }
 
 }
