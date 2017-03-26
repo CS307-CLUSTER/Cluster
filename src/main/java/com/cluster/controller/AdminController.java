@@ -22,10 +22,10 @@ public class AdminController {
     public @ResponseBody int getNumActiveUsers(Principal principal) {
         // verify user is admin
         User user = userService.getUserFromDatabase(Long.parseLong(principal.getName()));
-        if (user.isAdmin()) {
-            return adminService.getNumActiveUsers();
-        } else {
+        if (user == null || !user.isAdmin()) {
             return -1; // user was not an admin
+        } else {
+            return adminService.getNumActiveUsers();
         }
     }
 
@@ -33,10 +33,10 @@ public class AdminController {
     public @ResponseBody int getNumActiveClusters(Principal principal) {
         // verify user is admin
         User user = userService.getUserFromDatabase(Long.parseLong(principal.getName()));
-        if (user.isAdmin()) {
-            return adminService.getNumActiveClusters();
-        } else {
+        if (user == null || !user.isAdmin()) {
             return -1; // user was not an admin
+        } else {
+            return adminService.getNumActiveClusters();
         }
     }
 
@@ -44,10 +44,10 @@ public class AdminController {
     public @ResponseBody boolean getNumActiveUsers(Principal principal, @RequestParam long clusterId) {
         // verify user is admin
         User user = userService.getUserFromDatabase(Long.parseLong(principal.getName()));
-        if (user.isAdmin()) {
-            return adminService.disbandCluster(clusterId);
-        } else {
+        if (user == null || !user.isAdmin()) {
             return false;
+        } else {
+            return adminService.disbandCluster(clusterId);
         }
     }
 
@@ -55,10 +55,10 @@ public class AdminController {
     public @ResponseBody User getUserInformation(Principal principal, @RequestParam int userId) {
         // verify user is admin
         User user = userService.getUserFromDatabase(Long.parseLong(principal.getName()));
-        if (user.isAdmin()) {
-            return adminService.getUserInformation(userId);
-        } else {
+        if (user == null || !user.isAdmin()) {
             return null;
+        } else {
+            return adminService.getUserInformation(userId);
         }
     }
 
