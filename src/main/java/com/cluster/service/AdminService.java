@@ -13,10 +13,30 @@ public class AdminService {
 
     @Autowired
     private Hive hive;
+    @Autowired
+    private ClusterService clusterService;
+    @Autowired
+    private UserService userService;
 
-    public int getNumActiveUsers(Principal principal) {
-        /** TODO Keep track of active users in Hive **/
+    public int getNumActiveUsers() {
         return hive.getNumUsers();
+    }
+
+    public int getNumActiveClusters() {
+        return hive.getNumClusters();
+    }
+
+    public boolean disbandCluster(long id) {
+        if (clusterService.getCluster(id) != null) {
+            hive.removeClustesr(clusterService.getCluster(id));
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public User getUserInformation(long id) {
+        return userService.getUserFromDatabase(id);
     }
 
 }
