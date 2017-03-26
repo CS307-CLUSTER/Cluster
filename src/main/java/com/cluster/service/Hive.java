@@ -1,5 +1,9 @@
 package com.cluster.service;
 
+import com.cluster.data.DatabaseController;
+import com.cluster.data.Restaurants;
+import com.cluster.data.Users;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -12,9 +16,11 @@ import java.util.List;
 @Component
 public class Hive {
 
+    @Autowired
+    private DatabaseController databaseController;
     private List<User> users;
     private List<Cluster> clusters;
-    private List<Restaurant> restaraunts;
+    private List<com.cluster.service.Restaurant> restaraunts;
     private int numUsers;
     private int numClusters;
 
@@ -24,6 +30,8 @@ public class Hive {
         restaraunts = new ArrayList<>();
         numUsers = 0;
         numClusters = 0;
+
+        refreshRestaurants();
     }
 
 
@@ -43,7 +51,7 @@ public class Hive {
         return clusters;
     }
 
-    public List<Restaurant> getRestaraunts() {
+    public List<com.cluster.service.Restaurant> getRestaraunts() {
         return restaraunts;
     }
 
@@ -72,7 +80,13 @@ public class Hive {
     }
 
     public void refreshRestaurants() {
+        for (Restaurants restaurants : databaseController.getAllRestaurant())
+    }
 
+    public void refreshUsers() {
+        for (Users user : databaseController.getAllUser()) {
+
+        }
     }
 
 }

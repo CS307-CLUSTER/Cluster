@@ -3,9 +3,7 @@ package com.cluster.data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by Fred on 2/28/17.
@@ -19,7 +17,7 @@ public class DatabaseController {
     @Autowired
     private ClustersRepository clustersRepository;
     @Autowired
-    private RestaurantRepository restaurantRepository;
+    private RestaurantsRepository restaurantRepository;
 
     //Takes in a User id and returns true if user exists, and false otherwise
     public boolean doesUserExist(long id) {
@@ -126,25 +124,25 @@ public class DatabaseController {
         return c.getId();
     }
 
-    public Restaurant getRestaurant(long id) {
-        Restaurant restaurant = null;
+    public Restaurants getRestaurant(long id) {
+        Restaurants restaurants = null;
         try {
-            restaurant = restaurantRepository.findById(id);
+            restaurants = restaurantRepository.findById(id);
         }
         catch (Exception ex) {
-            return restaurant;
+            return restaurants;
         }
-        return restaurant;
+        return restaurants;
     }
 
-    public Iterable<Restaurant> getAllRestaurant() {
+    public Iterable<Restaurants> getAllRestaurant() {
 
         return restaurantRepository.findAll();
     }
 
     public long createRestaurant(long id, String name, String hb_link, float rating, String hours, float min_delivery, float delivery_fee, String pic_src, String address, String city, String state, String zip) {
 
-        Restaurant r = new Restaurant();
+        Restaurants r = new Restaurants();
         r.setId(id);
         r.setName(name);
         r.setHb_link(hb_link);
