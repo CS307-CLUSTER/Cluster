@@ -24,12 +24,12 @@ public class RestaurantService {
         }
 
         databaseController.createRestaurant(id, name, hb_link, rating, hours, min_delivery, delivery_fee, pic_src, address, city, state, zip);
-        hive.refreshRestaurants();
+//        hive.refreshRestaurants();
         return true;
     }
 
     public boolean restaurantExists(long id) {
-        for (Restaurant res : hive.getRestaraunts()) {
+        for (Restaurant res : hive.getRestaurants()) {
             if (res.getId() == id) {
                 return true;
             }
@@ -38,7 +38,7 @@ public class RestaurantService {
     }
 
     public boolean restaurantExists(String name) {
-        for (Restaurant res : hive.getRestaraunts()) {
+        for (Restaurant res : hive.getRestaurants()) {
             if (res.getName().equals(name)) {
                 return true;
             }
@@ -48,7 +48,7 @@ public class RestaurantService {
 
     public Restaurant getRestaurant(long id) {
         if (restaurantExists(id)) {
-            for (Restaurant res : hive.getRestaraunts()) {
+            for (Restaurant res : hive.getRestaurants()) {
                 if (res.getId() == id) {
                     return res;
                 }
@@ -58,7 +58,7 @@ public class RestaurantService {
     }
 
     public List<Restaurant> getAllRestaurants() {
-        return hive.getRestaraunts();
+        return hive.getRestaurants();
     }
 
 }

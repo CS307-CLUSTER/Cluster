@@ -2,7 +2,6 @@ package com.cluster.service;
 
 import com.cluster.data.DatabaseController;
 import com.cluster.data.Restaurants;
-import com.cluster.data.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,18 +19,19 @@ public class Hive {
     private DatabaseController databaseController;
     private List<User> users;
     private List<Cluster> clusters;
-    private List<com.cluster.service.Restaurant> restaraunts;
+    private List<com.cluster.service.Restaurant> restaurants;
     private int numUsers;
     private int numClusters;
 
     public Hive() {
         users = new ArrayList<>();
         clusters = new ArrayList<>();
-        restaraunts = new ArrayList<>();
+        restaurants = new ArrayList<>();
         numUsers = 0;
         numClusters = 0;
 
-        refreshRestaurants();
+//        refreshRestaurants();
+//        refreshUsers();
     }
 
 
@@ -51,8 +51,8 @@ public class Hive {
         return clusters;
     }
 
-    public List<com.cluster.service.Restaurant> getRestaraunts() {
-        return restaraunts;
+    public List<com.cluster.service.Restaurant> getRestaurants() {
+        return restaurants;
     }
 
     public void addUser(User user) {
@@ -80,12 +80,22 @@ public class Hive {
     }
 
     public void refreshRestaurants() {
-        for (Restaurants restaurants : databaseController.getAllRestaurant())
+        restaurants.clear();
+        if (databaseController.getAllRestaurant() != null) {
+            for (Restaurants databaseRes : databaseController.getAllRestaurant()) {
+                Restaurant res = new Restaurant(databaseRes.getId(), databaseRes.getName(), databaseRes.getHb_link(), null, databaseRes.getDelivery_fee(), databaseRes.getMin_delivery(), null);
+                restaurants.add(res);
+            }
+        }
     }
 
     public void refreshUsers() {
-        for (Users user : databaseController.getAllUser()) {
-
+        UserService userService = new UserService();
+        users.clear();
+        if (databaseController.getAllUser() != null) {
+            for (long id : databaseController.getAllUser()) {
+                users.add(userService.getUserFromDatabase(id));
+            }
         }
     }
 

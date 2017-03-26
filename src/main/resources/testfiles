@@ -5,3 +5,4 @@ http://localhost:8080/user/create?phoneNumber=4087684974&city=West%20Lafayette&s
 
 http://localhost:8080/cluster/create?maxUsers=4&minUsers=2&startTime=0&endTime=0&address=Hungry%20Howies&city=West%20Lafayette&state=IN&zip=47906#_=_
 
+http://localhost:8080/restaurant/add?id=0001&name=NAME&hb_link=www.hb.com&rating=0.0&hours=8-5&min_delivery=0.0&delivery_fee=0.0&pic_src=www.src.com&address=ADDRESS&city=CITY&state=STATE&zip=00000

@@ -7,7 +7,7 @@ public class Restaurant {
 
     //TODO: still need to add a way to show hours
 
-    private int id;
+    private long id;
     private String name;
     private String hungryBoilerLink;
     private Rating rating;
@@ -15,7 +15,7 @@ public class Restaurant {
     private double deliveryMinimum;
     private Location location;
 
-    public Restaurant(int id, String name, String hungryBoilerLink, Rating rating, double deliveryFee, double deliveryMinimum, Location location) {
+    public Restaurant(long id, String name, String hungryBoilerLink, Rating rating, double deliveryFee, double deliveryMinimum, Location location) {
         this.id = id;
         this.name = name;
         this.hungryBoilerLink = hungryBoilerLink;
@@ -25,11 +25,11 @@ public class Restaurant {
         this.location = location;
     }
 
-    public int getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(long id) {
         this.id = id;
     }
 
