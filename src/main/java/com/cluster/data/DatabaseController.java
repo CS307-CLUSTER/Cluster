@@ -3,7 +3,9 @@ package com.cluster.data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Fred on 2/28/17.
@@ -45,8 +47,13 @@ public class DatabaseController {
         return user;
     }
 
-    public Iterable<Users> getAllUser() {
-        return usersRepository.findAll();
+    public List<Long> getAllUser() {
+        List<Long> ids = new ArrayList<Long>();
+        for (Users u : usersRepository.findAll()) {
+            ids.add(u.getId());
+        }
+
+        return ids;
     }
 
     public boolean createUser(long id, String name, String number, String email, String fb_link, String pic_link) {
