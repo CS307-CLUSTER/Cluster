@@ -6,14 +6,16 @@
        <div class="text-center">
         <h2 class="brand">Cluster <small></small></h2>
         <img src="images/cluster-logo-only.png" class="user-avatar" /><br />
-        <button ng-click="logout()" class="btn btn-white btn-outline btn-rounded btn-sm">Logout</button>
+        <a ui-sref="login" class="btn btn-white btn-outline btn-rounded btn-sm">Logout</a>
       </div>
 
       <ul class="nav nav-sidebar">
         <li ng-class="{active: $state.includes('overview')}"><a ui-sref="overview">Overview <span class="sr-only">(current)</span></a></li>
         <li ng-class="{active: $state.includes('profile')}"><a ui-sref="profile">Profile</a></li>
-          <li ng-class="{active: $state.includes('createCluster')}"><a ui-sref="createCluster">Create a Cluster</a></li>
         <li ng-class="{active: $state.includes('clusters')}"><a ui-sref="clusters">Clusters</a></li>
+        <li ng-class="{active: $state.includes('create a cluster')}"><a ui-sref="create a cluster">Create a Cluster</a></li>
+          </span ng-if=
+        <li ng-class="{active: $state.includes('admin')}"><a ui-sref="admin">Admin Page</a></li>
         <li><a href="https://github.com/CS307-CLUSTER/cluster">Github</a></li>
       </ul>
 
