@@ -18,6 +18,8 @@ public class DatabaseController {
     private UsersRepository usersRepository;
     @Autowired
     private ClustersRepository clustersRepository;
+    @Autowired
+    private RestaurantRepository restaurantRepository;
 
     //Takes in a User id and returns true if user exists, and false otherwise
     public boolean doesUserExist(long id) {
@@ -103,5 +105,25 @@ public class DatabaseController {
 
         clustersRepository.save(c);
         return c.getId();
+    }
+
+    public long createRestaurant(long id, String name, String hb_link, float rating, String hours, float min_delivery, float delivery_fee, String pic_src, String address, String city, String state, String zip) {
+
+        Restaurant r = new Restaurant();
+        r.setId(id);
+        r.setName(name);
+        r.setHb_link(hb_link);
+        r.setRating(rating);
+        r.setHours(hours);
+        r.setMin_delivery(min_delivery);
+        r.setDelivery_fee(delivery_fee);
+        r.setPic_src(pic_src);
+        r.setAddress(address);
+        r.setCity(city);
+        r.setState(state);
+        r.setZip(zip);
+
+        restaurantRepository.save(r);
+        return r.getId();
     }
 }
