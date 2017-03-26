@@ -47,6 +47,10 @@ public class DatabaseController {
         return user;
     }
 
+    public Iterable<Users> getAllUser() {
+        return usersRepository.findAll();
+    }
+
     public boolean createUser(long id, String name, String number, String email, String fb_link, String pic_link) {
         if (doesUserExist(id)) {
             return false;
@@ -102,6 +106,10 @@ public class DatabaseController {
         return cluster;
     }
 
+    public Iterable<Clusters> getAllCluster() {
+        return clustersRepository.findAll();
+    }
+
     public long createCluster(Date start, Date end, long restaurant_id, String address, String city, String state, String zip, long leader_id) {
 
         Clusters c = new Clusters();
@@ -116,6 +124,17 @@ public class DatabaseController {
 
         clustersRepository.save(c);
         return c.getId();
+    }
+
+    public Restaurant getRestaurant(long id) {
+        Restaurant restaurant = null;
+        try {
+            restaurant = restaurantRepository.findById(id);
+        }
+        catch (Exception ex) {
+            return restaurant;
+        }
+        return restaurant;
     }
 
     public Iterable<Restaurant> getAllRestaurant() {
