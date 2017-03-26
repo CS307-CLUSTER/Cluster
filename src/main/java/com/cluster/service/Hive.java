@@ -18,6 +18,8 @@ public class Hive {
 
     @Autowired
     private DatabaseController databaseController;
+    @Autowired
+    private UserService userService;
     private List<User> users;
     private List<Cluster> clusters;
     private List<com.cluster.service.Restaurant> restaraunts;
@@ -32,6 +34,7 @@ public class Hive {
         numClusters = 0;
 
         refreshRestaurants();
+        refreshUsers();
     }
 
 
@@ -80,12 +83,17 @@ public class Hive {
     }
 
     public void refreshRestaurants() {
-        for (Restaurants restaurants : databaseController.getAllRestaurant())
+        restaraunts.clear();
+        for (Restaurants databaseRes : databaseController.getAllRestaurant()) {
+            Restaurant res = new Restaurant(databaseRes.getId(), databaseRes.getName(), databaseRes.getHb_link(), null, databaseRes.getDelivery_fee(), databaseRes.getMin_delivery(), null);
+            restaraunts.add(res);
+        }
     }
 
     public void refreshUsers() {
-        for (Users user : databaseController.getAllUser()) {
-
+        users.clear();
+        for (long id : databaseController.getAllUser()) {
+            users.add(userService.getUserFromDatabase(id));
         }
     }
 
