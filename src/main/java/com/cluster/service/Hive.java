@@ -49,18 +49,22 @@ public class Hive {
 
     public void addUser(User user) {
         users.add(user);
+        numUsers++;
     }
 
     public void removeUser(User user) {
         users.remove(user);
+        numUsers--;
     }
 
     public void addCluster(Cluster cluster) {
         clusters.add(cluster);
+        numClusters++;
     }
 
     public void removeClustesr(Cluster cluster) {
         clusters.remove(cluster);
+        numClusters--;
     }
 
     public boolean clusterExists(Cluster cluster) {

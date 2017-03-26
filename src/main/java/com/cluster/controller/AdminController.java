@@ -12,7 +12,7 @@ import java.security.Principal;
  * Created by Andrew
  */
 @RestController
-@RequestMapping(path="admin")
+@RequestMapping(path="/admin")
 public class AdminController {
 
     @Autowired private AdminService adminService;
@@ -36,7 +36,7 @@ public class AdminController {
         return -1; // user was not an admin
     }
 
-    @GetMapping(path = "disbandCluster")
+    @GetMapping(path = "/disbandCluster")
     public @ResponseBody boolean getNumActiveUsers(Principal principal, @RequestParam long clusterId) {
         // verify user is admin
         if (userService.isAdmin(Long.parseLong(principal.getName()))) {
@@ -45,7 +45,7 @@ public class AdminController {
         return false;
     }
 
-    @GetMapping(path = "getUserInformation")
+    @GetMapping(path = "/getUserInformation")
     public @ResponseBody User getUserInformation(Principal principal, @RequestParam int userId) {
         // verify user is admin
         if (userService.isAdmin(Long.parseLong(principal.getName()))) {

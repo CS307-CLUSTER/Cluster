@@ -3,9 +3,9 @@ package com.cluster.data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
-import java.security.Timestamp;
-import java.sql.Time;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Fred on 2/28/17.
@@ -66,6 +66,17 @@ public class DatabaseController {
         return true;
     }
 
+    public boolean updateUser(Users users) {
+        if (doesUserExist(users.getId())) {
+            return false;
+        }
+
+        Users u = getUser(users.getId());
+
+        usersRepository.save(u);
+        return true;
+    }
+
     public boolean doesClusterExist(long id) {
         Clusters cluster;
         try {
@@ -105,6 +116,11 @@ public class DatabaseController {
 
         clustersRepository.save(c);
         return c.getId();
+    }
+
+    public Iterable<Restaurant> getAllRestaurant() {
+
+        return restaurantRepository.findAll();
     }
 
     public long createRestaurant(long id, String name, String hb_link, float rating, String hours, float min_delivery, float delivery_fee, String pic_src, String address, String city, String state, String zip) {
