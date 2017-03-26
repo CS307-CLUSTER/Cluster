@@ -40,7 +40,7 @@ public class RestaurantController {
     }
 
     @GetMapping(path="/getAll")
-    public @RequestBody List<Restaurant> getAllRestaurants(Principal principal) {
+    public @ResponseBody List<Restaurant> getAllRestaurants(Principal principal) {
         return restaurantService.getAllRestaurants();
     }
 
