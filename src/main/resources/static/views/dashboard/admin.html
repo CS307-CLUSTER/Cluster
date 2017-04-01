@@ -1,0 +1,17 @@
+<div>
+    <a ui-sref="Admin Page" class="pull-right btn btn-primary btn-outline btn-rounded">Reports</a>
+    <h2>Admin Page</h2>
+    <div class="jumbotron" ng-controller="AdminCtrl">
+        <div class="container">
+            <h1>Active Users: {{ activeUsers }}</h1>
+            <h1>Active Clusters: {{ activeClusters }}</h1>
+
+            <div class="panel panel-primary" ng-repeat="group in groups">
+                <p><strong>ID:&nbsp</strong>{{ group.id }}</p>
+                <p><strong>Max Users:&nbsp</strong>{{ group.maxUsers }}</p>
+                <p><strong>Min Users:&nbsp</strong>{{ group.minUsers }}</p>
+                <p><button ng-click="disband(group.id)" class="btn btn-primary btn-outline btn-rounded">Disband Cluster</button></p>
+            </div>
+        </div>
+    </div>
+</div>
