@@ -30,8 +30,6 @@ public class Hive {
         numUsers = 0;
         numClusters = 0;
 
-//        refreshRestaurants();
-//        refreshUsers();
     }
 
 
@@ -79,8 +77,7 @@ public class Hive {
         return clusters.contains(cluster);
     }
 
-    public void refreshRestaurants() {
-        restaurants.clear();
+    public void refreshRestaurants() {restaurants.clear();
         if (databaseController.getAllRestaurant() != null) {
             for (Restaurants databaseRes : databaseController.getAllRestaurant()) {
                 Restaurant res = new Restaurant(databaseRes.getId(), databaseRes.getName(), databaseRes.getHb_link(), null, databaseRes.getDelivery_fee(), databaseRes.getMin_delivery(), null);

@@ -19,12 +19,12 @@ public class RestaurantService {
     private Hive hive;
 
     public boolean addRestaurant(long id, String name, String hb_link, float rating, String hours, float min_delivery, float delivery_fee, String pic_src, String address, String city, String state, String zip) {
-        if (!restaurantExists(name)) {
+        if (restaurantExists(name)) {
             return false;
         }
 
-        databaseController.createRestaurant(id, name, hb_link, rating, hours, min_delivery, delivery_fee, pic_src, address, city, state, zip);
-//        hive.refreshRestaurants();
+        databaseController.createRestaurant(name, hb_link, rating, hours, min_delivery, delivery_fee, pic_src, address, city, state, zip);
+        hive.refreshRestaurants();
         return true;
     }
 
