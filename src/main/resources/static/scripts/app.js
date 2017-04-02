@@ -61,4 +61,9 @@ angular
         parent: 'dashboard',
         templateUrl: 'views/dashboard/admin.html'
       })
+      .state('myCluster', {
+        url: '/myCluster',
+        parent: 'dashboard',
+        templateUrl: 'views/dashboard/my-cluster.html'
+      })
   });

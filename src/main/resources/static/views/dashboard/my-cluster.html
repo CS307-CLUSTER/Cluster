@@ -1,0 +1,52 @@
+<div>
+    <a ui-sref="overview" class="pull-right btn btn-primary btn-outline btn-rounded">Back to Overview</a>
+    <h2>Clusters</h2>
+    <span class="glyphicon glyphicon-dashboard bg-fade"></span>
+    <div class="jumbotron" ng-app="yapp" ng-controller="ClustersCtrl">
+        <button ng-click="leave()" class="btn btn-primary btn-outline btn-rounded">Leave Your Cluster</button>
+        <button ng-click="removeUser(user.id)" class="btn btn-primary btn-outline btn-rounded">
+            Kick
+        </button>
+        <div class="container">
+            <div class="panel panel-primary">
+                <p><strong>ID:&nbsp</strong>{{ currentCluster.id }}</p>
+                <p><strong>Max Users:&nbsp</strong>{{ currentCluster.maxUsers }}</p>
+                <p><strong>Min Users:&nbsp</strong>{{ currentCluster.minUsers }}</p>
+                <p><strong>Users:</strong>{{ currentCluster.numUsers }}</p>
+
+                <table class="table">
+                    <caption>Individuals</caption>
+                    <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Rating (0 to 1)</th>
+                        <th>Number</th>
+                        <th class="glyphicon glyphicon-user"></th>
+                        <th>Email</th>
+                        <th>Location</th>
+                        <th ng-show="isLeader"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="user in currentCluster.users">
+                        <th>{{ user.name }}</th>
+                        <th>{{ user.rating.ratio }}</th>
+                        <th>{{ user.number}}</th>
+                        <th><a ng-href="{{ user.fbLink }}" class="glyphicon glyphicon-user"></a></th>
+                        <th>{{ user.email }}</th>
+                        <th>{{ user.location }}</th>
+                        <th ng-show="isLeader">
+                            <button ng-click="removeUser(user.id)" class="btn btn-primary btn-outline btn-rounded">
+                                Kick
+                            </button>
+                        </th>
+                    </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    <script src="scripts/controllers/clusters.js"></script>
+</div>
+

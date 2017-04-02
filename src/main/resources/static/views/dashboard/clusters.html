@@ -3,10 +3,7 @@
     <h2>Clusters</h2>
     <span class="glyphicon glyphicon-dashboard bg-fade"></span>
     <div class="jumbotron" ng-app="yapp" ng-controller="ClustersCtrl">
-        <p>
-            <button ng-click="leave()" class="btn btn-primary btn-outline btn-rounded">Leave Your Cluster</button>
-        <div class="container">
-        </p>
+`        <div class="container">
         <div class="panel panel-primary" ng-repeat="group in groups">
             <p><strong>ID:&nbsp</strong>{{ group.id }}</p>
             <p><strong>Max Users:&nbsp</strong>{{ group.maxUsers }}</p>
@@ -36,6 +33,7 @@
                     <th><a ng-href="{{ user.fbLink }}" class="glyphicon glyphicon-user"></a></th>
                     <th>{{ user.email }}</th>
                     <th>{{ user.location }}</th>
+
                 </tr>
                 </tbody>
             </table>

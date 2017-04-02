@@ -14,6 +14,16 @@ angular.module('yapp')
         $scope.groups = response.data;
       });
 
+    $http.get('/cluster/getCurrent')
+      .then(function (response) {
+        $scope.currentCluster = response.data;
+      });
+
+    $http.get('/user/getId')
+      .then(function (response) {
+        $scope.isLeader = response.data == parseFloat($scope.currentCluster.leaderID);
+      });
+
     var formData = {
       restaurant: "default",
       maxUsers: "default",
@@ -81,9 +91,11 @@ angular.module('yapp')
         console.log("Error retreiving user for leave function");
         return false;
       });
+    };
 
-
-    }
+    $scope.removeUser = function (userId) {
+      console.log("I worked");
+    };
   });
 
 
