@@ -18,22 +18,21 @@ angular.module('yapp')
         self.authenticated = false;
         $location.path("/");
       }).error(function(data) {
-        console.log("Logout failed")
+        console.log("Logout failed");
         self.authenticated = false;
       });
     };
   })
 
-  .controller("AdminTabViewCtrl", function ($http) {
-    var self = this;
-    self.isAdmin = false;
-    $http.get("/user/isAdmin").success(function (data) {
-      self.isAdmin = data;
-      console.log(self.isAdmin);
-    }).error(function () {
-      console.log('error');
-      self.isAdmin = false;
-    });
+  .controller("AdminTabViewCtrl", function ($http, $scope) {
+    $scope.isAdmin = checkAdmin();
+    console.log($scope.isAdmin);
 
-    console.log("After" + self.isAdmin);
+    function checkAdmin() {
+      return $http.get("/user/isAdmin").success(function (data) {
+        $scope.isAdmin = data;
+        console.log($scope.isAdmin);
+        return true;
+      });
+    }
   });

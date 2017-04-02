@@ -1,28 +1,31 @@
 <div class="dashboard-page">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-3 col-md-2 sidebar">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
 
-       <div class="text-center">
-        <h2 class="brand">Cluster <small></small></h2>
-        <img src="images/cluster-logo-only.png" class="user-avatar" /><br />
-        <a ui-sref="login" class="btn btn-white btn-outline btn-rounded btn-sm">Logout</a>
-      </div>
+                <div class="text-center">
+                    <h2 class="brand">Cluster
+                        <small></small>
+                    </h2>
+                    <img src="images/cluster-logo-only.png" class="user-avatar"/><br/>
+                    <a ui-sref="login" class="btn btn-white btn-outline btn-rounded btn-sm">Logout</a>
+                </div>
 
-      <ul class="nav nav-sidebar">
-        <li ng-class="{active: $state.includes('overview')}"><a ui-sref="overview">Overview <span class="sr-only">(current)</span></a></li>
-        <li ng-class="{active: $state.includes('profile')}"><a ui-sref="profile">Profile</a></li>
-        <li ng-class="{active: $state.includes('clusters')}"><a ui-sref="clusters">Clusters</a></li>
-        <li ng-class="{active: $state.includes('createCluster')}"><a ui-sref="createCluster">Create a Cluster</a></li>
-        <div ng-controller="AdminTabViewCtrl" ng-show="AdminTabViewCtrl.admin">
-            <li ng-class="{active: $state.includes('admin')}"><a ui-sref="admin">Admin Page</a></li>
+                <ul class="nav nav-sidebar" ng-controller="AdminTabViewCtrl">
+                    <li ng-class="{active: $state.includes('overview')}"><a ui-sref="overview">Overview <span
+                        class="sr-only">(current)</span></a></li>
+                    <li ng-class="{active: $state.includes('profile')}"><a ui-sref="profile">Profile</a></li>
+                    <li ng-class="{active: $state.includes('clusters')}"><a ui-sref="clusters">Clusters</a></li>
+                    <li ng-class="{active: $state.includes('createCluster')}"><a ui-sref="createCluster">Create a
+                        Cluster</a></li>
+                    <li ng-show="isAdmin" ng-class="{active: $state.includes('admin')}"><a
+                        ui-sref="admin">Admin Page</a></li>
+                    <li><a href="https://github.com/CS307-CLUSTER/cluster">Github</a></li>
+                </ul>
+
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ui-view>
+            </div>
         </div>
-        <li><a href="https://github.com/CS307-CLUSTER/cluster">Github</a></li>
-      </ul>
-
     </div>
-    <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ui-view>
-    </div>
-  </div>
-</div>
 </div>
