@@ -35,7 +35,9 @@ public class ClusterService {
         users.add(user);
         user.setCurrentClusterId(clusterId);
 
-        Cluster cluster = new Cluster(clusterId, maxUsers, minUsers, 1, users, leaderID, startTime, endTime, false, null);
+        Location location = new Location("", address, city, state, zip);
+
+        Cluster cluster = new Cluster(clusterId, maxUsers, minUsers, 1, users, leaderID, startTime, endTime, false, location);
         hive.addCluster(cluster);
 
         return true;
@@ -54,7 +56,7 @@ public class ClusterService {
         return cluster.addUser(user);
     }
 
-    public boolean removeUserFromClustesr(long userId, long clusterId) {
+    public boolean removeUserFromCluster(long userId, long clusterId) {
         User user = userService.getActiveUser(userId);
         Cluster cluster = getCluster(clusterId);
 
@@ -64,6 +66,16 @@ public class ClusterService {
 
         user.setCurrentClusterId(-1);
         return cluster.removeUser(user);
+    }
+
+    public Cluster getCurrentCluster(long userId) {
+        User user = userService.getActiveUser(userId);
+        if (user == null) {
+            return null;
+        }
+
+        Cluster cluster = getCluster(user.getCurrentClusterId());
+        return cluster;
     }
 
     public Cluster getCluster(long id) {
@@ -80,7 +92,6 @@ public class ClusterService {
     }
 
     public boolean addCluster() {
-
         return false;
     }
 

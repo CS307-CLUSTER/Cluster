@@ -9,9 +9,9 @@ public class Location {
     private String address;
     private String city;
     private String state;
-    private Integer zip;
+    private String zip;
 
-    public Location(String name, String address, String city, String state, Integer zip) {
+    public Location(String name, String address, String city, String state, String zip) {
         this.name = name;
         this.address = address;
         this.city = city;
@@ -51,11 +51,11 @@ public class Location {
         this.state = state;
     }
 
-    public Integer getZip() {
+    public String getZip() {
         return zip;
     }
 
-    public void setZip(Integer zip) {
+    public void setZip(String zip) {
         this.zip = zip;
     }
 

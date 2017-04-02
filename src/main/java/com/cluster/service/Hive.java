@@ -80,7 +80,8 @@ public class Hive {
     public void refreshRestaurants() {restaurants.clear();
         if (databaseController.getAllRestaurant() != null) {
             for (Restaurants databaseRes : databaseController.getAllRestaurant()) {
-                Restaurant res = new Restaurant(databaseRes.getId(), databaseRes.getName(), databaseRes.getHb_link(), null, databaseRes.getDelivery_fee(), databaseRes.getMin_delivery(), null);
+                Location location = new Location(databaseRes.getName(), databaseRes.getAddress(), databaseRes.getCity(), databaseRes.getState(), databaseRes.getZip());
+                Restaurant res = new Restaurant(databaseRes.getId(), databaseRes.getName(), databaseRes.getHb_link(), null, databaseRes.getDelivery_fee(), databaseRes.getMin_delivery(), location);
                 restaurants.add(res);
             }
         }
