@@ -56,6 +56,17 @@ public class        ClusterController {
 
     @GetMapping(path="/leave")
     public @ResponseBody boolean leaveCluster(Principal principal, @RequestParam long clusterId) {
-        return serviceController.removeUserFromClustesr(Long.parseLong(principal.getName()), clusterId);
+        return serviceController.removeUserFromCluster(Long.parseLong(principal.getName()), clusterId);
     }
+
+    @GetMapping(path="/getCurrent")
+    public @ResponseBody Cluster getCurrentCluster(Principal principal) {
+        return serviceController.getCurrentCluster(Long.parseLong(principal.getName()));
+    }
+
+    @GetMapping(path="/kick")
+    public @ResponseBody boolean kickUser(Principal principal, @RequestParam long userId, @RequestParam long clusterId) {
+        return serviceController.removeUserFromCluster(userId, clusterId);
+    }
+
 }

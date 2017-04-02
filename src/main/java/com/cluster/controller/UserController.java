@@ -34,6 +34,11 @@ public class UserController {
         return userService.getActiveUser(Long.parseLong(principal.getName()));
     }
 
+    @GetMapping(path="/getId")
+    public @ResponseBody long getId(Principal principal) {
+        return userInfo(principal).getId();
+    }
+
     @GetMapping(path="/check")
     public @ResponseBody String checkUser(Principal principal) {
         if (userService.userExists(Long.parseLong(principal.getName()))) {
