@@ -11,6 +11,22 @@
             <p>Phone Number: {{ data.number }}</p>
             <p>Facebook Profile: <a ng-href="{{ data.fbLink }}" class="glyphicon glyphicon-user"></a></p>
             <p>Email: {{ data.email }}</p>
+            <p><strong>Name:</strong>
+                <div click-to-edit="data.name"></div>
+            </p>
+            <p><strong>Phone Number:</strong>
+                <div click-to-edit="data.number"></div>
+            </p>
+            <p><strong>Email:</strong>
+                <div click-to-edit="data.email"></div>
+            </p>
+            <div>
+                <h2>Values</h2>
+
+                <p><strong>Region:</strong> {{data.name}}</p>
+                <p><strong>City:</strong> {{data.number}}</p>
+                <p><strong>Suburb:</strong> {{data.email}}</p>
+            </div>
         </div>
     </div>
     <script src="scripts/controllers/profile.js"></script>
