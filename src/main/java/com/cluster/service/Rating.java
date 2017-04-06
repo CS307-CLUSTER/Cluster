@@ -19,6 +19,20 @@ public class Rating {
         }
     }
 
+    public void upVote() {
+        upVotes++;
+    }
+
+    public void downVote() {
+        downVotes++;
+    }
+
+    public void reset() {
+        upVotes = 0;
+        downVotes = 0;
+        ratio = 1;
+    }
+
     public int getUpVotes() {
         return upVotes;
     }
