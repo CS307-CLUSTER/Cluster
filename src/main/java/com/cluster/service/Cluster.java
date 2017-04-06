@@ -1,6 +1,8 @@
 package com.cluster.service;
 
 
+import org.springframework.web.bind.annotation.RestController;
+
 import java.util.Date;
 import java.util.List;
 
@@ -19,8 +21,9 @@ public class Cluster {
     private Date endTime;
     private boolean isComplete;
     private Location location;
+    private Restaurant restaurant;
 
-    public Cluster(long id, int maxUsers, int minUsers, int numUsers, List<User> users, long leaderID, Date startTime, Date endTime, boolean isComplete, Location location) {
+    public Cluster(long id, int maxUsers, int minUsers, int numUsers, Restaurant restaurant, List<User> users, long leaderID, Date startTime, Date endTime, boolean isComplete, Location location) {
         this.id = id;
         this.maxUsers = maxUsers;
         this.minUsers = minUsers;
@@ -31,6 +34,7 @@ public class Cluster {
         this.endTime = endTime;
         this.isComplete = isComplete;
         this.location = location;
+        this.restaurant = restaurant;
     }
 
     @Override
@@ -136,5 +140,13 @@ public class Cluster {
 
     public void setLocation(Location location) {
         this.location = location;
+    }
+
+    public Restaurant getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
     }
 }

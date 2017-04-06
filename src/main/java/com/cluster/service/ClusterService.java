@@ -1,13 +1,11 @@
 package com.cluster.service;
 
 import com.cluster.data.DatabaseController;
-import com.cluster.data.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.LinkedList;
 import java.util.List;
 
 /**
@@ -22,22 +20,25 @@ public class ClusterService {
     private Hive hive;
     @Autowired
     private UserService userService;
+    @Autowired
+    private RestaurantService restaurantService;
 
     public boolean clusterExists(long id) {
         return true;
     }
 
-    public boolean createCluster(int maxUsers, int minUsers, long leaderID, Date startTime, Date endTime, String address, String city, String state, String zip) {
-        long clusterId = databaseController.createCluster(startTime, endTime, -1, address, city, state, zip, leaderID);
+    public boolean createCluster(int maxUsers, int minUsers, long leaderID, long restaurantId, Date startTime, Date endTime, String address, String city, String state, String zip) {
+        Location location = new Location("", address, city, state, zip);
+        long clusterId = databaseController.createCluster(startTime, endTime, -1, location, leaderID);
 
         List<User> users = new ArrayList<>();
         User user = userService.getActiveUser(leaderID);
         users.add(user);
         user.setCurrentClusterId(clusterId);
 
-        Location location = new Location("", address, city, state, zip);
 
-        Cluster cluster = new Cluster(clusterId, maxUsers, minUsers, 1, users, leaderID, startTime, endTime, false, location);
+
+        Cluster cluster = new Cluster(clusterId, maxUsers, minUsers, 1, restaurantService.getRestaurant(restaurantId), users, leaderID, startTime, endTime, false, location);
         hive.addCluster(cluster);
 
         return true;
@@ -87,6 +88,19 @@ public class ClusterService {
         return null;
     }
 
+    public boolean completeCluster(long clusterId) {
+        Cluster cluster = getCluster(clusterId);
+        cluster.setComplete(true);
+
+        for (User u : cluster.getUsers()) {
+            cluster.getUsers().stream().filter(u2 -> !u.equals(u2)).forEach(u::addUserToRate);
+        }
+
+        databaseController.createCluster(cluster.getStartTime(), cluster.getEndTime(), cluster.getRestaurant().getId(), cluster.getLocation(), cluster.getLeaderID());
+        hive.removeClustesr(cluster);
+
+        return true;
+    }
     public List<Cluster> getAllClusters() {
         return hive.getClusters();
     }

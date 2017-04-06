@@ -1,5 +1,6 @@
 package com.cluster.data;
 
+import com.cluster.service.Location;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -115,16 +116,16 @@ public class DatabaseController {
         return clustersRepository.findAll();
     }
 
-    public long createCluster(Date start, Date end, long restaurant_id, String address, String city, String state, String zip, long leader_id) {
+    public long createCluster(Date start, Date end, long restaurant_id, Location location, long leader_id) {
 
         Clusters c = new Clusters();
         c.setStart(start);
         c.setEnd(end);
         c.setRestaurant_id(restaurant_id);
-        c.setAddress(address);
-        c.setCity(city);
-        c.setZip(zip);
-        c.setState(state);
+        c.setAddress(location.getAddress());
+        c.setCity(location.getCity());
+        c.setZip(location.getZip());
+        c.setState(location.getState());
         c.setLeader_id(leader_id);
 
         clustersRepository.save(c);

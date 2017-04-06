@@ -1,5 +1,7 @@
 package com.cluster.service;
 
+import java.util.List;
+
 /**
  * Created by shane on 2/27/17.
  */
@@ -16,6 +18,7 @@ public class User {
     private String accessToken;
     private long currentClusterId;
     private boolean isAdmin;
+    private List<User> usersToRate;
 
     public User(long id, String name, Rating rating, String number, String fbLink, String email, Location location, int sessionID, String accessToken) {
         this.id = id;
@@ -29,6 +32,10 @@ public class User {
         this.accessToken = accessToken;
         this.currentClusterId = -1;
         this.isAdmin = false;
+    }
+
+    public void addUserToRate(User user) {
+        usersToRate.add(user);
     }
 
     @Override
@@ -123,4 +130,9 @@ public class User {
     public void setAdmin(boolean admin) {
         isAdmin = admin;
     }
+
+    public List<User> getUsersToRate() {
+        return usersToRate;
+    }
+
 }

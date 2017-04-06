@@ -21,14 +21,14 @@ public class        ClusterController {
     private ClusterService serviceController;
 
     @GetMapping(path="/create")
-    public @ResponseBody String createCluster(Principal principal,
+    public @ResponseBody String createCluster(Principal principal, @RequestParam long restaurant_id,
                                               @RequestParam int maxUsers, @RequestParam int minUsers,
                                               @RequestParam int startTime, @RequestParam int endTime,
                                               @RequestParam String address, @RequestParam String city,
                                               @RequestParam String state, @RequestParam String zip) {
         Date dummyDate = new Date(startTime); // TODO remove once frontend can send dates
         long leaderId = Long.parseLong(principal.getName());
-        boolean created = serviceController.createCluster(maxUsers, minUsers, leaderId, dummyDate,
+        boolean created = serviceController.createCluster(maxUsers, minUsers, leaderId, restaurant_id, dummyDate,
                 dummyDate, address, city, state, zip);
         if (created) {
             return "Cluster created!";
