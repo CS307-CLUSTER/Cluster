@@ -1,5 +1,6 @@
 package com.cluster.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -32,6 +33,7 @@ public class User {
         this.accessToken = accessToken;
         this.currentClusterId = -1;
         this.isAdmin = false;
+        this.usersToRate = new ArrayList<>();
     }
 
     public void addUserToRate(User user) {

@@ -101,6 +101,14 @@ angular.module('yapp')
     $scope.removeUser = function (userId) {
       console.log("I worked");
     };
+
+    $scope.complete = function(clusterId) {
+      var completeUrl = ('cluster/complete?clusterId=' + clusterId);
+      $http.get(completeUrl).success(function (response) {
+        console.log("Should have completed");
+      });
+      $state.reload();
+    }
   });
 
 
