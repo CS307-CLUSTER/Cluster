@@ -47,7 +47,7 @@ angular.module('yapp')
       $location.path('/dashboard/clusters');
       var dummyRestaurant = 1;
       var url = ('/cluster/create?restaurant_id=' + dummyRestaurant + '&maxUsers=' + formData.maxUsers + '&minUsers=' + formData.minUsers + '&startTime='
-      + formData.startTime + '&endTime=' + formData.endTime + '&address=' + formData.address1 + '&city='
+      + '' + '&endTime=' + '' + '&address=' + formData.address1 + '&city='
       + formData.city + '&state=' + formData.state + '&zip=' + formData.zip);
       console.log(url);
       $http.get(url).success(function (response) {
@@ -101,6 +101,14 @@ angular.module('yapp')
     $scope.removeUser = function (userId) {
       console.log("I worked");
     };
+
+    $scope.complete = function(clusterId) {
+      var completeUrl = ('cluster/complete?clusterId=' + clusterId);
+      $http.get(completeUrl).success(function (response) {
+        console.log("Should have completed");
+      });
+      $state.reload();
+    }
   });
 
 

@@ -32,9 +32,13 @@
                         <th ng-show="isLeader"></th>
                     </tr>
                     </thead>
+
                     <tbody>
                     <tr ng-repeat="user in currentCluster.users">
-                        <th>{{ user.name }}</th>
+
+                        <!-- placeholder for otherProfile for now -->
+                        <th onclick="alert('Some User Profile was clicked.')">{{ user.name }}</th>
+
                         <th>{{ user.rating.ratio }}</th>
                         <th>{{ user.number}}</th>
                         <th><a ng-href="{{ user.fbLink }}" class="glyphicon glyphicon-user"></a></th>
@@ -50,7 +54,7 @@
                 </table>
 
                 <div ng-show="isLeader">
-                    <button ng-click="<!--todo-->" class="btn btn-primary btn-outline btn-rounded">COMPLETE</button>
+                    <button ng-click="complete(currentCluster.id)" class="btn btn-primary btn-outline btn-rounded">COMPLETE</button>
                 </div>
 
             </div>
