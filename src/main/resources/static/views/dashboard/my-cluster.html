@@ -13,6 +13,11 @@
                 <p><strong>Max Users:&nbsp</strong>{{ currentCluster.maxUsers }}</p>
                 <p><strong>Min Users:&nbsp</strong>{{ currentCluster.minUsers }}</p>
                 <p><strong>Users:</strong>{{ currentCluster.numUsers }}</p>
+                <p><strong>Location:</strong>
+                <p>{{ currentCluster.location.name }}</p>
+                <p>{{ currentCluster.location.address }}</p>
+                <p>{{ currentCluster.location.city }}, {{ currentCluster.location.state }} {{ currentCluster.location.zip }}</p>
+                </p>
 
                 <table class="table">
                     <caption>Individuals</caption>

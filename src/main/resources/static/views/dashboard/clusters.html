@@ -9,6 +9,11 @@
             <p><strong>Max Users:&nbsp</strong>{{ group.maxUsers }}</p>
             <p><strong>Min Users:&nbsp</strong>{{ group.minUsers }}</p>
             <p><strong>Users:</strong>{{ group.numUsers }}</p>
+            <p><strong>Location:</strong>
+                <p>{{ group.location.name }}</p>
+                <p>{{ group.location.address }}</p>
+                <p>{{ group.location.city }}, {{ group.location.state }} {{ group.location.zip }}</p>
+            </p>
             <p>
                 <button ng-click="join(group.id)" class="btn btn-primary btn-outline btn-rounded">Join Cluster</button>
             </p>
