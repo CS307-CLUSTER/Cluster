@@ -69,4 +69,9 @@ public class        ClusterController {
         return serviceController.removeUserFromCluster(userId, clusterId);
     }
 
+    @GetMapping(path="/complete")
+    public @ResponseBody boolean completeCluster(Principal principal, @RequestParam long clusterId) {
+        return serviceController.completeCluster(clusterId);
+    }
+
 }
