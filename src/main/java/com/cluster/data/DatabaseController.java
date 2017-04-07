@@ -1,6 +1,9 @@
 package com.cluster.data;
 
+import com.cluster.service.Cluster;
 import com.cluster.service.Location;
+import com.cluster.service.Restaurant;
+import com.cluster.service.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
@@ -76,12 +79,12 @@ public class DatabaseController {
         return true;
     }
 
-    public boolean updateUser(Users users) {
-        if (doesUserExist(users.getId())) {
+    public boolean updateUser(User user) {
+        if (!doesUserExist(user.getId())) {
             return false;
         }
 
-        Users u = getUser(users.getId());
+        Users u = getUser(user.getId());
 
         usersRepository.save(u);
         return true;
@@ -132,6 +135,31 @@ public class DatabaseController {
         return c.getId();
     }
 
+    public boolean updateCluster(Cluster cluster) {
+        if (!doesClusterExist(cluster.getId())) {
+            return false;
+        }
+
+        Clusters c = getCluster(cluster.getId());
+
+        clustersRepository.save(c);
+        return true;
+    }
+
+    public boolean doesRestaurantExist(long id) {
+        Restaurants restaurants;
+        try {
+            restaurants = restaurantRepository.findById(id);
+        }
+        catch (Exception ex) {
+            return false;
+        }
+        if (restaurants == null) {
+            return false;
+        }
+        return true;
+    }
+
     public Restaurants getRestaurant(long id) {
         Restaurants restaurants = null;
         try {
@@ -165,5 +193,16 @@ public class DatabaseController {
 
         restaurantRepository.save(r);
         return r.getId();
+    }
+
+    public boolean updateRestaurant(Restaurant restaurant) {
+        if (!doesRestaurantExist(restaurant.getId())) {
+            return false;
+        }
+
+        Restaurants r = getRestaurant(restaurant.getId());
+
+        restaurantRepository.save(r);
+        return true;
     }
 }
