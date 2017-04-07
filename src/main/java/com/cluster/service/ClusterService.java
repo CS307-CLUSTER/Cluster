@@ -96,6 +96,10 @@ public class ClusterService {
             cluster.getUsers().stream().filter(u2 -> !u.equals(u2)).forEach(u::addUserToRate);
         }
 
+        for (User u: cluster.getUsers()) {
+            removeUserFromCluster(u.getId(), u.getCurrentClusterId());
+        }
+
         databaseController.createCluster(cluster.getStartTime(), cluster.getEndTime(), cluster.getRestaurant().getId(), cluster.getLocation(), cluster.getLeaderID());
         hive.removeClustesr(cluster);
 

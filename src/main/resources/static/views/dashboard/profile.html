@@ -4,28 +4,32 @@
     <span class="glyphicon glyphicon-dashboard bg-fade"></span>
     <div class="jumbotron">
         <div class="container" ng-app="yapp" ng-controller="ProfileCtrl">
-            <p>{{ data.name }}</p>
-            <p>Rating Ratio: {{ data.rating.ratio }}</p>
-            <p>Upvotes {{ data.rating.upVotes }}</p>
-            <p>Downvotes: {{ data.rating.downVotes }}</p>
-            <p>Phone Number: {{ data.number }}</p>
-            <p>Facebook Profile: <a ng-href="{{ data.fbLink }}" class="glyphicon glyphicon-user"></a></p>
-            <p>Email: {{ data.email }}</p>
+            <!--<p>{{ data.name }}</p>-->
+            <!--<p>Rating Ratio: {{ data.rating.ratio }}</p>-->
+            <!--<p>Upvotes {{ data.rating.upVotes }}</p>-->
+            <!--<p>Downvotes: {{ data.rating.downVotes }}</p>-->
+            <!--<p>Phone Number: {{ data.number }}</p>-->
+            <!--<p>Facebook Profile: <a ng-href="{{ data.fbLink }}" class="glyphicon glyphicon-user"></a></p>-->
+            <!--<p>Email: {{ data.email }}</p>-->
             <p><strong>Name:</strong>
-                <div click-to-edit="data.name"></div>
+                <div click-to-edit="data.name" structure="data"></div>
             </p>
             <p><strong>Phone Number:</strong>
-                <div click-to-edit="data.number"></div>
+                <div click-to-edit="data.number" structure="data"></div>
             </p>
             <p><strong>Email:</strong>
-                <div click-to-edit="data.email"></div>
+                <div click-to-edit="data.email" structure="data"></div>
             </p>
             <div>
                 <h2>Values</h2>
 
-                <p><strong>Name:</strong> {{data.name}}</p>
-                <p><strong>Number:</strong> {{data.number}}</p>
-                <p><strong>Email:</strong> {{data.email}}</p>
+                <p>{{ data.name }}</p>
+                <p>Rating Ratio: {{ data.rating.ratio }}</p>
+                <p>Upvotes {{ data.rating.upVotes }}</p>
+                <p>Downvotes: {{ data.rating.downVotes }}</p>
+                <p>Phone Number: {{ data.number }}</p>
+                <p>Facebook Profile: <a ng-href="{{ data.fbLink }}" class="glyphicon glyphicon-user"></a></p>
+                <p>Email: {{ data.email }}</p>
             </div>
         </div>
     </div>
