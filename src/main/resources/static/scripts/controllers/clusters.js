@@ -2,7 +2,7 @@
 
 /**
  * @ngdoc function
- * @name yapp.controller:MainCtrl
+ * @name yapp.controller:ClustersCtrl
  * @description
  * # MainCtrl
  * Controller of yapp

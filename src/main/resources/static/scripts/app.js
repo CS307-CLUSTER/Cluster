@@ -66,4 +66,9 @@ angular
         parent: 'dashboard',
         templateUrl: 'views/dashboard/my-cluster.html'
       })
+      .state('rating', {
+        url: '/rating',
+        parent: 'dashboard',
+        templateUrl: 'views/dashboard/rating.html'
+      })
   });
