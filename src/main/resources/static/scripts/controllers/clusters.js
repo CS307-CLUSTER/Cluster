@@ -47,7 +47,7 @@ angular.module('yapp')
       $location.path('/dashboard/clusters');
       var dummyRestaurant = 1;
       var url = ('/cluster/create?restaurant_id=' + dummyRestaurant + '&maxUsers=' + formData.maxUsers + '&minUsers=' + formData.minUsers + '&startTime='
-      + formData.startTime + '&endTime=' + formData.endTime + '&address=' + formData.address1 + '&city='
+      + '1' + '&endTime=' + '1' + '&address=' + formData.address1 + '&city='
       + formData.city + '&state=' + formData.state + '&zip=' + formData.zip);
       console.log(url);
       $http.get(url).success(function (response) {
