@@ -97,4 +97,10 @@ public class UserController {
         return ratingService.downVoteUser(userId);
     }
 
+    @GetMapping(path="/editInfo")
+    public @RequestMapping boolean editInfo(Principal principal, @RequestParam String name,
+                                            @RequestParam String number, @RequestParam String email) {
+        return userService.editInfo(Long.parseLong(principal.getName()), name, number, email);
+    }
+
 }

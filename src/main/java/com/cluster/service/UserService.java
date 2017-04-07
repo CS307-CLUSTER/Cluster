@@ -94,4 +94,15 @@ public class UserService {
         return isUserActive(id) && getActiveUser(id).isAdmin();
     }
 
+    public boolean editInfo(long id, String name, String number, String email) {
+        User user = getUserFromDatabase(id);
+        if (user == null) {
+            return false;
+        }
+        user.setName(name);
+        user.setNumber(number);
+        user.setEmail(email);
+        return databaseController.updateUser(user);
+    }
+
 }
