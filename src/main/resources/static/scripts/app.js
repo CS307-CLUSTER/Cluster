@@ -71,4 +71,10 @@ angular
         parent: 'dashboard',
         templateUrl: 'views/dashboard/rating.html'
       })
+      .state('other-profile', {
+        url: '/other-profile',
+        parent: 'base',
+        templateUrl: 'views/other-profile.html',
+        controller: 'OtherProfileCtrl'
+      })
   });

@@ -1,0 +1,33 @@
+<div>
+    <a ui-sref="overview" class="pull-right btn btn-primary btn-outline btn-rounded">Back to Overview</a>
+    <h2>{{ data.name }}</h2>
+    <span class="glyphicon glyphicon-dashboard bg-fade"></span>
+    <div class="jumbotron">
+        <div class="container" ng-app="yapp" ng-controller="OtherProfileCtrl">
+            <!--<p>{{ data.name }}</p>-->
+            <p>Rating Ratio: {{ data.rating.ratio }}</p>
+            <p>Upvotes {{ data.rating.upVotes }}</p>
+            <p>Downvotes: {{ data.rating.downVotes }}</p>
+            <p>Phone Number: {{ data.number }}</p>
+            <p>Facebook Profile: <a ng-href="{{ data.fbLink }}" class="glyphicon glyphicon-user"></a></p>
+            <p>Email: {{ data.email }}</p>
+            <p><strong>Name:</strong>
+                <div click-to-edit="data.name"></div>
+            </p>
+            <p><strong>Phone Number:</strong>
+                <div click-to-edit="data.number"></div>
+            </p>
+            <p><strong>Email:</strong>
+                <div click-to-edit="data.email"></div>
+            </p>
+            <div>
+                <h2>Values</h2>
+
+                <p><strong>Name:</strong> {{data.name}}</p>
+                <p><strong>Number:</strong> {{data.number}}</p>
+                <p><strong>Email:</strong> {{data.email}}</p>
+            </div>
+        </div>
+    </div>
+    <script src="scripts/controllers/other-profile.js"></script>
+</div>
