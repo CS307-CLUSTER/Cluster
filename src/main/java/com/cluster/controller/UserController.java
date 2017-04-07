@@ -89,12 +89,20 @@ public class UserController {
 
     @GetMapping(path="/upVote")
     public @ResponseBody boolean upVote(Principal principal, @RequestParam long userId) {
-        return ratingService.upVoteUser(userId);
+        boolean success = ratingService.upVoteUser(userId);
+        if (!success) {
+            return false;
+        }
+        return userService.removeRatedUser(Long.parseLong(principal.getName()), userId);
     }
 
     @GetMapping(path="/downVote")
     public @ResponseBody boolean downVote(Principal principal, @RequestParam long userId) {
-        return ratingService.downVoteUser(userId);
+        boolean success = ratingService.downVoteUser(userId);
+        if (!success) {
+            return false;
+        }
+        return userService.removeRatedUser(Long.parseLong(principal.getName()), userId);
     }
 
     @GetMapping(path="/editInfo")
