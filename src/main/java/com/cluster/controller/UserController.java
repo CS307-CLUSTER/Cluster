@@ -1,5 +1,6 @@
 package com.cluster.controller;
 
+import com.cluster.service.RatingService;
 import com.cluster.service.User;
 import com.cluster.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,8 +17,8 @@ import java.util.List;
 @RequestMapping(path="/user")
 public class UserController {
 
-    @Autowired
-    private UserService userService;
+    @Autowired private UserService userService;
+    @Autowired private RatingService ratingService;
 
     @GetMapping(path="/test")
     public @ResponseBody Principal test(Principal principal) {
@@ -78,10 +79,7 @@ public class UserController {
 
     @GetMapping(path="/removeAdmin")
     public @ResponseBody boolean removeAdmin(Principal principal, @RequestParam long userId) {
-        if (userService.isUserActive(userId)) {
-            return userService.setAdmin(userId, false);
-        }
-        return false;
+        return userService.isUserActive(userId) && userService.setAdmin(userId, false);
     }
 
     @GetMapping(path="/isAdmin")
@@ -89,5 +87,14 @@ public class UserController {
         return userService.isAdmin(Long.parseLong(principal.getName()));
     }
 
+    @GetMapping(path="/upVote")
+    public @ResponseBody boolean upVote(Principal principal, @RequestParam long userId) {
+        return ratingService.upVoteUser(userId);
+    }
+
+    @GetMapping(path="/downVote")
+    public @ResponseBody boolean downVote(Principal principal, @RequestParam long userId) {
+        return ratingService.downVoteUser(userId);
+    }
 
 }
