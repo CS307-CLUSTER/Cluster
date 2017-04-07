@@ -21,7 +21,11 @@ angular.module('yapp')
 
     $http.get('/user/getId')
       .then(function (response) {
-        $scope.isLeader = response.data == parseFloat($scope.currentCluster.leaderID);
+        if ($scope.currentCluster == null) {
+          $scope.isLeader = false;
+        } else {
+          $scope.isLeader = response.data == parseFloat($scope.currentCluster.leaderID);
+        }
       });
 
     var formData = {
