@@ -62,7 +62,7 @@ angular.module('yapp')
       .then(function(response) {
         //$scope.data = response.data;
         alert(isCreated);
-      })
+      });
   });
 
 function createUser() {

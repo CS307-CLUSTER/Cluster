@@ -41,7 +41,8 @@ angular.module('yapp')
       console.log("I've ran");
       formData = $scope.form;
       $location.path('/dashboard/clusters');
-      var url = ('/cluster/create?maxUsers=' + formData.maxUsers + '&minUsers=' + formData.minUsers + '&startTime='
+      var dummyRestaurant = 1;
+      var url = ('/cluster/create?restaurant_id=' + dummyRestaurant + '&maxUsers=' + formData.maxUsers + '&minUsers=' + formData.minUsers + '&startTime='
       + formData.startTime + '&endTime=' + formData.endTime + '&address=' + formData.address1 + '&city='
       + formData.city + '&state=' + formData.state + '&zip=' + formData.zip);
       console.log(url);
