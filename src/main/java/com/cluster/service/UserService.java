@@ -105,4 +105,13 @@ public class UserService {
         return databaseController.updateUser(user);
     }
 
+    public boolean removeRatedUser(long idOfUser, long idToRemove) {
+        User user = getUserFromDatabase(idOfUser);
+        User toRemove = getUserFromDatabase(idToRemove);
+        if (user == null || toRemove == null) {
+            return false;
+        }
+        return user.getUsersToRate().remove(toRemove);
+    }
+
 }

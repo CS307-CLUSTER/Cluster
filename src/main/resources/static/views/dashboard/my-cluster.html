@@ -53,6 +53,10 @@
                     </tbody>
                 </table>
 
+                <div ng-show="isLeader">
+                    <button ng-click="complete(currentCluster.id)" class="btn btn-primary btn-outline btn-rounded">COMPLETE</button>
+                </div>
+
             </div>
         </div>
     </div>

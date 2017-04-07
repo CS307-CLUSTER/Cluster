@@ -21,13 +21,14 @@ angular.module('yapp')
 
     //-------------------------------------------------------------
 
-    $scope.upvote = function () {
-      console.log("upvoted");
-      $http.get('/user/upVote').success(function () {
-        return true;
-      })
+    $scope.upvote = function (userId) {
+      // console.log("upvoted");
+      // $http.get().success(function () {
+      //   return true;
+      // })
 
 
+      var url = ('/user/upVote?userId=' + userId);
       console.log(url);
       $http.get(url).success(function (response) {
         console.log(response);
@@ -39,9 +40,9 @@ angular.module('yapp')
 
     //-------------------------------------------------------------
 
-    $scope.downvote = function () {
+    $scope.downvote = function (userId) {
       console.log("downvoted");
-      $location.path('/user/downVote');
+      var url = ('/user/downVote?userId=' + userId);
 
 
       console.log(url);

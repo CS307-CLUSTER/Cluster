@@ -93,10 +93,16 @@ public class ClusterService {
         cluster.setComplete(true);
 
         for (User u : cluster.getUsers()) {
-            cluster.getUsers().stream().filter(u2 -> !u.equals(u2)).forEach(u::addUserToRate);
+            for (User u2 : cluster.getUsers()) {
+                if (!u2.equals(u)) {
+                    u.addUserToRate(u2);
+                }
+            }
+            u.setCurrentClusterId(-1);
         }
 
-        databaseController.createCluster(cluster.getStartTime(), cluster.getEndTime(), cluster.getRestaurant().getId(), cluster.getLocation(), cluster.getLeaderID());
+
+        //databaseController.createCluster(cluster.getStartTime(), cluster.getEndTime(), cluster.getRestaurant().getId(), cluster.getLocation(), cluster.getLeaderID());
         hive.removeClustesr(cluster);
 
         return true;
