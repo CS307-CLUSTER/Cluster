@@ -32,9 +32,13 @@
                         <th ng-show="isLeader"></th>
                     </tr>
                     </thead>
+
                     <tbody>
                     <tr ng-repeat="user in currentCluster.users">
-                        <th>{{ user.name }}</th>
+
+                        <!-- placeholder for otherProfile for now -->
+                        <th onclick="alert('Some User Profile was clicked.')">{{ user.name }}</th>
+
                         <th>{{ user.rating.ratio }}</th>
                         <th>{{ user.number}}</th>
                         <th><a ng-href="{{ user.fbLink }}" class="glyphicon glyphicon-user"></a></th>
