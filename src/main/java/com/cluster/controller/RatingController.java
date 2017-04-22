@@ -24,7 +24,7 @@ public class RatingController {
 
     @GetMapping(path="/getAll")
     public @ResponseBody
-    List<User> getAll(Principal principal) {
+    List<Long> getAll(Principal principal) {
         return userService.getActiveUser(Long.parseLong(principal.getName())).getUsersToRate();
     }
 
