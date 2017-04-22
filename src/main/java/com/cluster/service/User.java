@@ -19,7 +19,7 @@ public class User {
     private String accessToken;
     private long currentClusterId;
     private boolean isAdmin;
-    private List<User> usersToRate;
+    private List<Long> usersToRate;
 
     public User(long id, String name, Rating rating, String number, String fbLink, String email, Location location, int sessionID, String accessToken) {
         this.id = id;
@@ -37,7 +37,7 @@ public class User {
     }
 
     public void addUserToRate(User user) {
-        usersToRate.add(user);
+        usersToRate.add(user.getId());
     }
 
     @Override
@@ -133,7 +133,7 @@ public class User {
         isAdmin = admin;
     }
 
-    public List<User> getUsersToRate() {
+    public List<Long> getUsersToRate() {
         return usersToRate;
     }
 
