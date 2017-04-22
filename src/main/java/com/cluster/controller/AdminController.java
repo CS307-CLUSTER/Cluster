@@ -1,5 +1,6 @@
 package com.cluster.controller;
 
+import com.cluster.data.Clusters;
 import com.cluster.service.AdminService;
 import com.cluster.service.User;
 import com.cluster.service.UserService;
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.List;
 
 /**
  * Created by Andrew
@@ -54,7 +56,7 @@ public class AdminController {
         return null;
     }
 
-    @GetMapping(path = "/getNumCompletedOrders")
+    @GetMapping(path = "/getNumCompletedClusters")
     public @ResponseBody int getNumCompletedOrders(Principal principal) {
         if (userService.isAdmin(Long.parseLong(principal.getName()))) {
             return adminService.getNumCompletedClusters();
@@ -62,7 +64,7 @@ public class AdminController {
         return -1;
     }
 
-    @GetMapping(path = "/getNumNotCompletedOrders")
+    @GetMapping(path = "/getNumNotCompletedClusters")
     public @ResponseBody int getNumNotCompletedOrders(Principal principal) {
         if (userService.isAdmin(Long.parseLong(principal.getName()))) {
             return adminService.getNumNotCompletedClusters();
@@ -70,5 +72,13 @@ public class AdminController {
         return -1;
     }
 
+    @GetMapping(path = "/getAllClusterHistory")
+    public @ResponseBody List<Clusters> getAllClusterHistory(Principal principal) {
+        if (userService.isAdmin(Long.parseLong(principal.getName()))) {
+            return adminService.getAllClusterHistory();
+        }
+
+        return null;
+    }
 }
 

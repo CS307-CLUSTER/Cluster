@@ -59,4 +59,8 @@ public class AdminService {
     public int getNumNotCompletedClusters() {
         return databaseController.getAllClusters().size() - getNumCompletedClusters();
     }
+
+    public List<Clusters> getAllClusterHistory() {
+        return databaseController.getAllClusters();
+    }
 }
