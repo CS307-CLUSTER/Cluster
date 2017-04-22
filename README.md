@@ -9,6 +9,15 @@ Make sure you have npm installed. Them run npm install bower. If you don't do th
 ## API Endpoints
 All public for now
 
+
+### Backend (/backend)
+**/refresh**<br>
+Params: None<br>
+Type: GET<br>
+Return Type: String<br>
+
+Syncs up Hive with the database, uses on startup, returns with message
+
 ### Admin (/admin)
 **/getNumActiveUsers**<br>
 Params: None<br>
