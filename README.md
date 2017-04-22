@@ -41,11 +41,11 @@ Return Type: boolean<br>
 Disbands cluster with the given clusterID, returns true if disbanded successfully
 
 **/getUserInformation**<br>
-Params: None<br>
+Params: userId<br>
 Type: GET<br>
-Return Type: Int<br>
+Return Type: User<br>
 
-Gets the number of users active
+Get the user given
 
 ### Cluster (/cluster)
 **/create**<br>
