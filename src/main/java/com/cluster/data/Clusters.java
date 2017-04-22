@@ -26,6 +26,7 @@ public class Clusters {
     private String state;
     private String zip;
     private long leader_id;
+    private boolean completed;
 
     public long getId() {
         return id;
@@ -97,5 +98,13 @@ public class Clusters {
 
     public void setLeader_id(long leader_id) {
         this.leader_id = leader_id;
+    }
+
+    public boolean isCompleted() {
+        return completed;
+    }
+
+    public void setCompleted(boolean completed) {
+        this.completed = completed;
     }
 }

@@ -54,5 +54,21 @@ public class AdminController {
         return null;
     }
 
+    @GetMapping(path = "/getNumCompletedOrders")
+    public @ResponseBody int getNumCompletedOrders(Principal principal) {
+        if (userService.isAdmin(Long.parseLong(principal.getName()))) {
+            return adminService.getNumCompletedClusters();
+        }
+        return -1;
+    }
+
+    @GetMapping(path = "/getNumNotCompletedOrders")
+    public @ResponseBody int getNumNotCompletedOrders(Principal principal) {
+        if (userService.isAdmin(Long.parseLong(principal.getName()))) {
+            return adminService.getNumNotCompletedClusters();
+        }
+        return -1;
+    }
+
 }
 
