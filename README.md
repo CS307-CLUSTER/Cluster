@@ -130,9 +130,9 @@ Marks a cluster as completed and disbands
 **/getAll**<br>
 Params: None<br>
 Type: GET<br>
-Return Type: List<User><br>
+Return Type: List<L><br>
 
-Gets a list of all the users the current user needs to rate
+Gets a list of all the user ids the current user needs to rate
 
 ### Restaurant (/restaurant)
 
@@ -236,7 +236,7 @@ Return Type: boolean<br>
 
 Down votes the given user, returns true if successful
 
-**/getUserInformation**<br>
+**/editInfo**<br>
 Params: name, number, email<br>
 Type: GET<br>
 Return Type: boolean<br>
