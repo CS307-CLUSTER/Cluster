@@ -17,7 +17,12 @@ angular.module('yapp')
     $http.get('/rating/getAll')
       .then(function (response) {
         $scope.groups = response.data;
+        var i = 0;
+        while (i < groups.length) {
+          groups[i] = groups[i].getName(i);
+        }
       });
+
 
     //-------------------------------------------------------------
 
@@ -53,6 +58,21 @@ angular.module('yapp')
       });
       return false;
     };
+
+    /**document.addEventListener("DOMContentLoaded", function() {
+      console.log("changed");
+      var IDlist = document.getElementById(userId);
+      var resultList = [];
+      var i = 0;
+      var url = ('/user/rating?userId=' + userId);
+      while (i < IDlist.rows.length) {
+        resultList[i] = $http.get(url).success(function (response) {
+          console.log(response);
+        }).error(function () {
+          console.log('Could not convert');
+        });
+      }
+    })**/
   });
 
 
