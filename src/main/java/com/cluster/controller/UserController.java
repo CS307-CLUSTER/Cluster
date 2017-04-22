@@ -111,4 +111,8 @@ public class UserController {
         return userService.editInfo(Long.parseLong(principal.getName()), name, number, email);
     }
 
+    @GetMapping(path = "/getById")
+    public @ResponseBody User getUserInformation(Principal principal, @RequestParam int userId) {
+        return userService.getUserFromDatabase(userId);
+    }
 }
