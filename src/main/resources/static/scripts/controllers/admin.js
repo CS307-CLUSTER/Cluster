@@ -31,7 +31,7 @@ angular.module('yapp')
           alert("Could not disband cluster!");
         }
       }).error(function () {
-        console.log("hmmm... something went wrong with disbanding cluster. Check console!");
+        console.log("Something went wrong with disbanding the cluster. Check the console!");
         return false;
       });
     };
