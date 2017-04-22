@@ -17,6 +17,11 @@ angular.module('yapp')
     $http.get('/cluster/getCurrent')
       .then(function (response) {
         $scope.currentCluster = response.data;
+        if ($scope.currentCluster) {
+          $scope.hasCluster = true;
+        } else {
+          $scope.hasCluster = false;
+        }
       });
 
     $http.get('/user/getId')

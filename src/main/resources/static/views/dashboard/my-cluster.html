@@ -2,22 +2,36 @@
     <a ui-sref="overview" class="pull-right btn btn-primary btn-outline btn-rounded">Back to Overview</a>
     <h2>My Cluster</h2>
     <span class="glyphicon glyphicon-dashboard bg-fade"></span>
-    <div class="jumbotron" ng-app="yapp" ng-controller="ClustersCtrl">
+    <div class="jumbotron" ng-app="yapp" ng-controller="ClustersCtrl" ng-show="hasCluster">
         <button ng-click="leave()" class="btn btn-primary btn-outline btn-rounded">Leave Your Cluster</button>
         <button ng-click="removeUser(user.id)" class="btn btn-primary btn-outline btn-rounded">
             Kick
         </button>
         <div class="container">
             <div class="panel panel-primary">
-                <p><strong>ID:&nbsp</strong>{{ currentCluster.id }}</p>
-                <p><strong>Max Users:&nbsp</strong>{{ currentCluster.maxUsers }}</p>
-                <p><strong>Min Users:&nbsp</strong>{{ currentCluster.minUsers }}</p>
-                <p><strong>Users:</strong>{{ currentCluster.numUsers }}</p>
-                <p><strong>Location:</strong>
-                <p>{{ currentCluster.location.name }}</p>
-                <p>{{ currentCluster.location.address }}</p>
-                <p>{{ currentCluster.location.city }}, {{ currentCluster.location.state }} {{ currentCluster.location.zip }}</p>
-                </p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <p><strong>ID:&nbsp</strong>{{ currentCluster.id }}</p>
+                        <p><strong>Max Users:&nbsp</strong>{{ currentCluster.maxUsers }}</p>
+                        <p><strong>Min Users:&nbsp</strong>{{ currentCluster.minUsers }}</p>
+                        <p><strong>Users:</strong>{{ currentCluster.numUsers }}</p>
+                        <p><strong>Pickup Location:</strong>
+                        <p>{{ currentCluster.location.name }}</p>
+                        <p>{{ currentCluster.location.address }}</p>
+                        <p>{{ currentCluster.location.city }}, {{ currentCluster.location.state }} {{ currentCluster.location.zip }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        <strong>Restaurant</strong>
+                        <p>{{ currentCluster.restaurant.name }}</p>
+                        <p>{{ currentCluster.restaurant.address }}</p>
+                        <p>{{ currentCluster.restaurant.location.city }},
+                            {{ currentCluster.restaurant.location.state }}
+                            {{ currentCluster.restaurant.location.zip }}</p>
+                        <p>Delivery Fee: ${{ currentCluster.restaurant.deliveryFee }}</p>
+                        <p>Min. Delivery Charge: ${{ currentCluster.restaurant.deliveryMinimum }}</p>
+                        <a href="{{ currentCluster.restaurant.hungryBoilerLink }}">See on Hungry Boiler</a>
+                    </div>
+                </div>
 
                 <table class="table">
                     <caption>Individuals</caption>
