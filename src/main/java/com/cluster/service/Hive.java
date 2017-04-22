@@ -84,4 +84,8 @@ public class Hive {
         restaurants.clear();
     }
 
+    public void addRestaurant(Restaurant restaurant) {
+        restaurants.add(restaurant);
+    }
+
 }

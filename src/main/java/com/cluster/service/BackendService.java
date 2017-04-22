@@ -25,7 +25,7 @@ public class BackendService {
             for (Restaurants databaseRes : databaseController.getAllRestaurant()) {
                 Location location = new Location(databaseRes.getName(), databaseRes.getAddress(), databaseRes.getCity(), databaseRes.getState(), databaseRes.getZip());
                 Restaurant res = new Restaurant(databaseRes.getId(), databaseRes.getName(), databaseRes.getHb_link(), null, databaseRes.getDelivery_fee(), databaseRes.getMin_delivery(), location);
-                hive.getRestaurants().add(res);
+                hive.addRestaurant(res);
             }
         }
     }
@@ -34,7 +34,7 @@ public class BackendService {
         hive.clearUsers();
         if (databaseController.getAllUser() != null) {
             for (long id : databaseController.getAllUser()) {
-                hive.getUsers().add(userService.getUserFromDatabase(id));
+                hive.addUser(userService.getUserFromDatabase(id));
             }
         }
     }
