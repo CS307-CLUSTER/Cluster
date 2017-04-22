@@ -17,6 +17,8 @@ public class RestaurantService {
     private DatabaseController databaseController;
     @Autowired
     private Hive hive;
+    @Autowired
+    private BackendService backendService;
 
     public boolean addRestaurant(long id, String name, String hb_link, float rating, String hours, float min_delivery, float delivery_fee, String pic_src, String address, String city, String state, String zip) {
         if (restaurantExists(name)) {
@@ -24,7 +26,8 @@ public class RestaurantService {
         }
 
         databaseController.createRestaurant(name, hb_link, rating, hours, min_delivery, delivery_fee, pic_src, address, city, state, zip);
-        hive.refreshRestaurants();
+        backendService
+                .refreshRestaurants();
         return true;
     }
 

@@ -5,6 +5,7 @@ import com.cluster.data.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Service;
 
 import java.security.Principal;
 import java.util.HashMap;

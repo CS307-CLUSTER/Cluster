@@ -103,7 +103,7 @@ public class ClusterService {
 
 
         //databaseController.createCluster(cluster.getStartTime(), cluster.getEndTime(), cluster.getRestaurant().getId(), cluster.getLocation(), cluster.getLeaderID());
-        hive.removeClustesr(cluster);
+        hive.removeClusters(cluster);
 
         return true;
     }

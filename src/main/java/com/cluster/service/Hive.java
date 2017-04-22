@@ -29,7 +29,6 @@ public class Hive {
         restaurants = new ArrayList<>();
         numUsers = 0;
         numClusters = 0;
-
     }
 
 
@@ -68,7 +67,7 @@ public class Hive {
         numClusters++;
     }
 
-    public void removeClustesr(Cluster cluster) {
+    public void removeClusters(Cluster cluster) {
         clusters.remove(cluster);
         numClusters--;
     }
@@ -77,24 +76,12 @@ public class Hive {
         return clusters.contains(cluster);
     }
 
-    public void refreshRestaurants() {restaurants.clear();
-        if (databaseController.getAllRestaurant() != null) {
-            for (Restaurants databaseRes : databaseController.getAllRestaurant()) {
-                Location location = new Location(databaseRes.getName(), databaseRes.getAddress(), databaseRes.getCity(), databaseRes.getState(), databaseRes.getZip());
-                Restaurant res = new Restaurant(databaseRes.getId(), databaseRes.getName(), databaseRes.getHb_link(), null, databaseRes.getDelivery_fee(), databaseRes.getMin_delivery(), location);
-                restaurants.add(res);
-            }
-        }
+    public void clearUsers() {
+        users.clear();
     }
 
-    public void refreshUsers() {
-        UserService userService = new UserService();
-        users.clear();
-        if (databaseController.getAllUser() != null) {
-            for (long id : databaseController.getAllUser()) {
-                users.add(userService.getUserFromDatabase(id));
-            }
-        }
+    public void clearRestaurants() {
+        restaurants.clear();
     }
 
 }
