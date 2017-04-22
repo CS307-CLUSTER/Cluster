@@ -60,6 +60,7 @@ public class DatabaseController {
         return ids;
     }
 
+
     public boolean createUser(long id, String name, String number, String email, String fb_link, String pic_link) {
         if (doesUserExist(id)) {
             return false;
@@ -115,11 +116,16 @@ public class DatabaseController {
         return cluster;
     }
 
-    public Iterable<Clusters> getAllCluster() {
-        return clustersRepository.findAll();
+    public List<Clusters> getAllClusters() {
+        List<Clusters> clusters = new ArrayList<>();
+        for (Clusters c : clustersRepository.findAll()) {
+            clusters.add(c);
+        }
+
+        return clusters;
     }
 
-    public long createCluster(Date start, Date end, long restaurant_id, Location location, long leader_id) {
+    public long createCluster(Date start, Date end, long restaurant_id, Location location, long leader_id, boolean completed) {
 
         Clusters c = new Clusters();
         c.setStart(start);
@@ -130,6 +136,7 @@ public class DatabaseController {
         c.setZip(location.getZip());
         c.setState(location.getState());
         c.setLeader_id(leader_id);
+        c.setCompleted(completed);
 
         clustersRepository.save(c);
         return c.getId();
@@ -143,6 +150,19 @@ public class DatabaseController {
         Clusters c = getCluster(cluster.getId());
 
         clustersRepository.save(c);
+        return true;
+    }
+
+    public boolean updateClusterOnEnd(long id, boolean completed) {
+        if (!doesClusterExist(id)) {
+            return false;
+        }
+
+        Clusters cluster = getCluster(id);
+        cluster.setCompleted(completed);
+        cluster.setEnd(new Date());
+
+        clustersRepository.save(cluster);
         return true;
     }
 
