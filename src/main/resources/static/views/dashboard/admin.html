@@ -3,34 +3,73 @@
     <h2>Admin Page</h2>
     <div class="jumbotron" ng-controller="AdminCtrl">
         <div class="container">
-            <h1>Active Users: {{ activeUsers }}</h1>
-            <h1>Active Clusters: {{ activeClusters }}</h1>
 
-            <!--
-            <div class="panel panel-primary" ng-repeat="group in groups">
-                <p><strong>ID:&nbsp</strong>{{ group.id }}</p>
-                <p><strong>Max Users:&nbsp</strong>{{ group.maxUsers }}</p>
-                <p><strong>Min Users:&nbsp</strong>{{ group.minUsers }}</p>
-                <p><button ng-click="disband(group.id)" class="btn btn-primary btn-outline btn-rounded">Disband Cluster</button></p>
+            <!-- DISPLAYS NUMBER OF ORDER COMPLETED AND NUMBER OF ORDER NOT COMPLETED -->
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 style="display: inline;">Orders Completed: {{ numCompleted }}</h3>
+                </div>
+                <div class="col-md-6">
+                    <h3 style="display: inline;">Orders Not Completed: {{ numNotCompleted }}</h3>
+                </div>
             </div>
-            -->
 
+            <!-- LINE FOR SEPARATION -->
+            <hr noshade style="color:#000000;" align="left" />
 
-            <table class="table">
-                <caption>Clusters</caption>
-                <thead>
-                <tr>
-                    <th>ID</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr ng-repeat="group in groups">
-                    <th>{{ group.id }}</th>
-                    <th><button ng-click="disband(group.id)" class="btn btn-primary btn-outline btn-rounded">Disband Cluster</button></th>
-                </tr>
-                </tbody>
-            </table>
+            <!-- DISPLAYS NUMBER OF ACTIVE CLUSTERS AND NUMBER OF ACTIVE USERS -->
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 style="display: inline;">Active Clusters: {{ activeClusters }}</h3>
+                </div>
+                <div class="col-md-6">
+                    <h3 style="display: inline;">Active Users: {{ activeUsers }}</h3>
+                </div>
+            </div>
 
+            <!-- LINE FOR SEPARATION -->
+            <hr noshade style="color:#000000; height:1px" align="left" />
+
+            <!-- DISPLAYS LIST OF CLUSTERS AND LIST OF USERS SIDE BY SIDE -->
+            <div class="row">
+
+                <div class="col-md-6">
+                    <table class="table">
+                        <h3>Clusters</h3>
+                        <thead>
+                        <tr>
+                            <th>ID</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="group in groups">
+                            <th>{{ group.id }}</th>
+                            <th><button ng-click="disband(group.id)" class="btn pull-right btn-primary btn-outline btn-rounded">Disband Cluster</button></th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="col-md-6">
+                    <table class="table">
+                        <h3>Users</h3>
+                        <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>ID</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr ng-repeat="user in users">
+                            <th>{{ user.name }}</th>
+                            <th>{{ user.id }}</th>
+                            <th><button ng-click="view(user.id)" class="btn pull-right btn-primary btn-outline btn-rounded">View Profile</button></th>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </div>
 
         </div>
     </div>
