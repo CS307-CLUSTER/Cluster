@@ -46,7 +46,7 @@ public class AdminController {
     }
 
     @GetMapping(path = "/getUserInformation")
-    public @ResponseBody User getUserInformation(Principal principal, @RequestParam int userId) {
+    public @ResponseBody User getUserInformation(Principal principal, @RequestParam long userId) {
         // verify user is admin
         if (userService.isAdmin(Long.parseLong(principal.getName()))) {
             return adminService.getUserInformation(userId);
