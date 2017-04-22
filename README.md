@@ -221,3 +221,10 @@ Type: GET<br>
 Return Type: boolean<br>
 
 Edits the name, number or email of a given user, returns true if successful
+
+**/getById**<br>
+Params: userId<br>
+Type: GET<br>
+Return Type: User<br>
+
+Gets the user with the corresponding id from the database
