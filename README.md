@@ -47,6 +47,27 @@ Return Type: User<br>
 
 Get the user given
 
+**/getNumCompletedClusters**<br>
+Params: None<br>
+Type: GET<br>
+Return Type: int<br>
+
+Gets the number of clusters completed
+
+**/getNumNotCompletedClusters**<br>
+Params: None<br>
+Type: GET<br>
+Return Type: int<br>
+
+Gets the number of clusters not completed
+
+**/getAllClusterHistory**<br>
+Params: None<br>
+Type: GET<br>
+Return Type: List<Clusters><br>
+
+Gets all cluster history
+
 ### Cluster (/cluster)
 **/create**<br>
 Params: restaurant_id, maxUsers, minUsers, address, city, state, zip<br>
