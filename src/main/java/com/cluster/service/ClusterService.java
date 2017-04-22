@@ -29,7 +29,7 @@ public class ClusterService {
 
     public boolean createCluster(int maxUsers, int minUsers, long leaderID, long restaurantId, Date startTime, Date endTime, String address, String city, String state, String zip) {
         Location location = new Location("", address, city, state, zip);
-        long clusterId = databaseController.createCluster(startTime, endTime, -1, location, leaderID);
+        long clusterId = databaseController.createCluster(startTime, endTime, -1, location, leaderID, false);
 
         List<User> users = new ArrayList<>();
         User user = userService.getActiveUser(leaderID);
@@ -102,7 +102,7 @@ public class ClusterService {
         }
 
 
-        //databaseController.createCluster(cluster.getStartTime(), cluster.getEndTime(), cluster.getRestaurant().getId(), cluster.getLocation(), cluster.getLeaderID());
+        databaseController.updateClusterOnEnd(clusterId, true);
         hive.removeClusters(cluster);
 
         return true;
