@@ -4,9 +4,9 @@
     <span class="glyphicon glyphicon-dashboard bg-fade"></span>
     <div class="jumbotron" ng-app="yapp" ng-controller="ClustersCtrl">
         <button ng-click="leave()" class="btn btn-primary btn-outline btn-rounded">Leave Your Cluster</button>
-        <button ng-click="removeUser(user.id)" class="btn btn-primary btn-outline btn-rounded">
+        <!-- <button ng-click="removeUser(user.id)" class="btn btn-primary btn-outline btn-rounded">
             Kick
-        </button>
+        </button> -->
         <div class="container">
             <div class="panel panel-primary">
                 <p><strong>ID:&nbsp</strong>{{ currentCluster.id }}</p>
@@ -29,7 +29,8 @@
                         <th class="glyphicon glyphicon-user"></th>
                         <th>Email</th>
                         <th>Location</th>
-                        <th ng-show="isLeader"></th>
+                        <th class="glyphicon">Kick</th>
+                        <!--<th ng-show="isLeader"></th>-->
                     </tr>
                     </thead>
                     <tbody>
@@ -37,20 +38,17 @@
                         <th>{{ user.name }}</th>
                         <th>{{ user.rating.ratio }}</th>
                         <th>{{ user.number}}</th>
-                        <th><a ng-href="{{ user.fbLink }}" class="glyphicon glyphicon-user"></a></th>
+                        <th><a ng-href="{{ user.fbLink }}" class="glyphicon glyphicon-user">Facebook</a></th>
                         <th>{{ user.email }}</th>
                         <th>{{ user.location }}</th>
-                        <th ng-show="isLeader">
-                            <button ng-click="removeUser(user.id)" class="btn btn-primary btn-outline btn-rounded">
-                                Kick
-                            </button>
-                        </th>
+                        <th><a ng-href="" class="glyphicon glyphicon-remove" ng-click="$parent.removeUser(user.id)"></a></th>
+
                     </tr>
                     </tbody>
                 </table>
 
                 <div ng-show="isLeader">
-                    <button ng-click="<!--todo-->" class="btn btn-primary btn-outline btn-rounded">COMPLETE</button>
+                    <button ng-click="removeUser(user.id)" class="btn btn-primary btn-outline btn-rounded">COMPLETE</button>
                 </div>
 
             </div>
