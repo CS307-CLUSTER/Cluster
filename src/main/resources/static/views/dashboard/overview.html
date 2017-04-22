@@ -8,6 +8,14 @@
 			<p>
 				<a class="btn btn-primary btn-lg btn-outline btn-rounded">Learn more</a>
 			</p>
+
+            <div ng-controller="OtherProfileCtrl" class="container">
+                <button ng-click="toggleModal('Success')" class="btn btn-primary btn-lg btn-outline btn-rounded">Modal</button>
+                <modal visible="showModal">
+                    I work
+                </modal>
+            </div>
+
 		</div>
 	</div>
 </div>
