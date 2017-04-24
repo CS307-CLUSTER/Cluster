@@ -10,10 +10,10 @@ Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort
                 <form role="form" ng-submit="submit()">
 
                     <div class="form-content">
-                        <div class="form-group">
-                            <input type="text" ng-model="form.restaurant" class="form-control input-underline input-lg"
-                                   placeholder="Restaurant">
-                        </div>
+
+                        <select ng-model="form.restaurant" ng-options="restaurant.name for restaurant in restaurants">
+                        </select>
+
                         <div class="form-group">
                             <input type="text" ng-model="form.maxUsers" class="form-control input-underline input-lg"
                                    placeholder="Maximum Users">
