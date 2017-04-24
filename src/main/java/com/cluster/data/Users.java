@@ -21,6 +21,7 @@ public class Users {
     private int up_votes;
     private int down_votes;
     private boolean isAdmin;
+    private boolean isBanned;
 
     public long getId() {
         return id;
@@ -92,5 +93,11 @@ public class Users {
 
     public void setIsAdmin(boolean isAdmin) {
         this.isAdmin = isAdmin;
+    }
+
+    public boolean getIsBanned() {return isBanned;}
+
+    public void setIsBanned(boolean isBanned) {
+        this.isBanned = isBanned;
     }
 }
