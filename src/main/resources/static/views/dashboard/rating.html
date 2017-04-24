@@ -35,8 +35,10 @@
                     <th>{{ user.email }}</th>
                     <!--<th>{{ user.location }}</th>-->
                     <th>
-                        <button ng-click="upVote(user.id)" class="btn btn-primary btn-outline btn-rounded">Upvote</button>
-                        <button ng-click="downVote(user.id)" class="btn btn-primary btn-outline btn-rounded">Downvote</button>
+                        <!--<button ng-click="upVote(user.id)" class="btn btn-primary btn-outline btn-rounded">Upvote</button>
+                        <button ng-click="downVote(user.id)" class="btn btn-primary btn-outline btn-rounded">Downvote</button> -->
+                        <a ng-href="" class="glyphicon glyphicon-arrow-up" ng-click="$parent.upVote(user.id)"></a>
+                        <a ng-href="" class="glyphicon glyphicon-arrow-down" ng-click="$parent.downVote(user.id)"></a>
                     </th>
 
                 </tr>
