@@ -32,12 +32,13 @@ angular.module('yapp')
 
     //-------------------------------------------------------------
 
-    $scope.upvote = function (userId) {
+    $scope.upVote = function (userId) {
       // console.log("upvoted");
       // $http.get().success(function () {
       //   return true;
       // })
 
+      console.log("Upvoted Ran");
 
       var url = ('/user/upVote?userId=' + userId);
       console.log(url);
@@ -51,7 +52,7 @@ angular.module('yapp')
 
     //-------------------------------------------------------------
 
-    $scope.downvote = function (userId) {
+    $scope.downVote = function (userId) {
       console.log("downvoted");
       var url = ('/user/downVote?userId=' + userId);
 

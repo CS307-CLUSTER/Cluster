@@ -40,6 +40,14 @@ public class User {
         usersToRate.add(user.getId());
     }
 
+    public void removeUserToRate(User user) {
+        for (int i = 0; i < usersToRate.size(); i++) {
+            if (usersToRate.get(i).equals(user.getId())) {
+                usersToRate.remove(i);
+            }
+        }
+    }
+
     @Override
     public boolean equals(Object obj) {
         return obj != null && ((User) obj).id == this.id;

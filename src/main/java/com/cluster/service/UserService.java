@@ -107,12 +107,14 @@ public class UserService {
     }
 
     public boolean removeRatedUser(long idOfUser, long idToRemove) {
-        User user = getUserFromDatabase(idOfUser);
-        User toRemove = getUserFromDatabase(idToRemove);
+        User user = getActiveUser(idOfUser);
+        User toRemove = getActiveUser(idToRemove);
         if (user == null || toRemove == null) {
             return false;
         }
-        return user.getUsersToRate().remove(toRemove);
+
+        user.removeUserToRate(toRemove);
+        return true;
     }
 
 }
