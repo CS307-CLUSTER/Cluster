@@ -59,11 +59,9 @@ angular.module('yapp')
 
     $scope.update = function() {
       $scope.restaurantId = $scope.form.restaurant.id;
-      console.log("ID: " + $scope.restaurantId);
     }
 
     $scope.submit = function () {
-      console.log("I've ran");
       formData = $scope.form;
       $location.path('/dashboard/clusters');
       var url = ('/cluster/create?restaurant_id=' + $scope.restaurantId + '&maxUsers=' + formData.maxUsers + '&minUsers=' + formData.minUsers +

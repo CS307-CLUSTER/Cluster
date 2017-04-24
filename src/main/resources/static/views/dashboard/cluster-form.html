@@ -14,10 +14,6 @@ Inspired by http://dribbble.com/shots/917819-iPad-Calendar-Login?list=shots&sort
                         <select ng-model="form.restaurant" ng-options="restaurant as restaurant.name for restaurant in restaurants"
                                 ng-change="update()"></select>
 
-                        <!-- <select ng-model="form.restaurant">
-                            <option ng-repeat="restaurant in restaurants">{{restaurant.name}}</option>
-                        </select> -->
-
                         <div class="form-group">
                             <input type="text" ng-model="form.maxUsers" class="form-control input-underline input-lg"
                                    placeholder="Maximum Users">
