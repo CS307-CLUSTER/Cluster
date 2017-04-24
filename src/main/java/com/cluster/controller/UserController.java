@@ -112,7 +112,7 @@ public class UserController {
     }
 
     @GetMapping(path = "/getById")
-    public @ResponseBody User getUserInformation(Principal principal, @RequestParam int userId) {
+    public @ResponseBody User getUserInformation(Principal principal, @RequestParam long userId) {
         return userService.getUserFromDatabase(userId);
     }
 }
