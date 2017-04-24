@@ -80,6 +80,14 @@ public class DatabaseController {
         return true;
     }
 
+    public void setAdmin(Users u, boolean status) {
+        u.setIsAdmin(status);
+    }
+
+    public void setBanned(Users u, boolean status) {
+        u.setIsBanned(status);
+    }
+
     public boolean updateUser(User user) {
         if (!doesUserExist(user.getId())) {
             return false;
