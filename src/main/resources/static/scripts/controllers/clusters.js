@@ -24,6 +24,17 @@ angular.module('yapp')
         }
       });
 
+    $http.get('/restaurant/getAll')
+      .then(function (response) {
+        $scope.restaurants = response.data;
+        if ($scope.restaurants == null) {
+          console.log("No Restaurants");
+        } else {
+          console.log("There are restaurants");
+          console.log($scope.restaurants);
+        }
+      });
+
     $http.get('/user/getId')
       .then(function (response) {
         if ($scope.currentCluster == null) {
