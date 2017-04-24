@@ -115,7 +115,7 @@ angular.module('yapp')
             console.log("Success, user has been kicked " + userId);
             $state.reload();
           } else {
-            alert("Function did not work");
+            alert("Cannot kick user!");
           }
         }).error(function () {
           console.log("I dont know what happened...");
