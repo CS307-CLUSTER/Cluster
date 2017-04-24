@@ -44,6 +44,7 @@ angular.module('yapp')
       console.log(url);
       $http.get(url).success(function (response) {
         console.log(response);
+        $state.reload();
       }).error(function () {
         console.log('Could not upvote');
       });
@@ -60,6 +61,7 @@ angular.module('yapp')
       console.log(url);
       $http.get(url).success(function (response) {
         console.log(response);
+        $state.reload();
       }).error(function () {
         console.log('Could not downvote');
       });

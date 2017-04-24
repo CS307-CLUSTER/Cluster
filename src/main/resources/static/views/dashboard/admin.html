@@ -1,21 +1,9 @@
 <div>
-    <a ui-sref="Admin Page" class="pull-right btn btn-primary btn-outline btn-rounded">Reports</a>
     <h2>Admin Page</h2>
     <div class="jumbotron" ng-controller="AdminCtrl">
         <div class="container">
 
-            <!-- DISPLAYS NUMBER OF ORDER COMPLETED AND NUMBER OF ORDER NOT COMPLETED -->
-            <div class="row">
-                <div class="col-md-6">
-                    <h3 style="display: inline;">Orders Completed: {{ numCompleted }}</h3>
-                </div>
-                <div class="col-md-6">
-                    <h3 style="display: inline;">Orders Not Completed: {{ numNotCompleted }}</h3>
-                </div>
-            </div>
 
-            <!-- LINE FOR SEPARATION -->
-            <hr noshade style="color:#000000;" align="left"/>
 
             <!-- DISPLAYS NUMBER OF ACTIVE CLUSTERS AND NUMBER OF ACTIVE USERS -->
             <div class="row">
@@ -72,6 +60,11 @@
                                         class="btn pull-right btn-primary btn-outline btn-rounded">View Profile
                                 </button>
                             </th>
+                            <th>
+                                <button ng-click="banUser(user.id)"
+                                        class="btn pull-right btn-primary btn-outline btn-rounded">Ban User
+                                </button>
+                            </th>
                         </tr>
                         <modal visible="showModal">
                             <p>Rating Ratio: {{ data.rating.ratio }}</p>
@@ -90,6 +83,19 @@
             <!-- LINE FOR SEPARATION -->
             <hr noshade style="color:#000000; height:1px" align="left"/>
 
+            <!-- DISPLAYS NUMBER OF ORDER COMPLETED AND NUMBER OF ORDER NOT COMPLETED -->
+            <div class="row">
+                <div class="col-md-6">
+                    <h3 style="display: inline;">Orders Completed: {{ numCompleted }}</h3>
+                </div>
+                <div class="col-md-6">
+                    <h3 style="display: inline;">Orders Not Completed: {{ numNotCompleted }}</h3>
+                </div>
+            </div>
+
+            <!-- LINE FOR SEPARATION -->
+            <hr noshade style="color:#000000;" align="left"/>
+
             <table class="table">
                 <h3>Full Cluster History</h3>
                 <thead>
@@ -102,7 +108,7 @@
                     <th>Zip Code</th>
                     <th>Leader Name</th>
                     <th>Leader ID</th>
-                    <th>Status</th>
+                    <th>Completed</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -115,7 +121,7 @@
                     <th>{{ cluster.zip }}</th>
                     <th>{{ cluster.leader_name }}</th>
                     <th>{{ cluster.leader_id }}</th>
-                    <th>{{ cluster.completed }}</th>
+                    <th>{{ cluster.completed == true ? 'Yes' : 'No' }}</th>
                 </tr>
                 </tbody>
             </table>
