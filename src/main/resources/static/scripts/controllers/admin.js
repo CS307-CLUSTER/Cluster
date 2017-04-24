@@ -35,7 +35,19 @@ angular.module('yapp')
       });
     $http.get('/admin/getAllClusterHistory')
       .then(function (response) {
-        $scope.clusterHistory = response.data;
+        var clusterHistory = response.data;
+        // var i;
+        // for (i = 0; i < clusterHistory.length; i++) {
+        //   //current.restaurant_id = getRestaurant(current.restaurant_id);
+        //   var leaderName = getUser(clusterHistory[i].leader_id);
+        //   var index = i;
+        //   leaderName.then(function(result) {
+        //     clusterHistory[index]["leader_name"] = result.name;
+        //     console.log(clusterHistory[index].leader_name);
+        //   })
+        // }
+        $scope.clusterHistory = clusterHistory;
+        console.log($scope.clusterHistory);
       });
 
     $scope.disband = function (clusterId) {
@@ -67,22 +79,24 @@ angular.module('yapp')
       });
     };
 
-    $scope.getUser = function (userId) {
+    var getUser = function (userId) {
       var url = ('user/getById?userId=' + userId);
       console.log(url);
-      $http.get(url).success(function (response) {
-        if (response) {
-          $state.reload();
-        } else {
-          alert("Could not get name of user!");
-        }
-      }).error(function () {
-        console.log("Something went wrong getting name of user. Check the console!");
-        return false;
-      });
+      return $http.get(url)
+        .then(function (response) {
+          return response.data.name;
+        });
     };
 
-    $scope.getRestaurant = function (restaurantId) {
+    $scope.getUser = function (userId) {
+      var leaderName = getUser(userId);
+      leaderName.then(function(result) {
+        console.log(result);
+        return result;
+      })
+    };
+
+    function getRestaurant(restaurantId) {
       var url = ('restaurant/get?id=' + restaurantId);
       console.log(url);
       $http.get(url).success(function (response) {
@@ -95,6 +109,6 @@ angular.module('yapp')
         console.log("Something went wrong with getting restaurant object. Check the console!");
         return false;
       });
-    };
+    }
 
   });

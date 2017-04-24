@@ -106,14 +106,14 @@
                 </tr>
                 </thead>
                 <tbody>
-                <tr ng-repeat="cluster in clusterHistory">
+                <tr ng-repeat="cluster in clusterHistory track by cluster.id">
                     <th>{{ cluster.id }}</th>
-                    <th>{{ getRestaurant(1).name }}</th>
+                    <th>{{ cluster.restaurant_name }}</th>
                     <th>{{ cluster.address }}</th>
                     <th>{{ cluster.city }}</th>
                     <th>{{ cluster.state }}</th>
                     <th>{{ cluster.zip }}</th>
-                    <th>{{ getUser(cluster.leader_id).name }}</th>
+                    <th>{{ cluster.leader_name }}</th>
                     <th>{{ cluster.leader_id }}</th>
                     <th>{{ cluster.completed }}</th>
                 </tr>

@@ -133,7 +133,7 @@ public class DatabaseController {
         return clusters;
     }
 
-    public long createCluster(Date start, Date end, long restaurant_id, Location location, long leader_id, boolean completed) {
+    public long createCluster(Date start, Date end, long restaurant_id, Location location, long leader_id, boolean completed, String restaurantName, String leaderName) {
 
         Clusters c = new Clusters();
         c.setStart(start);
@@ -145,6 +145,8 @@ public class DatabaseController {
         c.setState(location.getState());
         c.setLeader_id(leader_id);
         c.setCompleted(completed);
+        c.setRestaurant_name(restaurantName);
+        c.setLeader_name(leaderName);
 
         clustersRepository.save(c);
         return c.getId();

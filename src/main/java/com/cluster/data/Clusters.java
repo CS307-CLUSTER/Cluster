@@ -27,6 +27,8 @@ public class Clusters {
     private String zip;
     private long leader_id;
     private boolean completed;
+    private String restaurant_name;
+    private String leader_name;
 
     public long getId() {
         return id;
@@ -106,5 +108,21 @@ public class Clusters {
 
     public void setCompleted(boolean completed) {
         this.completed = completed;
+    }
+
+    public String getRestaurant_name() {
+        return restaurant_name;
+    }
+
+    public void setRestaurant_name(String restaurant_name) {
+        this.restaurant_name = restaurant_name;
+    }
+
+    public String getLeader_name() {
+        return leader_name;
+    }
+
+    public void setLeader_name(String leader_name) {
+        this.leader_name = leader_name;
     }
 }
