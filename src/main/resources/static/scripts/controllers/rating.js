@@ -16,11 +16,17 @@ angular.module('yapp')
   .controller('RatingCtrl', function ($scope, $http, $location, $state) {
     $http.get('/rating/getAll')
       .then(function (response) {
-        $scope.groups = response.data;
-        var i = 0;
-        while (i < groups.length) {
-          groups[i] = groups[i].getName(i);
+        var userIds = response.data;
+        var i;
+        var users = [];
+        for (i = 0; i < userIds.length; i++) {
+          $http.get('/user/getById?userId=' + userIds[i])
+            .then(function (response2) {
+              users.push(response2.data);
+              console.log(response2.data);
+            })
         }
+        $scope.group = users;
       });
 
 
