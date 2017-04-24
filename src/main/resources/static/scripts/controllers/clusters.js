@@ -57,12 +57,16 @@ angular.module('yapp')
       zip: "default"
     };
 
+    $scope.update = function() {
+      $scope.restaurantId = $scope.form.restaurant.id;
+      console.log("ID: " + $scope.restaurantId);
+    }
+
     $scope.submit = function () {
       console.log("I've ran");
       formData = $scope.form;
       $location.path('/dashboard/clusters');
-      var dummyRestaurant = 1;
-      var url = ('/cluster/create?restaurant_id=' + dummyRestaurant + '&maxUsers=' + formData.maxUsers + '&minUsers=' + formData.minUsers +
+      var url = ('/cluster/create?restaurant_id=' + $scope.restaurantId + '&maxUsers=' + formData.maxUsers + '&minUsers=' + formData.minUsers +
       '&address=' + formData.address1 + '&city='
       + formData.city + '&state=' + formData.state + '&zip=' + formData.zip);
       console.log(url);
