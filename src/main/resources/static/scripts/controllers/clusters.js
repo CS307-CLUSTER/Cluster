@@ -105,6 +105,25 @@ angular.module('yapp')
 
     $scope.removeUser = function (userId) {
       console.log("I worked");
+      var clusterId = '-1';
+      var getUserUrl = ('user/info');
+      $http.get(getUserUrl).success(function (response) {
+        clusterId = response['currentClusterId'];
+        var kickUrl = ('cluster/kick?userId=' + userId + "&clusterId=" + clusterId);
+        $http.get(kickUrl).success(function (response) {
+          if (response) {
+            console.log("Success, user has been kicked " + userId);
+            $state.reload();
+          } else {
+            alert("Cannot kick user!");
+          }
+        }).error(function () {
+          console.log("I dont know what happened...");
+        });
+      }).error(function () {
+        console.log("Error!!!");
+        return false;
+      });
     };
 
     $scope.complete = function(clusterId) {
