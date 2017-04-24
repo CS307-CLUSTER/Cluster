@@ -33,6 +33,10 @@ angular.module('yapp')
       .then(function (response) {
         $scope.groups = response.data;
       });
+    $http.get('/admin/getAllClusterHistory')
+      .then(function (response) {
+        $scope.clusterHistory = response.data;
+      });
 
     $scope.disband = function (clusterId) {
       var url = ('admin/disbandCluster?clusterId=' + clusterId);
@@ -63,8 +67,34 @@ angular.module('yapp')
       });
     };
 
+    $scope.getUser = function (userId) {
+      var url = ('user/getById?userId=' + userId);
+      console.log(url);
+      $http.get(url).success(function (response) {
+        if (response) {
+          $state.reload();
+        } else {
+          alert("Could not get name of user!");
+        }
+      }).error(function () {
+        console.log("Something went wrong getting name of user. Check the console!");
+        return false;
+      });
+    };
+
+    $scope.getRestaurant = function (restaurantId) {
+      var url = ('restaurant/get?id=' + restaurantId);
+      console.log(url);
+      $http.get(url).success(function (response) {
+        if (response) {
+          $state.reload();
+        } else {
+          alert("Could not get restaurant object!");
+        }
+      }).error(function () {
+        console.log("Something went wrong with getting restaurant object. Check the console!");
+        return false;
+      });
+    };
+
   });
-
-
-
-
