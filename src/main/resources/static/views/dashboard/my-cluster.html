@@ -1,9 +1,8 @@
 <div>
     <a ui-sref="overview" class="pull-right btn btn-primary btn-outline btn-rounded">Back to Overview</a>
-    <h2>Clusters</h2>
+    <h2>My Cluster</h2>
     <span class="glyphicon glyphicon-dashboard bg-fade"></span>
     <div class="jumbotron" ng-app="yapp" ng-controller="ClustersCtrl" ng-show="hasCluster">
-        <button ng-click="leave()" class="btn btn-primary btn-outline btn-rounded">Leave Your Cluster</button>
         <!-- <button ng-click="removeUser(user.id)" class="btn btn-primary btn-outline btn-rounded">
             Kick
         </button> -->
@@ -21,7 +20,7 @@
                         <p>{{ currentCluster.location.city }}, {{ currentCluster.location.state }} {{ currentCluster.location.zip }}</p>
                     </div>
                     <div class="col-md-6">
-                        <strong>Restaurant</strong>
+                        <p><strong>Restaurant</strong></p>
                         <p>{{ currentCluster.restaurant.name }}</p>
                         <p>{{ currentCluster.restaurant.address }}</p>
                         <p>{{ currentCluster.restaurant.location.city }},
@@ -61,10 +60,13 @@
                     </tbody>
                 </table>
 
-                <div ng-show="isLeader">
-                    <button ng-click="complete(currentCluster.id)" class="btn btn-primary btn-outline btn-rounded">COMPLETE</button>
-                </div>
 
+            </div>
+            <div style="display:inline-block">
+            <button ng-click="leave()" class="btn btn-primary btn-outline btn-rounded">Leave Your Cluster</button>
+            <div ng-show="isLeader">
+                <button ng-click="complete(currentCluster.id)" class="btn btn-primary btn-outline btn-rounded">Complete Cluster</button>
+            </div>
             </div>
         </div>
     </div>
