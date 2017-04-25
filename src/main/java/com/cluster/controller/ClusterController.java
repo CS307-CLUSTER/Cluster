@@ -48,6 +48,12 @@ public class        ClusterController {
         return serviceController.getAllClusters();
     }
 
+    /** Sorts alphabetically by restaurant **/
+    @GetMapping(path="/getAllByRestaurant")
+    public @ResponseBody List<Cluster> getAllByRestaurant() {
+        return serviceController.getAllByRestaurant();
+    }
+
     @GetMapping(path="/join")
     public @ResponseBody boolean joinCluster(Principal principal, @RequestParam long clusterId) {
         return serviceController.addUserToCluster(Long.parseLong(principal.getName()), clusterId);

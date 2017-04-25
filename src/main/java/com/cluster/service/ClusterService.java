@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 
@@ -107,8 +108,22 @@ public class ClusterService {
 
         return true;
     }
+
     public List<Cluster> getAllClusters() {
         return hive.getClusters();
+    }
+
+    public List<Cluster> getAllClustersByRestaurant() {
+        List<Cluster> clusters = hive.getClusters();
+        clusters.sort(new RestaurantComparator());
+        return clusters;
+    }
+
+    private class RestaurantComparator implements Comparator<Cluster> {
+        @Override
+        public int compare(Cluster a, Cluster b) {
+            return a.getRestaurant().getName().compareTo(b.getRestaurant().getName());
+        }
     }
 
     public boolean addCluster() {
