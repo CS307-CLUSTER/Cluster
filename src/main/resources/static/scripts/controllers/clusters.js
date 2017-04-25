@@ -14,6 +14,11 @@ angular.module('yapp')
         $scope.groups = response.data;
       });
 
+    $http.get('/cluster/getAllByRestaurant')
+      .then(function (response) {
+        $scope.rest = response.data;
+      });
+
     $http.get('/cluster/getCurrent')
       .then(function (response) {
         $scope.currentCluster = response.data;
