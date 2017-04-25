@@ -35,7 +35,7 @@ angular.module('yapp')
       '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
       '<h4 class="modal-title">{{ buttonClicked }}</h4>' +
       '</div>' +
-      '<div class="modal-body" style="align-center" ng-transclude></div>' +
+      '<div class="modal-body" style="padding:16px" ng-transclude></div>' +
       '<p>   Upvotes: {{ upVotes }}</p>' +
       '<p>   Downvotes: {{ downVotes }}</p>' +
       '<p>   Phone Number: {{ number }}</p>' +
