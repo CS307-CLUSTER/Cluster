@@ -6,3 +6,10 @@ http://localhost:8080/user/create?phoneNumber=4087684974&city=West%20Lafayette&s
 http://localhost:8080/cluster/create?maxUsers=4&minUsers=2&startTime=0&endTime=0&address=Hungry%20Howies&city=West%20Lafayette&state=IN&zip=47906#_=_
 
 http://localhost:8080/restaurant/add?id=0001&name=Pizza%20Hut&hb_link=www.hb.com&rating=5.0&hours=8-5&min_delivery=5.0&delivery_fee=3.0&pic_src=http://www.src.com&address=120%20State%20Street&city=West%20Lafayette&state=IN&zip=47906
+
+RESTAURANTS
+http://localhost:8080/restaurant/add?id=0001&name=Lotsa%20Stone%20Fired%20Pizza&hb_link=https://hungryboiler.com/restaurants/lotsa-stone-fired-pizza-r7025/delivery&rating=4.0&hours=11:00%20%20AM%20-%2011:00%20PM&min_delivery=10.00&delivery_fee=4.00&pic_src=https://dmqhjhh1emncv.cloudfront.net/restaurant-logos/61022/large-ddedeb5e9cbb244893052171b732d16c.png?1477686662&address=316%20W%20%20State%20Street&city=West%20Lafayette&state=IN&zip=47906
+http://localhost:8080/restaurant/add?id=0002&name=Sushi%20Don&hb_link=https://hungryboiler.com/restaurants/sushi-don-r6809/delivery&rating=4.0&hours=11:00%20%20AM%20-%2011:00%20PM&min_delivery=10.00&delivery_fee=4.00&pic_src=https://dmqhjhh1emncv.cloudfront.net/restaurant-logos/52650/large-13818f42aae468a464f82a6cd65561fd.jpg?1435706989&address=3338%20Main%20Street&city=West%20Lafayette&state=IN&zip=47905
+http://localhost:8080/restaurant/add?id=0003&name=Latea&hb_link=https://hungryboiler.com/restaurants/latea/delivery&rating=4.5&hours=10:00%20AM%20-%2011:00%20PM&min_delivery=10.00&delivery_fee=5.00&pic_src=https://dmqhjhh1emncv.cloudfront.net/restaurant-logos/50963/large-c9d9d7e6c472ea69e3f8e903fd73e9f8.PNG?1413906036&address=358%20East%20State%20Street&city=West%20Lafayette&state=IN&zip=47906
+
+
