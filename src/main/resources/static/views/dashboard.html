@@ -1,4 +1,4 @@
-<div class="dashboard-page">
+<div class="dashboard-page" ng-show="!isBanned">
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-3 col-md-2 sidebar">
@@ -13,11 +13,10 @@
 
                 <ul class="nav nav-sidebar" ng-controller="AdminTabViewCtrl">
                     <!-- new -->
-                    <li ng-class="{active: $state.includes('rating')}"><a ui-sref="rating">Rating</a></li>
-
                     <li ng-class="{active: $state.includes('overview')}"><a ui-sref="overview">Overview <span
                         class="sr-only">(current)</span></a></li>
                     <li ng-class="{active: $state.includes('profile')}"><a ui-sref="profile">My Profile</a></li>
+                    <li ng-class="{active: $state.includes('rating')}"><a ui-sref="rating">Rating</a></li>
                     <li ng-class="{active: $state.includes('myCluster')}"><a ui-sref="myCluster">My Cluster</a></li>
                     <li ng-class="{active: $state.includes('createCluster')}"><a ui-sref="createCluster">Create a
                         Cluster</a></li>
@@ -34,4 +33,7 @@
             </div>
         </div>
     </div>
+</div>
+<div ng-show="isBanned">
+{{ banRedirect() }}
 </div>

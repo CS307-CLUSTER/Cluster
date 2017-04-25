@@ -44,7 +44,7 @@ angular.module('yapp')
       self.user = "N/A";
       self.authenticated = false;
     });
-    $http.get("/user/exists").success(function (data) {
+    $http.get("/user/loginExists").success(function (data) {
       self.exists = data;
     }).error(function () {
       console.log('error');

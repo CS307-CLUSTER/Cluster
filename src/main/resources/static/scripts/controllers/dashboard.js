@@ -8,9 +8,14 @@
  * Controller of yapp
  */
 angular.module('yapp')
-  .controller('DashboardCtrl', function($scope, $state, $http, $location) {
+  .controller('DashboardCtrl', function($scope, $state, $http, $location, $window) {
 
     $scope.$state = $state;
+
+    $http.get("/user/isBanned").then(function (response) {
+      $scope.isBanned = response.data;
+      console.log(response.data);
+    });
 
     $scope.logout = function() {
       console.log("Logout ran");
@@ -22,6 +27,10 @@ angular.module('yapp')
         self.authenticated = false;
       });
     };
+
+    $scope.banRedirect = function() {
+      $window.location.href="../../ban.html";
+    }
   })
 
   .controller("AdminTabViewCtrl", function ($http, $scope) {
@@ -36,3 +45,4 @@ angular.module('yapp')
       });
     }
   });
+

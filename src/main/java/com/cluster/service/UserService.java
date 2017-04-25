@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 
 import java.security.Principal;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,6 +25,18 @@ public class UserService {
 
     public boolean userExists(long id) {
         return databaseController.doesUserExist(id);
+    }
+
+    public boolean loginExists(long id) {
+        if (databaseController.doesUserExist(id)) {
+            boolean active = isUserActive(id);
+            if (!isUserActive(id)) {
+                hive.addUser(getUserFromDatabase(id));
+            }
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public boolean createUser(Principal principal, String phoneNumber, String address, String city, String state, String zip, String email) {
@@ -52,12 +65,14 @@ public class UserService {
         Users dbUser = databaseController.getUser(id);
         User user = new User(id, dbUser.getName(), null, dbUser.getNumber(), dbUser.getFb_link(), dbUser.getEmail(), null, 0, null);
         user.setRating(new Rating(dbUser.getUp_votes(), dbUser.getDown_votes()));
+        user.setBanned(dbUser.getIsBanned());
+        user.setAdmin(dbUser.getIsAdmin());
 
         return user;
     }
 
     public boolean isUserActive(long id) {
-        for (User user: hive.getUsers()) {
+        for (User user : hive.getUsers()) {
             if (user.getId() == id) {
                 return true;
             }
@@ -66,7 +81,7 @@ public class UserService {
     }
 
     public User getActiveUser(long id) {
-        for (User user: hive.getUsers()) {
+        for (User user : hive.getUsers()) {
             if (user.getId() == id) {
                 return user;
             }
@@ -75,7 +90,11 @@ public class UserService {
     }
 
     public List<User> getListOfUsers() {
-        return hive.getUsers();
+        List<User> users = new ArrayList<>();
+        for (Long id : databaseController.getAllUser()) {
+            users.add(getUserFromDatabase(id));
+        }
+        return users;
     }
 
     private HashMap extractPrincipalDetals(Principal principal) {
@@ -85,6 +104,7 @@ public class UserService {
     public boolean setAdmin(long id, boolean value) {
         if (isUserActive(id)) {
             getActiveUser(id).setAdmin(value);
+            databaseController.updateUser(getActiveUser(id));
             return true;
         } else {
             return false;
@@ -94,6 +114,7 @@ public class UserService {
     public boolean isAdmin(long id) {
         return isUserActive(id) && getActiveUser(id).isAdmin();
     }
+
 
     public boolean editInfo(long id, String name, String number, String email) {
         User user = getUserFromDatabase(id);
@@ -117,4 +138,8 @@ public class UserService {
         return true;
     }
 
+    public boolean isBanned(long id) {
+        User user = getUserFromDatabase(id);
+        return user != null && user.isBanned();
+    }
 }

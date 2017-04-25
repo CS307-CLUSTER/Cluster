@@ -79,6 +79,21 @@ angular.module('yapp')
       });
     };
 
+    $scope.banUser = function (userId) {
+      var url = ('admin/ban?userId=' + userId);
+      console.log(url);
+      $http.get(url).success(function (response) {
+        if (response) {
+          $state.reload();
+        } else {
+          alert("Could not ban user!");
+        }
+      }).error(function () {
+        console.log("Something went wrong with banning user. Check the console!");
+        return false;
+      });
+    };
+
     var getUser = function (userId) {
       var url = ('user/getById?userId=' + userId);
       console.log(url);

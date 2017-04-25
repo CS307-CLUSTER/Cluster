@@ -72,6 +72,11 @@ public class UserController {
         return userService.userExists(Long.parseLong(principal.getName()));
     }
 
+    @GetMapping(path="/loginExists")
+    public @ResponseBody boolean doesUserExistLogin(Principal principal) {
+        return userService.loginExists(Long.parseLong(principal.getName()));
+    }
+
     @GetMapping(path="/makeAdmin")
     public @ResponseBody boolean makeUserAdmin(Principal principal, @RequestParam long userId) {
         return userService.isUserActive(userId) && userService.setAdmin(userId, true);
@@ -115,4 +120,11 @@ public class UserController {
     public @ResponseBody User getUserInformation(Principal principal, @RequestParam long userId) {
         return userService.getUserFromDatabase(userId);
     }
+
+    @GetMapping(path = "/isBanned")
+    public @ResponseBody boolean isbanned(Principal principal) {
+        return userService.isBanned(Long.parseLong(principal.getName()));
+    }
+
+
 }

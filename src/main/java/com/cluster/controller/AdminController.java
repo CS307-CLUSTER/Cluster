@@ -41,10 +41,7 @@ public class AdminController {
     @GetMapping(path = "/disbandCluster")
     public @ResponseBody boolean getNumActiveUsers(Principal principal, @RequestParam long clusterId) {
         // verify user is admin
-        if (userService.isAdmin(Long.parseLong(principal.getName()))) {
-            return adminService.disbandCluster(clusterId);
-        }
-        return false;
+        return userService.isAdmin(Long.parseLong(principal.getName())) && adminService.disbandCluster(clusterId);
     }
 
     @GetMapping(path = "/getUserInformation")
@@ -79,6 +76,16 @@ public class AdminController {
         }
 
         return null;
+    }
+
+    @GetMapping(path = "/ban")
+    public @ResponseBody boolean banUser(Principal principal, @RequestParam long userId) {
+        return userService.isAdmin(Long.parseLong(principal.getName())) && adminService.banUser(userId);
+    }
+
+    @GetMapping(path = "/unban")
+    public @ResponseBody boolean unbanUser(Principal principal, @RequestParam long userId) {
+        return userService.isAdmin(Long.parseLong(principal.getName())) && adminService.unbanUser(userId);
     }
 }
 

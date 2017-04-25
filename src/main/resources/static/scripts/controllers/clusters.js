@@ -63,7 +63,7 @@ angular.module('yapp')
 
     $scope.submit = function () {
       formData = $scope.form;
-      $location.path('/dashboard/clusters');
+      $location.path('/dashboard/myCluster');
       var url = ('/cluster/create?restaurant_id=' + $scope.restaurantId + '&maxUsers=' + formData.maxUsers + '&minUsers=' + formData.minUsers +
       '&address=' + formData.address1 + '&city='
       + formData.city + '&state=' + formData.state + '&zip=' + formData.zip);
@@ -82,7 +82,7 @@ angular.module('yapp')
       $http.get(url).success(function (response) {
         if (response) {
           console.log("Added user to cluster " + clusterId);
-          $state.reload();
+          $location.path('/dashboard/myCluster');
         } else {
           alert("Could not join cluster! Check if you are already in one!");
         }
