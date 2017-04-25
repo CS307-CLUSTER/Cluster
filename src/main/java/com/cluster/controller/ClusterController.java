@@ -51,7 +51,7 @@ public class        ClusterController {
     /** Sorts alphabetically by restaurant **/
     @GetMapping(path="/getAllByRestaurant")
     public @ResponseBody List<Cluster> getAllByRestaurant() {
-        return serviceController.getAllByRestaurant();
+        return serviceController.getAllClustersByRestaurant();
     }
 
     @GetMapping(path="/join")
