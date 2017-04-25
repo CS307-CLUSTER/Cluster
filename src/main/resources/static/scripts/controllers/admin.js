@@ -94,6 +94,21 @@ angular.module('yapp')
       });
     };
 
+    $scope.unbanUser = function (userId) {
+      var url = ('admin/unban?userId=' + userId);
+      console.log(url);
+      $http.get(url).success(function (response) {
+        if (response) {
+          $state.reload();
+        } else {
+          alert("Could not unban user!");
+        }
+      }).error(function () {
+        console.log("Something went wrong with unbanning user. Check the console!");
+        return false;
+      });
+    };
+
     var getUser = function (userId) {
       var url = ('user/getById?userId=' + userId);
       console.log(url);

@@ -19,9 +19,14 @@ angular.module('yapp')
 
     $scope.logout = function() {
       console.log("Logout ran");
+      $http.get('/user/logout')
+        .then(function (response) {
+          console.log("logout ran");
+        });
       $http.post('/logout', {}).success(function() {
+        console.log("logout ran");
         self.authenticated = false;
-        $location.path("/");
+        $location.path("/login");
       }).error(function(data) {
         console.log("Logout failed");
         self.authenticated = false;

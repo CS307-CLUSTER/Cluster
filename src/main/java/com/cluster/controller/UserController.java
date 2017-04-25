@@ -30,6 +30,11 @@ public class UserController {
         return principal.getName();
     }
 
+    @GetMapping(path="/logout")
+    public @ResponseBody  boolean logout(Principal principal) {
+        return userService.logoutUser(Long.parseLong(principal.getName()));
+    }
+
     @GetMapping(path="/info")
     public @ResponseBody User userInfo(Principal principal) {
         return userService.getActiveUser(Long.parseLong(principal.getName()));

@@ -97,6 +97,16 @@ public class UserService {
         return users;
     }
 
+    public boolean logoutUser(long userId) {
+        for (User u : hive.getUsers()) {
+            if (u.getId() == userId) {
+                hive.removeUser(u);
+                return true;
+            }
+        }
+        return false;
+    }
+
     private HashMap extractPrincipalDetals(Principal principal) {
         return (HashMap) (((OAuth2Authentication) principal).getUserAuthentication()).getDetails();
     }
