@@ -1,21 +1,55 @@
 <div>
-	<a ui-sref="reports" class="pull-right btn btn-primary btn-outline btn-rounded">Reports</a>
+    <a ui-sref="reports" class="pull-right btn btn-primary btn-outline btn-rounded">Reports</a>
     <h2>Overview </h2>
-	<div class="jumbotron">
-		<div class="container">
-			<h1>Welcome!</h1>
-			This is cluster, and is currently very barebone. Please bare with us as we develop more stuff!!!<br /><br />
-			<p>
-				<a class="btn btn-primary btn-lg btn-outline btn-rounded">Learn more</a>
-			</p>
+    <div class="jumbotron">
+        <div class="container">
 
-            <div ng-controller="OtherProfileCtrl" class="container">
-                <button ng-click="toggleModal('Success')" class="btn btn-primary btn-lg btn-outline btn-rounded">Modal</button>
-                <modal visible="showModal">
-                    I work
-                </modal>
-            </div>
+            <h2>Welcome to Cluster!</h2>
+            <hr noshade style="color:#000000;"/>
 
-		</div>
-	</div>
+            <h3>What is Cluster?</h3>
+            <p>
+                When ordering food online, costly delivery fees and steep minimum order amounts often discourage
+                customers from completing their order. Cluster offers a solution to this problem through the use of
+                group-ordering. By connecting nearby customers to form larger orders, delivery fees can be reduced
+                significantly and minimum orders can be met easily as more people contribute to the order. While there
+                exist applications that allow people to meet for a meal or split a check, our web application will
+                specifically connect people with similar food interests and allow for an economical meal with the
+                opportunity to meet new people.
+            </p>
+            <h3>How does it work?</h3>
+            <p>
+                First you should create a cluster or find a cluster to join. If you joined a cluster, your cluster
+                leader should notify you when the order has arrived to meet at the designated pickup location. If you
+                created the cluster, you are responsible for placing the order on HungryBoiler. You should contact
+                your cluster members when the order has arrived so you can meet at the designated pickup location. Once
+                the order is complete, press the complete button on the "My Cluster" page and the process is complete.
+                Don't forget to visit the rating page to rate cluster members!
+            </p>
+
+            <h3>What do I do to start or join a cluster?</h3>
+            <p>
+                You can start by browsing clusters by clicking the "Clusters" tab on the side bar. If you see the
+                restaurant you are looking for, join the cluster! Your contact information will be provided, and the
+                cluster you've joined will now be displayed by clicking the "My Cluster" tab on the side bar.
+            </p>
+            <p>
+                If you don't find the restaurant you want to order from, don't worry! You can create your own cluster by
+                clicking the "Create a Cluster" tab on the side bar. Simply fill out the form and click the "Create
+                Cluster" button and you're set! You can view your cluster by clicking the "My Cluster" tab. Since you're
+                the creator of the cluster, you are now the cluster leader. You can kick users with low ratings and
+                click the "Complete" button to complete the order.
+            </p>
+
+            <h3>Recent Updates</h3>
+            <p>- Cluster leaders now have the ability to 'kick' users from their cluster.</p>
+            <p>- Users now have the ability to rate other users who have been in a cluster with them.</p>
+            <p>- Administrators are now able to view complete cluster history.</p>
+            <p>- Administrators are now able to ban users.</p>
+            <p>- "Cluster" and "My Cluster" pages have updated UI</p>
+            <p>- Cluster members now have the ability to visit the HungryBoiler page for their restaurant</p>
+
+        </div>
+    </div>
+</div>
 </div>

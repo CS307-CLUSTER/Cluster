@@ -40,35 +40,37 @@
                     <thead>
                     <tr>
                         <th>Name</th>
-                        <th>Rating (0 to 1)</th>
+                        <th>Upvotes</th>
+                        <th>Downvotes</th>
                         <th>Number</th>
                         <th>Facebook Profile</th>
                         <!--<th class="glyphicon glyphicon-user"></th>-->
                         <th>Email</th>
-                        <th>Location</th>
-                        <th class="glyphicon">Kick</th>
+                        <!--<th>Location</th>-->
+                        <th>Kick</th>
                         <!--<th ng-show="isLeader"></th>-->
                     </tr>
                     </thead>
                     <tbody>
                     <tr class="text-center" ng-repeat="user in currentCluster.users">
                         <th>{{ user.name }}</th>
-                        <th>{{ user.rating.ratio }}</th>
+                        <th>{{ user.rating.upVotes }}</th>
+                        <th>{{ user.rating.downVotes }}</th>
                         <th>{{ user.number}}</th>
                         <th><a ng-href="{{ user.fbLink }}" class="glyphicon glyphicon-user"></a></th>
                         <th>{{ user.email }}</th>
-                        <th>{{ user.location }}</th>
+                        <!--<th>{{ user.location }}</th>-->
                         <th ng-show="isLeader"><a ng-href="" class="glyphicon glyphicon-remove" ng-click="$parent.removeUser(user.id)"></a></th>
                     </tr>
                     </tbody>
                 </table>
             </div>
 
-            <div class="col-sm-2">
-                <button ng-click="leave()" class="btn btn-primary btn-outline btn-rounded">Leave Your Cluster</button>
-            </div>
             <div class="col-sm-2" ng-show="isLeader">
                 <button ng-click="complete(currentCluster.id)" class="btn btn-primary btn-outline btn-rounded">Complete Cluster</button>
+            </div>
+            <div class="col-sm-2">
+                <button ng-click="leave()" class="btn btn-primary btn-outline btn-rounded">Leave Your Cluster</button>
             </div>
 
         </div>
