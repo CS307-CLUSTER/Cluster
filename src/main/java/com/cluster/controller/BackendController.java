@@ -20,7 +20,6 @@ public class BackendController {
     private BackendService backendService;
     @GetMapping(path="/refresh")
     public @ResponseBody String refresh(Principal principal) {
-        backendService.refreshUsers();
         backendService.refreshRestaurants();
         return "Hive refreshed";
     }
