@@ -23,7 +23,8 @@
                         <p><strong>Pickup Location</strong></p>
                         <hr noshade style="color:#000000;" align="left"/>
                         <p>{{ group.location.address }}, {{ group.location.city }}, {{ group.location.state }} {{ group.location.zip }}</p></p>
-                        <p><span>Members:&nbsp {{ group.numUsers }} ({{ group.minUsers }} - {{ group.maxUsers }})</span>
+                        <p>
+                            <span>Members:&nbsp {{ group.numUsers }} ({{ group.minUsers }} - {{ group.maxUsers }})</span>
                             <span style="margin-left:30px">Delivery Fee: ${{ group.restaurant.deliveryFee }}.00</span>
                         </p>
                         <p>Minimum Price Requirement: ${{ group.restaurant.deliveryMinimum }}.00</p>
