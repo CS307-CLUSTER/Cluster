@@ -63,4 +63,31 @@ public class AdminService {
     public List<Clusters> getAllClusterHistory() {
         return databaseController.getAllClusters();
     }
+
+
+    public boolean isBanned(long id) {
+        User user = userService.getUserFromDatabase(id);
+        return user != null && user.isBanned();
+    }
+
+    public boolean banUser(long id) {
+        User user = userService.getActiveUser(id);
+        if (user == null) {
+            return false;
+        }
+        user.setBanned(true);
+        databaseController.updateUser(user);
+        return true;
+    }
+
+    public boolean unbanUser(long id) {
+        User user = userService.getActiveUser(id);
+        if (user == null) {
+            return false;
+        }
+
+        user.setBanned(false);
+        databaseController.updateUser(user);
+        return true;
+    }
 }

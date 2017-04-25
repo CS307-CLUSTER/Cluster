@@ -20,6 +20,7 @@ public class User {
     private long currentClusterId;
     private boolean isAdmin;
     private List<Long> usersToRate;
+    private boolean isBanned;
 
     public User(long id, String name, Rating rating, String number, String fbLink, String email, Location location, int sessionID, String accessToken) {
         this.id = id;
@@ -33,6 +34,7 @@ public class User {
         this.accessToken = accessToken;
         this.currentClusterId = -1;
         this.isAdmin = false;
+        this.isBanned = false;
         this.usersToRate = new ArrayList<>();
     }
 
@@ -145,4 +147,11 @@ public class User {
         return usersToRate;
     }
 
+    public boolean isBanned() {
+        return isBanned;
+    }
+
+    public void setBanned(boolean banned) {
+        isBanned = banned;
+    }
 }

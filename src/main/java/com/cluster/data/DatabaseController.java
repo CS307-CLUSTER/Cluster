@@ -80,20 +80,19 @@ public class DatabaseController {
         return true;
     }
 
-    public void setAdmin(Users u, boolean status) {
-        u.setIsAdmin(status);
-    }
-
-    public void setBanned(Users u, boolean status) {
-        u.setIsBanned(status);
-    }
-
     public boolean updateUser(User user) {
         if (!doesUserExist(user.getId())) {
             return false;
         }
 
         Users u = getUser(user.getId());
+        u.setUp_votes(user.getRating().getUpVotes());
+        u.setDown_votes(user.getRating().getDownVotes());
+        u.setIsAdmin(user.isAdmin());
+        u.setEmail(user.getEmail());
+        u.setName(user.getName());
+        u.setNumber(user.getNumber());
+        u.setIsBanned(user.isBanned());
 
         usersRepository.save(u);
         return true;
