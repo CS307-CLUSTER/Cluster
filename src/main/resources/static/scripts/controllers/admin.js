@@ -79,7 +79,7 @@ angular.module('yapp')
       });
     };
 
-    $scope.view = function (userId) {
+    $scope.banUser = function (userId) {
       var url = ('admin/ban?userId=' + userId);
       console.log(url);
       $http.get(url).success(function (response) {

@@ -82,7 +82,7 @@ angular.module('yapp')
       $http.get(url).success(function (response) {
         if (response) {
           console.log("Added user to cluster " + clusterId);
-          $state.reload();
+          $location.path('/dashboard/myCluster');
         } else {
           alert("Could not join cluster! Check if you are already in one!");
         }

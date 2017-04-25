@@ -4,7 +4,6 @@
         <div class="container">
 
 
-
             <!-- DISPLAYS NUMBER OF ACTIVE CLUSTERS AND NUMBER OF ACTIVE USERS -->
             <div class="row">
                 <div class="col-md-6">
@@ -56,7 +55,7 @@
                             <th>{{ user.name }}</th>
                             <th>{{ user.id }}</th>
                             <th>
-                                <button ng-click="toggleModal(user.name)"
+                                <button ng-click="toggleModal(user.name, user.rating.upVotes, user.rating.downVotes, user.number, user.fbLink, user.email)"
                                         class="btn pull-right btn-primary btn-outline btn-rounded">View Profile
                                 </button>
                             </th>
@@ -67,12 +66,6 @@
                             </th>
                         </tr>
                         <modal visible="showModal">
-                            <p>Rating Ratio: {{ data.rating.ratio }}</p>
-                            <p>Upvotes {{ data.rating.upVotes }}</p>
-                            <p>Downvotes: {{ data.rating.downVotes }}</p>
-                            <p>Phone Number: {{ data.number }}</p>
-                            <p>Facebook Profile: <a ng-href="{{ data.fbLink }}" class="glyphicon glyphicon-user"></a></p>
-                            <p>Email: {{ data.email }}</p>
                         </modal>
                         </tbody>
                     </table>
@@ -127,6 +120,6 @@
             </table>
         </div>
 
-        </div>
     </div>
+</div>
 </div>
