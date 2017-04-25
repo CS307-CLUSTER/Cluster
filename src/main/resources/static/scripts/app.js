@@ -46,6 +46,11 @@ angular
         parent: 'dashboard',
         templateUrl: 'views/dashboard/clusters.html'
       })
+      .state('clustersRestView', {
+        url: '/clustersRestView',
+        parent: 'dashboard',
+        templateUrl: 'views/dashboard/clustersRestView.html'
+      })
       .state('profile', {
         url: '/profile',
         parent: 'dashboard',

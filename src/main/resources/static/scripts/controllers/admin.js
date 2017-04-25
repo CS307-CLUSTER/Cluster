@@ -79,7 +79,7 @@ angular.module('yapp')
       });
     };
 
-    $scope.view = function (userId) {
+    $scope.banUser = function (userId) {
       var url = ('admin/ban?userId=' + userId);
       console.log(url);
       $http.get(url).success(function (response) {
@@ -90,6 +90,21 @@ angular.module('yapp')
         }
       }).error(function () {
         console.log("Something went wrong with banning user. Check the console!");
+        return false;
+      });
+    };
+
+    $scope.unbanUser = function (userId) {
+      var url = ('admin/unban?userId=' + userId);
+      console.log(url);
+      $http.get(url).success(function (response) {
+        if (response) {
+          $state.reload();
+        } else {
+          alert("Could not unban user!");
+        }
+      }).error(function () {
+        console.log("Something went wrong with unbanning user. Check the console!");
         return false;
       });
     };

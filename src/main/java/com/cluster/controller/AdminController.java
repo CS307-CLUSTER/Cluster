@@ -85,7 +85,7 @@ public class AdminController {
 
     @GetMapping(path = "/unban")
     public @ResponseBody boolean unbanUser(Principal principal, @RequestParam long userId) {
-        return userService.isAdmin(Long.parseLong(principal.getName())) && adminService.banUser(userId);
+        return userService.isAdmin(Long.parseLong(principal.getName())) && adminService.unbanUser(userId);
     }
 }
 

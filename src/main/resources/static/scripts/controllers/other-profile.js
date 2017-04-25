@@ -15,8 +15,13 @@ angular.module('yapp')
       });
     $scope.showModal = false;
     $scope.buttonClicked = "";
-    $scope.toggleModal = function (btnClicked) {
+    $scope.toggleModal = function (btnClicked, upVotes, downVotes, number, fbLink, email) {
       $scope.buttonClicked = btnClicked;
+      $scope.upVotes = upVotes;
+      $scope.downVotes = downVotes;
+      $scope.number = number;
+      $scope.fbLink = fbLink;
+      $scope.email = email;
       $scope.showModal = !$scope.showModal;
     };
   })
@@ -30,7 +35,13 @@ angular.module('yapp')
       '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>' +
       '<h4 class="modal-title">{{ buttonClicked }}</h4>' +
       '</div>' +
-      '<div class="modal-body" ng-transclude></div>' +
+      '<div class="modal-body" style="padding:16px" ng-transclude></div>' +
+      '<p>   Upvotes: {{ upVotes }}</p>' +
+      '<p>   Downvotes: {{ downVotes }}</p>' +
+      '<p>   Phone Number: {{ number }}</p>' +
+      '<p>   Facebook Profile: <a ng-href="{{ fbLink }}"' +
+      'class="glyphicon glyphicon-user"></a></p>' +
+      '<p>   Email: {{ email }}</p>' +
       '</div>' +
       '</div>' +
       '</div>',

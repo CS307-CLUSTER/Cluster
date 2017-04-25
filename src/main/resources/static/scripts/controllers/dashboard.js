@@ -8,7 +8,7 @@
  * Controller of yapp
  */
 angular.module('yapp')
-  .controller('DashboardCtrl', function($scope, $state, $http, $location) {
+  .controller('DashboardCtrl', function($scope, $state, $http, $location, $window) {
 
     $scope.$state = $state;
 
@@ -19,14 +19,23 @@ angular.module('yapp')
 
     $scope.logout = function() {
       console.log("Logout ran");
+      $http.get('/user/logout')
+        .then(function (response) {
+          console.log("logout ran");
+        });
       $http.post('/logout', {}).success(function() {
+        console.log("logout ran");
         self.authenticated = false;
-        $location.path("/");
+        $location.path("/login");
       }).error(function(data) {
         console.log("Logout failed");
         self.authenticated = false;
       });
     };
+
+    // $scope.banRedirect = function() {
+    //   $window.location.href="../../ban.html";
+    // }
   })
 
   .controller("AdminTabViewCtrl", function ($http, $scope) {
@@ -41,3 +50,4 @@ angular.module('yapp')
       });
     }
   });
+

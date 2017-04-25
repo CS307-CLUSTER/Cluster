@@ -71,7 +71,7 @@ public class AdminService {
     }
 
     public boolean banUser(long id) {
-        User user = userService.getActiveUser(id);
+        User user = userService.getUserFromDatabase(id);
         if (user == null) {
             return false;
         }
@@ -81,7 +81,7 @@ public class AdminService {
     }
 
     public boolean unbanUser(long id) {
-        User user = userService.getActiveUser(id);
+        User user = userService.getUserFromDatabase(id);
         if (user == null) {
             return false;
         }
