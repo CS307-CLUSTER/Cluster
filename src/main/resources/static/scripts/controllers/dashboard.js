@@ -12,6 +12,11 @@ angular.module('yapp')
 
     $scope.$state = $state;
 
+    $http.get("/user/isBanned").then(function (response) {
+      $scope.isBanned = response.data;
+      console.log(response.data);
+    });
+
     $scope.logout = function() {
       console.log("Logout ran");
       $http.post('/logout', {}).success(function() {

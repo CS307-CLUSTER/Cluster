@@ -63,7 +63,7 @@ angular.module('yapp')
 
     $scope.submit = function () {
       formData = $scope.form;
-      $location.path('/dashboard/clusters');
+      $location.path('/dashboard/myCluster');
       var url = ('/cluster/create?restaurant_id=' + $scope.restaurantId + '&maxUsers=' + formData.maxUsers + '&minUsers=' + formData.minUsers +
       '&address=' + formData.address1 + '&city='
       + formData.city + '&state=' + formData.state + '&zip=' + formData.zip);
