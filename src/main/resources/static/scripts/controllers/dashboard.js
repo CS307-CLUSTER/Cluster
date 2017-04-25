@@ -28,9 +28,9 @@ angular.module('yapp')
       });
     };
 
-    $scope.banRedirect = function() {
-      $window.location.href="../../ban.html";
-    }
+    // $scope.banRedirect = function() {
+    //   $window.location.href="../../ban.html";
+    // }
   })
 
   .controller("AdminTabViewCtrl", function ($http, $scope) {
