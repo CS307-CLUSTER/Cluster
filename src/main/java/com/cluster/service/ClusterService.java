@@ -110,13 +110,22 @@ public class ClusterService {
     }
 
     public List<Cluster> getAllClusters() {
-        return hive.getClusters();
+        List<Cluster> clusters = hive.getClusters();
+        clusters.sort(new NewestComparator());
+        return clusters;
     }
 
     public List<Cluster> getAllClustersByRestaurant() {
         List<Cluster> clusters = hive.getClusters();
         clusters.sort(new RestaurantComparator());
         return clusters;
+    }
+
+    private class NewestComparator implements Comparator<Cluster> {
+        @Override
+        public int compare (Cluster a, Cluster b) {
+            return a.getId() > b.getId() ? -1 : a.getId() == b.getId() ? 0 : 1;
+        }
     }
 
     private class RestaurantComparator implements Comparator<Cluster> {
